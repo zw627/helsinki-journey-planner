@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
+import SearchFrom from "./SearchForm/";
+
 const App = () => {
   const [data, setData] = useState("");
 
@@ -18,6 +20,7 @@ const App = () => {
   return (
     <div className="App">
       <p>Greetings from {data}.</p>
+      <SearchFrom />
     </div>
   );
 };
