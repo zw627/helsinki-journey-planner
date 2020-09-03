@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 const App = () => {
   const [data, setData] = useState("");
 
   useEffect(() => {
-    fetch("/api")
-      .then((res) => res.json())
+    axios
+      .get("/api")
       .then((res) => {
-        setData(res.text);
+        setData(res.data.text);
+      })
+      .catch((err) => {
+        console.log(err);
       });
   }, []);
 
