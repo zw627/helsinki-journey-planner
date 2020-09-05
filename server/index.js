@@ -1,21 +1,27 @@
 "use strict";
 
 const express = require("express");
-
-const app = express();
-const port = 5000;
+const bodyParser = require("body-parser");
 const routes = require("./routes");
 
+// Set up Express
+const port = 5000;
+const app = express();
+
+// Use parser (for request body)
+app.use(bodyParser.json());
+
+// Use routes
 app.use("/api", routes);
 
-// 404 not found
+// Handle error 404
 app.use((req, res, next) => {
   const err = new Error("Not found.");
   err.status = 404;
   next(err);
 });
 
-// Error
+// Handle other errors
 app.use((err, req, res, next) => {
   res.status(err.status || 500);
   res.json({
