@@ -5,7 +5,7 @@ const fetch = require("node-fetch");
 
 const router = express.Router();
 
-// Input text, get addresses
+// Input text, get addresses and public transport stations
 // https://digitransit.fi/en/developers/apis/2-geocoding-api/address-search/
 router.post("/", async (req, res, next) => {
   try {
@@ -15,20 +15,26 @@ router.post("/", async (req, res, next) => {
       const setupQuery = require("./helpers").setupQuery;
       const simplifyResJson = require("./helpers").simplifyResJson;
 
-      // Setup query (query string)
-      const query = setupQuery(req.body);
-
-      // Fetch
+      // Fetch addresses
+      const query = setupQuery(req.body, "default");
       const data = await fetch(
         `http://api.digitransit.fi/geocoding/v1/search?${query}`
       );
-
-      // Convert to JSON
       const json = await data.json();
 
-      // Send the simplified JSON (if valid)
-      if (json["features"].length > 0) {
-        res.json(simplifyResJson(json, true));
+      // Fetch public transport stations
+      const queryTransport = setupQuery(req.body, "transport");
+      const dataTransport = await fetch(
+        `http://api.digitransit.fi/geocoding/v1/search?${queryTransport}`
+      );
+      const jsonTransport = await dataTransport.json();
+
+      // Merge responses
+      const jsonMerged = [...json["features"], ...jsonTransport["features"]];
+
+      // Send the simplified JSON if valid
+      if (jsonMerged.length > 0) {
+        res.json(simplifyResJson(jsonMerged, true));
       } else {
         res.status(404).json({ message: "No address is found." });
       }
