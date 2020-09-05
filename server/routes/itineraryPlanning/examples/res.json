@@ -1,0 +1,374 @@
+[
+  {
+    "duration": 38,
+    "walkDistance": 993,
+    "legs": [
+      {
+        "mode": "WALK",
+        "startTime": "2020-09-04T13:02:06.000Z",
+        "endTime": "2020-09-04T13:05:00.000Z",
+        "duration": 2,
+        "distance": 182,
+        "trip": null,
+        "from": {
+          "name": "Origin",
+          "stop": null
+        },
+        "to": {
+          "name": "Merisotilaantori",
+          "stop": {
+            "code": "H0421",
+            "name": "Merisotilaantori",
+            "zoneId": "A"
+          }
+        }
+      },
+      {
+        "mode": "TRAM",
+        "startTime": "2020-09-04T13:05:00.000Z",
+        "endTime": "2020-09-04T13:14:14.000Z",
+        "duration": 9,
+        "distance": 1999,
+        "trip": {
+          "tripHeadsign": "Munkkiniemi",
+          "routeShortName": "4"
+        },
+        "from": {
+          "name": "Merisotilaantori",
+          "stop": {
+            "code": "H0421",
+            "name": "Merisotilaantori",
+            "zoneId": "A"
+          }
+        },
+        "to": {
+          "name": "Ylioppilastalo",
+          "stop": {
+            "code": "H0402",
+            "name": "Ylioppilastalo",
+            "zoneId": "A"
+          }
+        }
+      },
+      {
+        "mode": "WALK",
+        "startTime": "2020-09-04T13:14:14.000Z",
+        "endTime": "2020-09-04T13:18:42.000Z",
+        "duration": 4,
+        "distance": 347,
+        "trip": null,
+        "from": {
+          "name": "Ylioppilastalo",
+          "stop": {
+            "code": "H0402",
+            "name": "Ylioppilastalo",
+            "zoneId": "A"
+          }
+        },
+        "to": {
+          "name": "Rautatientori",
+          "stop": {
+            "code": "H0018",
+            "name": "Rautatientori",
+            "zoneId": "A"
+          }
+        }
+      },
+      {
+        "mode": "SUBWAY",
+        "startTime": "2020-09-04T13:21:37.000Z",
+        "endTime": "2020-09-04T13:32:59.000Z",
+        "duration": 11,
+        "distance": 8959,
+        "trip": {
+          "tripHeadsign": "Matinkylä",
+          "routeShortName": "M1"
+        },
+        "from": {
+          "name": "Rautatientori",
+          "stop": {
+            "code": "H0018",
+            "name": "Rautatientori",
+            "zoneId": "A"
+          }
+        },
+        "to": {
+          "name": "Aalto-yliopisto",
+          "stop": {
+            "code": "E0004",
+            "name": "Aalto-yliopisto",
+            "zoneId": "B"
+          }
+        }
+      },
+      {
+        "mode": "WALK",
+        "startTime": "2020-09-04T13:32:59.000Z",
+        "endTime": "2020-09-04T13:40:13.000Z",
+        "duration": 7,
+        "distance": 462,
+        "trip": null,
+        "from": {
+          "name": "Aalto-yliopisto",
+          "stop": {
+            "code": "E0004",
+            "name": "Aalto-yliopisto",
+            "zoneId": "B"
+          }
+        },
+        "to": {
+          "name": "Destination",
+          "stop": null
+        }
+      }
+    ]
+  },
+  {
+    "duration": 40,
+    "walkDistance": 1082,
+    "legs": [
+      {
+        "mode": "WALK",
+        "startTime": "2020-09-04T13:02:09.000Z",
+        "endTime": "2020-09-04T13:08:17.000Z",
+        "duration": 6,
+        "distance": 432,
+        "trip": null,
+        "from": {
+          "name": "Origin",
+          "stop": null
+        },
+        "to": {
+          "name": "Mastokatu",
+          "stop": {
+            "code": "H0418",
+            "name": "Mastokatu",
+            "zoneId": "A"
+          }
+        }
+      },
+      {
+        "mode": "TRAM",
+        "startTime": "2020-09-04T13:08:17.000Z",
+        "endTime": "2020-09-04T13:17:17.000Z",
+        "duration": 9,
+        "distance": 1895,
+        "trip": {
+          "tripHeadsign": "Ooppera",
+          "routeShortName": "5H"
+        },
+        "from": {
+          "name": "Mastokatu",
+          "stop": {
+            "code": "H0418",
+            "name": "Mastokatu",
+            "zoneId": "A"
+          }
+        },
+        "to": {
+          "name": "Rautatieasema",
+          "stop": {
+            "code": "H0302",
+            "name": "Rautatieasema",
+            "zoneId": "A"
+          }
+        }
+      },
+      {
+        "mode": "WALK",
+        "startTime": "2020-09-04T13:17:17.000Z",
+        "endTime": "2020-09-04T13:19:41.000Z",
+        "duration": 2,
+        "distance": 186,
+        "trip": null,
+        "from": {
+          "name": "Rautatieasema",
+          "stop": {
+            "code": "H0302",
+            "name": "Rautatieasema",
+            "zoneId": "A"
+          }
+        },
+        "to": {
+          "name": "Rautatientori",
+          "stop": {
+            "code": "H0018",
+            "name": "Rautatientori",
+            "zoneId": "A"
+          }
+        }
+      },
+      {
+        "mode": "SUBWAY",
+        "startTime": "2020-09-04T13:23:46.000Z",
+        "endTime": "2020-09-04T13:35:27.000Z",
+        "duration": 11,
+        "distance": 8959,
+        "trip": {
+          "tripHeadsign": "Tapiola",
+          "routeShortName": "M2"
+        },
+        "from": {
+          "name": "Rautatientori",
+          "stop": {
+            "code": "H0018",
+            "name": "Rautatientori",
+            "zoneId": "A"
+          }
+        },
+        "to": {
+          "name": "Aalto-yliopisto",
+          "stop": {
+            "code": "E0004",
+            "name": "Aalto-yliopisto",
+            "zoneId": "B"
+          }
+        }
+      },
+      {
+        "mode": "WALK",
+        "startTime": "2020-09-04T13:35:27.000Z",
+        "endTime": "2020-09-04T13:42:41.000Z",
+        "duration": 7,
+        "distance": 462,
+        "trip": null,
+        "from": {
+          "name": "Aalto-yliopisto",
+          "stop": {
+            "code": "E0004",
+            "name": "Aalto-yliopisto",
+            "zoneId": "B"
+          }
+        },
+        "to": {
+          "name": "Destination",
+          "stop": null
+        }
+      }
+    ]
+  },
+  {
+    "duration": 37,
+    "walkDistance": 993,
+    "legs": [
+      {
+        "mode": "WALK",
+        "startTime": "2020-09-04T13:08:06.000Z",
+        "endTime": "2020-09-04T13:11:00.000Z",
+        "duration": 2,
+        "distance": 182,
+        "trip": null,
+        "from": {
+          "name": "Origin",
+          "stop": null
+        },
+        "to": {
+          "name": "Merisotilaantori",
+          "stop": {
+            "code": "H0421",
+            "name": "Merisotilaantori",
+            "zoneId": "A"
+          }
+        }
+      },
+      {
+        "mode": "TRAM",
+        "startTime": "2020-09-04T13:11:00.000Z",
+        "endTime": "2020-09-04T13:18:01.000Z",
+        "duration": 7,
+        "distance": 1999,
+        "trip": {
+          "tripHeadsign": "Munkkiniemi",
+          "routeShortName": "4"
+        },
+        "from": {
+          "name": "Merisotilaantori",
+          "stop": {
+            "code": "H0421",
+            "name": "Merisotilaantori",
+            "zoneId": "A"
+          }
+        },
+        "to": {
+          "name": "Ylioppilastalo",
+          "stop": {
+            "code": "H0402",
+            "name": "Ylioppilastalo",
+            "zoneId": "A"
+          }
+        }
+      },
+      {
+        "mode": "WALK",
+        "startTime": "2020-09-04T13:18:01.000Z",
+        "endTime": "2020-09-04T13:22:29.000Z",
+        "duration": 4,
+        "distance": 347,
+        "trip": null,
+        "from": {
+          "name": "Ylioppilastalo",
+          "stop": {
+            "code": "H0402",
+            "name": "Ylioppilastalo",
+            "zoneId": "A"
+          }
+        },
+        "to": {
+          "name": "Rautatientori",
+          "stop": {
+            "code": "H0018",
+            "name": "Rautatientori",
+            "zoneId": "A"
+          }
+        }
+      },
+      {
+        "mode": "SUBWAY",
+        "startTime": "2020-09-04T13:26:19.000Z",
+        "endTime": "2020-09-04T13:38:00.000Z",
+        "duration": 11,
+        "distance": 8959,
+        "trip": {
+          "tripHeadsign": "Matinkylä",
+          "routeShortName": "M1"
+        },
+        "from": {
+          "name": "Rautatientori",
+          "stop": {
+            "code": "H0018",
+            "name": "Rautatientori",
+            "zoneId": "A"
+          }
+        },
+        "to": {
+          "name": "Aalto-yliopisto",
+          "stop": {
+            "code": "E0004",
+            "name": "Aalto-yliopisto",
+            "zoneId": "B"
+          }
+        }
+      },
+      {
+        "mode": "WALK",
+        "startTime": "2020-09-04T13:38:00.000Z",
+        "endTime": "2020-09-04T13:45:14.000Z",
+        "duration": 7,
+        "distance": 462,
+        "trip": null,
+        "from": {
+          "name": "Aalto-yliopisto",
+          "stop": {
+            "code": "E0004",
+            "name": "Aalto-yliopisto",
+            "zoneId": "B"
+          }
+        },
+        "to": {
+          "name": "Destination",
+          "stop": null
+        }
+      }
+    ]
+  }
+]
