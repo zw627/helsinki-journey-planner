@@ -1,0 +1,82 @@
+[
+  {
+    "labelPriamry": "Central Railway Station",
+    "labelSecondary": "Asemanaukio 2, Helsinki",
+    "coordinates": {
+      "lat": 60.170384,
+      "lon": 24.939846
+    }
+  },
+  {
+    "labelPriamry": "Helsinki station (Helsinki railway station)",
+    "labelSecondary": "Kaivokatu 1, Helsinki",
+    "coordinates": {
+      "lat": 60.170747,
+      "lon": 24.941445
+    }
+  },
+  {
+    "labelPriamry": "Ravintola Station",
+    "labelSecondary": "Pukinmäki, Helsinki",
+    "coordinates": {
+      "lat": 60.243028,
+      "lon": 24.994486
+    }
+  },
+  {
+    "labelPriamry": "Railway Square",
+    "labelSecondary": "Kluuvi, Helsinki",
+    "coordinates": {
+      "lat": 60.171366,
+      "lon": 24.943045
+    }
+  },
+  {
+    "labelPriamry": "Railway service road",
+    "labelSecondary": "Tuusula",
+    "coordinates": {
+      "lat": 60.510766,
+      "lon": 25.136097
+    }
+  },
+  {
+    "labelPriamry": "Asematie (Stationsvägen)",
+    "labelSecondary": "Kauniainen",
+    "coordinates": {
+      "lat": 60.212587,
+      "lon": 24.72676
+    }
+  },
+  {
+    "labelPriamry": "Asematie 1 (Stationsvägen 1)",
+    "labelSecondary": "Kauniainen",
+    "coordinates": {
+      "lat": 60.212643,
+      "lon": 24.727446
+    }
+  },
+  {
+    "labelPriamry": "Asematie 2 (Stationsvägen 2)",
+    "labelSecondary": "Kauniainen",
+    "coordinates": {
+      "lat": 60.212214,
+      "lon": 24.727044
+    }
+  },
+  {
+    "labelPriamry": "Asematie 6 (Stationsvägen 6)",
+    "labelSecondary": "Kauniainen",
+    "coordinates": {
+      "lat": 60.212476,
+      "lon": 24.724432
+    }
+  },
+  {
+    "labelPriamry": "Asematie 2b (Stationsvägen 2b)",
+    "labelSecondary": "Kauniainen",
+    "coordinates": {
+      "lat": 60.211876,
+      "lon": 24.726195
+    }
+  }
+]
