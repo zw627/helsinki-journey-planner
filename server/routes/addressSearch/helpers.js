@@ -33,7 +33,7 @@ module.exports = {
   /**
    * Simplify the response JSON object from Digitransit address search API.
    * https://digitransit.fi/en/developers/apis/2-geocoding-api/address-search/
-   * @param {Object} json - The response JSON object from the API.
+   * @param {Object} json - The merged JSON object from the two responses from the API.
    * @param {boolean} simplify - True to simplify the object, false returns the original object.
    */
   simplifyResJson: function (json, simplify) {
