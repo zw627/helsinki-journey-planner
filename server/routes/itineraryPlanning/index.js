@@ -23,10 +23,8 @@ router.post("/", async (req, res, next) => {
       const setupQuery = require("./helpers").setupQuery;
       const simplifyResJson = require("./helpers").simplifyResJson;
 
-      // Setup query (GraphQL)
+      // Fetch itineraries
       const query = setupQuery(req.body);
-
-      // Fetch
       const data = await fetch(
         "https://api.digitransit.fi/routing/v1/routers/hsl/index/graphql",
         {
@@ -35,8 +33,6 @@ router.post("/", async (req, res, next) => {
           headers: { "Content-Type": "application/json" },
         }
       );
-
-      // Convert to JSON
       const json = await data.json();
 
       // Send the simplified JSON (if valid)

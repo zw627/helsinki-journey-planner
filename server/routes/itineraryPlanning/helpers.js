@@ -1,5 +1,6 @@
-// Digitransit itinerary planning API
-// https://digitransit.fi/en/developers/apis/1-routing-api/itinerary-planning/
+// Digitransit GraphQL API
+// URL: https://api.digitransit.fi/routing/v1/routers/hsl/index/graphql
+// Docs: https://digitransit.fi/en/developers/apis/1-routing-api/itinerary-planning/
 
 module.exports = {
   /**
