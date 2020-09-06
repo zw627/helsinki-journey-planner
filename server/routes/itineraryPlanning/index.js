@@ -5,14 +5,15 @@ const fetch = require("node-fetch");
 
 const router = express.Router();
 
+// "/api/itinerary-planning"
 // Input two locations (coordinates), get routes
 // https://digitransit.fi/en/developers/apis/1-routing-api/itinerary-planning/
 router.post("/", async (req, res, next) => {
   try {
     // Fetch if all params are valid
     if (
-      req.body.departure.lat &&
-      req.body.departure.lon &&
+      req.body.origin.lat &&
+      req.body.origin.lon &&
       req.body.destination.lat &&
       req.body.destination.lon &&
       req.body.date &&
