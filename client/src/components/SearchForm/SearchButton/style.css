@@ -1,0 +1,33 @@
+/* SearchButton */
+
+.search-submit-container {
+  display: flex;
+  justify-content: center;
+}
+
+.search-submit-container {
+  margin: 10px;
+}
+
+.search-submit-container button {
+  border: none;
+  background: #487ffe;
+  color: #fff;
+  padding: 14px 0px;
+  width: 140px;
+  border-radius: 12px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.search-submit-container button:active {
+  background: #1a5df9;
+}
+
+@media (min-width: 600px) {
+  .search-submit-container button {
+    width: 200px;
+  }
+}
