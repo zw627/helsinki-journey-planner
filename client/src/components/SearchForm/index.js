@@ -1,72 +1,39 @@
-import React, { useState } from "react";
+import React from "react";
 
-import "./index.css";
+import SearchFormProvider, {
+  SearchFormConsumer,
+} from "../context/SearchFormContext";
+import DestinationInput from "./DestinationInput";
+import OriginInput from "./OriginInput";
+import "./style.css";
 
 const SearchForm = () => {
-  const [departure, setDeparture] = useState("");
-  const [destination, setdestination] = useState("");
-
-  const handleGeolocation = (e) => {
-    e.preventDefault();
-
-    if ("geolocation" in navigator) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          console.log("Latitude is:", position.coords.latitude);
-          console.log("Longitude is:", position.coords.longitude);
-        },
-        (error) => {
-          console.log(error.message);
-        }
-      );
-    }
-  };
-
-  const handleDeparture = (e) => {
-    const filteredInput = e.target.value;
-    setDeparture(filteredInput);
-  };
-
-  const handleDestination = (e) => {
-    const filteredInput = e.target.value;
-    setdestination(filteredInput);
-  };
-
-  const handleSearch = (e) => {
-    e.preventDefault();
-  };
-
   return (
-    <form>
-      <div className="form-departure">
-        <label htmlFor="departure-input">Departure</label>
-        <input
-          type="text"
-          id="departure-input"
-          placeholder="e.g. Helsingin rautatieasema"
-          value={departure}
-          onChange={handleDeparture}
-        />
-        <input
-          type="button"
-          value="Use Current Location"
-          onClick={handleGeolocation}
-        />
-      </div>
-
-      <div className="form-destination">
-        <label htmlFor="destination-input">Destination</label>
-        <input
-          type="text"
-          id="destination-input"
-          placeholder="e.g. Helsinki-Vantaan lentoasema"
-          value={destination}
-          onChange={handleDestination}
-        />
-      </div>
-
-      <input type="submit" value="Search" onClick={handleSearch} />
-    </form>
+    <SearchFormProvider>
+      <form className="search-form-container">
+        <header>
+          <h1>Helsinki</h1>
+          <p>Journey Planner</p>
+        </header>
+        <div className="search-form-main-container">
+          <div className="search-form-inputs-container">
+            <OriginInput />
+            <DestinationInput />
+          </div>
+          <div className="search-form-submit-container">
+            <SearchFormConsumer>
+              {({ actions }) => (
+                <input
+                  type="submit"
+                  value="Search"
+                  onClick={actions.getItineraries}
+                />
+              )}
+            </SearchFormConsumer>
+          </div>
+        </div>
+      </form>
+    </SearchFormProvider>
   );
 };
 
