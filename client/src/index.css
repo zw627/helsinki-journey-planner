@@ -1,3 +1,5 @@
+/* index */
+
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Pacifico&display=swap");
 
 * {
@@ -39,6 +41,10 @@ input[type="text"] {
   -moz-user-select: text; /* Firefox */
   -ms-user-select: text; /* Internet Explorer/Edge */
   user-select: text;
+}
+
+ul {
+  list-style: none;
 }
 
 #root {
