@@ -1,2 +1,3 @@
-# helsinki-city-departure
-An app that provides real-time departure information for public transport in Helsinki.
+# helsinki-journey-planner
+
+An app that provides real-time itinerary information for the public transport in Helsinki.
