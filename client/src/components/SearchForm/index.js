@@ -11,6 +11,7 @@ const SearchForm = () => {
   return (
     <SearchFormProvider>
       <form className="search-form-container">
+        <div className="search-form-header-overlay"></div>
         <header>
           <h1>Helsinki</h1>
           <p>Journey Planner</p>
@@ -23,11 +24,9 @@ const SearchForm = () => {
           <div className="search-form-submit-container">
             <SearchFormConsumer>
               {({ actions }) => (
-                <input
-                  type="submit"
-                  value="Search"
-                  onClick={actions.getItineraries}
-                />
+                <button type="submit" onClick={actions.getItineraries}>
+                  Search
+                </button>
               )}
             </SearchFormConsumer>
           </div>
