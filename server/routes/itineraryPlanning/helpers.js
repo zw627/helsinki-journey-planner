@@ -4,7 +4,7 @@
 
 module.exports = {
   /**
-   * Set up the JSON equivalent of GraphQL query for Digitransit itinerary planning API.
+   * Set up the JSON equivalent of GraphQL query for Digitransit GraphQL API (itinerary planning).
    * https://digitransit.fi/en/developers/apis/1-routing-api/itinerary-planning/
    * @param {object} body - The JSON body of the HTTP request.
    */
@@ -65,7 +65,7 @@ module.exports = {
   },
 
   /**
-   * Simplify the response JSON object from Digitransit itinerary planning API.
+   * Simplify the response JSON object from Digitransit GraphQL API (itinerary planning).
    * https://digitransit.fi/en/developers/apis/1-routing-api/itinerary-planning/
    * @param {Object} json - The response JSON object from the API.
    * @param {boolean} simplify - True to simplify the object, false returns the original object.
