@@ -8,21 +8,32 @@ const SearchInput = (props) => {
   const [results, setResults] = useState([]);
   const [focus, setFocus] = useState(false);
   const [error, setError] = useState("");
-  const [coordinates, setCoordinates] = useState({});
+  const [selected, setSelected] = useState({});
 
   const handleFocus = () => {
     setFocus(true);
   };
 
   const handleBlur = () => {
-    // Out of focus to unmount the results list
+    // Out of focus will unmount the results list
     setFocus(false);
 
-    // If coordinates are invalid, clear the input value,
-    // to force users to search again and select a valid address
-    if (!(coordinates["lat"] || coordinates["lon"])) {
+    // Preserve original input value if users did not select a new address
+    // to force users to always select a valid address from the search results
+    if (
+      selected["name"] &&
+      selected["coordinates"]["lat"] &&
+      selected["coordinates"]["lon"]
+    ) {
+      setValue(selected["name"]);
+    }
+
+    // Reset input value if no address is currently selected
+    // to force users to always select a valid address from the search results
+    else if (!(selected["name"] || selected["coordinates"])) {
       setValue("");
       setResults([]);
+      setSelected({});
     }
   };
 
@@ -30,16 +41,19 @@ const SearchInput = (props) => {
     <SearchFormConsumer>
       {({ actions }) => {
         const handleInputValue = async (e) => {
-          const filteredInput = e.target.value;
+          const filteredInput = e.target.value.replace(/ +/g, " ");
           setValue(filteredInput);
 
-          // If users change the input, clear the coordinates,
-          // to force users to always select a valid address from the latest results
-          setCoordinates({});
-          props.isOrigin ? actions.setOrigin({}) : actions.setDestination({});
+          // Reset input value, selected and origin
+          // if users want to remove "Your current location"
+          if (selected["name"] === "Your current location") {
+            setValue("");
+            setSelected({});
+            actions.setOrigin({});
+          }
 
           // Input has more than 2 characters
-          if (value.length > 1) {
+          else if (value.length > 1) {
             // Fetch, update results, clear error
             try {
               const res = await axios.post("/api/address-search", {
@@ -70,13 +84,17 @@ const SearchInput = (props) => {
                 };
 
                 // Show "Your current location",
-                // set coordinates,
+                // set coordinates, selected
                 // clear results, focus, error
                 setValue("Your current location");
+                setSelected({
+                  name: "Your current location",
+                  coordinates: geoCoordinates,
+                });
                 setResults([]);
                 setFocus(false);
                 setError("");
-                setCoordinates(geoCoordinates);
+
                 // Get my location is origin only
                 actions.setOrigin(geoCoordinates);
               },
@@ -89,13 +107,16 @@ const SearchInput = (props) => {
 
         const handleSelect = (address) => {
           // Show "Your current location",
-          // set coordinates,
+          // set coordinates, selected,
           // clear results, focus, error
           setValue(address["labelPriamry"]);
+          setSelected({
+            name: address["labelPriamry"],
+            coordinates: address["coordinates"],
+          });
           setResults([]);
           setFocus(false);
           setError("");
-          setCoordinates(address["coordinates"]);
 
           props.isOrigin
             ? actions.setOrigin(address["coordinates"])
