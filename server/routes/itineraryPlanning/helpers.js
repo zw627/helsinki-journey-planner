@@ -12,7 +12,7 @@ module.exports = {
     return {
       query: `{
                 plan(
-                  from: {lat: ${body.departure.lat}, lon: ${body.departure.lon}},
+                  from: {lat: ${body.origin.lat}, lon: ${body.origin.lon}},
                   to: {lat: ${body.destination.lat}, lon: ${body.destination.lon}},
                   numItineraries: 3,
                   date: "${body.date}",

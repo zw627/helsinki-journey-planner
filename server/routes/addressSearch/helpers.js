@@ -61,6 +61,7 @@ module.exports = {
         }
 
         return {
+          id: address["properties"]["id"],
           labelPriamry,
           labelSecondary,
           stopSign,

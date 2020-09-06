@@ -7,9 +7,10 @@ const itineraryPlanning = require("./itineraryPlanning/");
 
 const router = express.Router();
 
+// "/api"
 router
   .get("/", (req, res) => {
-    res.json({ text: "Hello from the server!" });
+    res.json({ text: "Greetings from the server!" });
   })
   .use("/address-lookup", addressLookup)
   .use("/address-search", addressSearch)

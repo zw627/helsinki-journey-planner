@@ -5,6 +5,7 @@ const fetch = require("node-fetch");
 
 const router = express.Router();
 
+// "/api/address-lookup"
 // Input coordinates, get address
 // https://digitransit.fi/en/developers/apis/2-geocoding-api/address-lookup/
 router.post("/", async (req, res, next) => {
