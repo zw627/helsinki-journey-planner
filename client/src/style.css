@@ -1,15 +1,10 @@
-@import url("https://fonts.googleapis.com/css?family=Courgette|Lato:400,700&display=swap&subset=latin-ext");
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Pacifico&display=swap");
 
 * {
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
   -webkit-touch-callout: none; /* iOS Safari */
   user-select: none;
-}
-
-input {
-  user-select: text;
-  outline: none;
 }
 
 body {
@@ -26,10 +21,24 @@ input {
 
 button,
 input {
-  -webkit-transition: all 0.2s ease-out;
-  -o-transition: all 0.2s ease-out;
+  border: none;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+button,
+input {
   transition: all 0.2s ease-out;
-  font-family: "Lato", sans-serif;
+}
+
+input[type="text"] {
+  -webkit-touch-callout: text; /* iOS Safari */
+  -webkit-user-select: text; /* Safari */ /* Konqueror HTML */
+  -moz-user-select: text; /* Firefox */
+  -ms-user-select: text; /* Internet Explorer/Edge */
+  user-select: text;
 }
 
 #root {

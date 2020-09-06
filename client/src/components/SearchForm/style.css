@@ -1,8 +1,22 @@
 .search-form-container {
-  border-radius: 20px;
+  border-radius: 18px;
   box-shadow: 0 14px 80px rgba(0, 0, 0, 0.2);
   overflow: hidden;
   background: white;
+  position: relative;
+}
+
+.search-form-header-overlay,
+.search-form-container header {
+  height: 255px;
+  width: 100%;
+}
+
+.search-form-header-overlay {
+  position: absolute;
+  top: 0;
+  background: black;
+  opacity: 0.4;
 }
 
 .search-form-container header {
@@ -10,20 +24,33 @@
   justify-content: center;
   background: #487ffe;
   color: white;
-  height: 245px;
   flex-direction: column;
   text-align: center;
+  background: url("../../static/media/hero.jpg");
+  background-size: cover;
+  background-position-x: center;
+  background-position-y: 69%;
 }
+
+.search-form-container header h1,
+.search-form-container header p {
+  z-index: 1;
+}
+
 .search-form-container header h1 {
-  margin-top: 0px;
-  font-family: "Courgette", sans-serif;
-  line-height: 0.65;
-  margin-bottom: 0;
-  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+  font-family: "Pacifico", cursive;
+  font-weight: 400;
+  font-size: 52px;
+  letter-spacing: 0px;
+  margin: 0;
+  margin-top: -85px;
 }
 
 .search-form-container header p {
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  font-size: 16px;
+  margin: 0;
+  margin-top: -18px;
+  text-transform: uppercase;
 }
 
 .search-form-container label {
@@ -33,7 +60,10 @@
 
 .search-form-main-container {
   padding: 10px;
-  margin-top: -70px;
+  border-radius: 18px;
+  margin-top: -20px;
+  background: white;
+  position: relative;
 }
 
 .search-form-inputs-container,
@@ -42,23 +72,26 @@
   justify-content: center;
 }
 
-.input-container {
+.search-form-inputs-container {
+  flex-direction: column;
+  margin-top: -70px;
+}
+
+.search-form-input-container {
   margin: 10px;
-  width: 100%;
   padding: 16px;
-  border-radius: 14px;
+  border-radius: 18px;
   background-color: white;
   flex-grow: 1;
-  flex-basis: 100%;
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
 }
 
-.input-container label {
+.search-form-input-container label {
   margin-bottom: 8px;
   pointer-events: none;
 }
 
-.input-container input {
+.search-form-input-container input {
   width: 100%;
   padding: 10px;
   border: none;
@@ -67,12 +100,12 @@
   font-size: 16px;
 }
 
-.input-container input:focus {
+.search-form-input-container input:focus {
   background-color: white;
   border: 1px solid #aaaaaa;
 }
 
-.input-container ul {
+.search-form-input-container ul {
   list-style: none;
   padding: 0px;
   border-radius: 8px;
@@ -86,31 +119,51 @@
   max-height: 300px;
 }
 
-.input-container li {
+.search-form-input-container li {
   padding: 8px;
   cursor: pointer;
   border-bottom: 1px solid #eaeaea;
 }
 
-.input-container li:last-child {
+.search-form-input-container li:last-child {
   border: none;
 }
 
-.input-container li:hover {
+.search-form-input-container li:hover {
   background-color: #f0f0f0;
 }
 
-.input-container span {
+.search-form-input-container span {
   display: block;
   color: grey;
   font-size: 12px;
+}
+
+.search-form-input-container div {
+  position: relative;
+}
+
+.search-form-input-container div span {
+  position: absolute;
+  top: 7px;
+  right: 8px;
+  text-align: center;
+  font-size: 18px;
+  width: 24px;
+  height: 25px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.search-form-input-container div span:active {
+  background-color: #eaeaea;
 }
 
 .search-form-submit-container {
   margin: 10px;
 }
 
-.search-form-submit-container input {
+.search-form-submit-container button {
   border: none;
   background: #487ffe;
   color: #fff;
@@ -123,17 +176,51 @@
   font-size: 16px;
 }
 
-.search-form-submit-container input:active {
+.search-form-submit-container button:active {
   background: #1a5df9;
 }
 
-@media (min-width: 600px) {
+@media (min-width: 400px) {
+  .search-form-header-overlay,
+  .search-form-container header {
+    height: 260px;
+  }
+
   .search-form-container header h1 {
-    font-size: 74px;
+    font-size: 60px;
   }
 
   .search-form-container header p {
-    font-size: 21px;
-    margin-top: 12px;
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 600px) {
+  .search-form-inputs-container {
+    flex-direction: row;
+  }
+
+  .search-form-input-container {
+    max-width: 47%;
+  }
+
+  .search-form-submit-container button {
+    width: 200px;
+  }
+}
+
+@media (min-width: 768px) {
+  .search-form-header-overlay,
+  .search-form-container header {
+    height: 300px;
+  }
+
+  .search-form-container header h1 {
+    font-size: 72px;
+  }
+
+  .search-form-container header p {
+    font-size: 20px;
+    margin-top: -20px;
   }
 }

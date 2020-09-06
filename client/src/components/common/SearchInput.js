@@ -83,8 +83,7 @@ const SearchInput = (props) => {
                   lon: position.coords.longitude,
                 };
 
-                // Show "Your current location",
-                // set coordinates, selected
+                // Show "Your current location", set coordinates and selected
                 // clear results, focus, error
                 setValue("Your current location");
                 setSelected({
@@ -106,8 +105,7 @@ const SearchInput = (props) => {
         };
 
         const handleSelect = (address) => {
-          // Show "Your current location",
-          // set coordinates, selected,
+          // Show address name, set coordinates and selected
           // clear results, focus, error
           setValue(address["labelPriamry"]);
           setSelected({
@@ -123,30 +121,60 @@ const SearchInput = (props) => {
             : actions.setDestination(address["coordinates"]);
         };
 
+        const hanldeKeyDown = (e) => {
+          // Press "enter" or "return" selects the first search result
+          if ((e.key === 13 || e.key === "Enter") && results.length > 0) {
+            handleSelect(results[0]);
+          }
+
+          // Press return""enter" or "return" will select "Use Current Location"
+          // if it is origin and there is no results
+          else if (
+            (e.key === 13 || e.key === "Enter") &&
+            results.length === 0 &&
+            props.isOrigin
+          ) {
+            handleGeolocation();
+          }
+        };
+
+        // Reset input and its related things completely
+        const reset = () => {
+          setValue("");
+          setSelected({});
+          setResults([]);
+          setError("");
+          props.isOrigin ? actions.setOrigin({}) : actions.setDestination({});
+        };
+
         return (
-          <div className="input-container">
+          <div className="search-form-input-container">
             <label
               htmlFor={props.isOrigin ? "origin-input" : "destination-input"}
             >
               {props.isOrigin ? "Origin" : "Destination"}
             </label>
-            <input
-              type="text"
-              id={props.isOrigin ? "origin-input" : "destination-input"}
-              placeholder={
-                props.isOrigin
-                  ? "e.g. Helsingin rautatieasema"
-                  : "e.g. Helsinki-Vantaan lentoasema"
-              }
-              value={value}
-              onChange={handleInputValue}
-              onFocus={handleFocus}
-              onBlur={handleBlur}
-              autoComplete="off"
-            />
+            <div>
+              <input
+                type="text"
+                id={props.isOrigin ? "origin-input" : "destination-input"}
+                placeholder={
+                  props.isOrigin
+                    ? "e.g. Helsingin rautatieasema"
+                    : "e.g. Helsinki-Vantaan lentoasema"
+                }
+                value={value}
+                onChange={handleInputValue}
+                onFocus={handleFocus}
+                onBlur={handleBlur}
+                onKeyDown={hanldeKeyDown}
+                autoComplete="off"
+              />
+              {focus ? <span onMouseDown={reset}>✖</span> : null}
+            </div>
             {
-              // For origin, when focus
-              // always render <ul> and "Use Current Location"
+              // On focus, always render <ul> and "Use Current Location"
+              // for Origin input
               focus && props.isOrigin ? (
                 <ul>
                   <li
@@ -165,8 +193,8 @@ const SearchInput = (props) => {
                     </li>
                   ))}
                 </ul>
-              ) : // For destination, <ul> is not rendered
-              // unless all conditions are met
+              ) : // <ul> is not rendered unless all conditions are met
+              // for Destination input
               focus && results.length > 0 && value.length > 1 ? (
                 <ul>
                   {results.map((address) => (
