@@ -113,7 +113,6 @@
   overflow-x: hidden;
   background-color: #ffffff;
   border: 1px solid #eaeaea;
-  max-height: 300px;
 }
 
 .search-bar-container li {
@@ -171,6 +170,10 @@
 
   .search-bar-container {
     max-width: 47%;
+  }
+
+  .search-bar-container ul {
+    max-height: 300px;
   }
 }
 

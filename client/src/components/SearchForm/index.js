@@ -18,7 +18,7 @@ const SearchForm = () => {
           <SearchBarOrigin />
           <SearchBarDest />
         </div>
-        <div className="search-submit-container">
+        <div className="search-submit-container" onTouchEnd={() => {}}>
           <SearchButton />
         </div>
       </div>
