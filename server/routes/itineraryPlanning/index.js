@@ -17,7 +17,9 @@ router.post("/", async (req, res, next) => {
       req.body.destination.lat &&
       req.body.destination.lon &&
       req.body.date &&
-      req.body.time
+      req.body.time &&
+      req.body.origin.lat !== req.body.destination.lat &&
+      req.body.origin.lon !== req.body.destination.lon
     ) {
       // Import helpers
       const setupQuery = require("./helpers").setupQuery;
@@ -46,7 +48,8 @@ router.post("/", async (req, res, next) => {
     // Do nothing if one param is missing
     else {
       res.status(400).json({
-        message: "One or more parameters are missing.",
+        message:
+          "One or more parameters missing. Or identical origin and destination.",
       });
     }
   } catch (err) {
