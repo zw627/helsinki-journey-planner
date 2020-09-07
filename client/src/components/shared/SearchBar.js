@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import axios from "axios";
 
 import SearchResults from "./SearchResults";
@@ -9,6 +9,8 @@ const SearchBar = (props) => {
   const [focus, setFocus] = useState(false);
   const [error, setError] = useState("");
   const [selected, setSelected] = useState({});
+
+  const searchBarInputRef = useRef(null);
 
   const handleFocus = () => {
     setFocus(true);
@@ -59,6 +61,16 @@ const SearchBar = (props) => {
           text: value,
         });
         setResults(res.data);
+
+        // Always save the first search result automatically
+        // if (res.data.length > 0) {
+        //   setSelected({
+        //     name: res.data[0]["labelPriamry"],
+        //     coordinates: res.data[0]["coordinates"],
+        //   });
+        //   props.setAddress(res.data[0]["coordinates"]);
+        // }
+
         setError("");
       } catch (err) {
         setResults([]);
@@ -105,7 +117,6 @@ const SearchBar = (props) => {
       name: address["labelPriamry"],
       coordinates: address["coordinates"],
     });
-    setResults([]);
     setFocus(false);
     setError("");
 
@@ -117,25 +128,34 @@ const SearchBar = (props) => {
     // Select the first search result
     if ((e.key === 13 || e.key === "Enter") && results.length > 0) {
       handleSelect(results[0]);
+      setTimeout(() => {
+        searchBarInputRef.current.blur();
+      }, 10);
     }
 
-    // Select "Use Current Location" (when no search result, for Origin)
+    // Select "Use Current Location" (when no search result)
     else if (
       (e.key === 13 || e.key === "Enter") &&
       results.length === 0 &&
       props.isOrigin
     ) {
       handleGeolocation();
+      setTimeout(() => {
+        searchBarInputRef.current.blur();
+      }, 10);
     }
   };
 
-  // Reset input and its related things completely
-  const reset = () => {
+  // Reset input and its related data, then focus on input
+  const handleReset = () => {
     setValue("");
     setSelected({});
     setResults([]);
     setError("");
     props.setAddress({});
+    setTimeout(() => {
+      searchBarInputRef.current.focus();
+    }, 10);
   };
 
   const labelText = props.isOrigin ? "Origin" : "Destination";
@@ -157,9 +177,10 @@ const SearchBar = (props) => {
           onFocus={handleFocus}
           onBlur={handleBlur}
           onKeyDown={hanldeKeyDown}
+          ref={searchBarInputRef}
           autoComplete="off"
         />
-        {focus ? <span onMouseDown={reset}>✖</span> : null}
+        {focus ? <span onMouseDown={handleReset}>✖</span> : null}
       </div>
       <SearchResults
         isOrigin={props.isOrigin}
