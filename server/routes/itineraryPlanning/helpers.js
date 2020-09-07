@@ -74,6 +74,9 @@ module.exports = {
     if (simplify) {
       return json["data"]["plan"]["itineraries"].map((itinerary) => {
         return {
+          // Generate ID
+          id: require("uuid").v4(),
+
           // Total duration in minutes
           duration: Math.floor(itinerary.duration / 60),
 
