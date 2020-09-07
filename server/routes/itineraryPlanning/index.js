@@ -10,17 +10,22 @@ const router = express.Router();
 // https://digitransit.fi/en/developers/apis/1-routing-api/itinerary-planning/
 router.post("/", async (req, res, next) => {
   try {
-    // Fetch if all params are valid
-    if (
-      req.body.origin.lat &&
-      req.body.origin.lon &&
-      req.body.destination.lat &&
-      req.body.destination.lon &&
+    const allParametersAreValid =
+      req.body.origin["coordinates"]["lat"] &&
+      req.body.origin["coordinates"]["lon"] &&
+      req.body.destination["coordinates"]["lat"] &&
+      req.body.destination["coordinates"]["lon"] &&
       req.body.date &&
-      req.body.time &&
-      req.body.origin.lat !== req.body.destination.lat &&
-      req.body.origin.lon !== req.body.destination.lon
-    ) {
+      req.body.time;
+
+    const twoLocationsAreNotIdentical =
+      req.body.origin["coordinates"]["lat"] !==
+        req.body.destination["coordinates"]["lat"] &&
+      req.body.origin["coordinates"]["lon"] !==
+        req.body.destination["coordinates"]["lon"];
+
+    // Fetch if all params are valid
+    if (allParametersAreValid && twoLocationsAreNotIdentical) {
       // Import helpers
       const setupQuery = require("./helpers").setupQuery;
       const simplifyResJson = require("./helpers").simplifyResJson;

@@ -4,25 +4,35 @@ import axios from "axios";
 const SearchContext = React.createContext();
 
 const SearchProvider = ({ children }) => {
-  const [origin, setOrigin] = useState({});
-  const [destination, setDestination] = useState({});
+  const [origin, setOrigin] = useState({
+    name: "",
+    coordinates: { lat: 0.0, lon: 0.0 },
+  });
+  const [destination, setDestination] = useState({
+    name: "",
+    coordinates: { lat: 0.0, lon: 0.0 },
+  });
   const [itineraries, setItineraries] = useState([]);
-  const [date, setDate] = useState("");
-  const [time, setTime] = useState("");
 
-  const getItineraries = async () => {
+  // Pass all data as parameters instead of using states
+  // to avoid fetch is triggered before useState
+  const handleSetItineraries = async (origin, destination, date, time) => {
     try {
       if (
-        origin["lat"] &&
-        origin["lon"] &&
-        destination["lat"] &&
-        destination["lon"] &&
+        origin["coordinates"]["lat"] &&
+        origin["coordinates"]["lon"] &&
+        destination["coordinates"]["lat"] &&
+        destination["coordinates"]["lon"] &&
         date &&
         time
       ) {
         const res = await axios.post("/api/itinerary-planning", {
-          origin,
-          destination,
+          origin: {
+            coordinates: origin["coordinates"],
+          },
+          destination: {
+            coordinates: destination["coordinates"],
+          },
           date,
           time,
         });
@@ -37,13 +47,13 @@ const SearchProvider = ({ children }) => {
   return (
     <SearchContext.Provider
       value={{
+        origin,
+        destination,
         itineraries,
         actions: {
           setOrigin,
           setDestination,
-          getItineraries,
-          setDate,
-          setTime,
+          handleSetItineraries,
         },
       }}
     >

@@ -14,7 +14,7 @@
   background: #487ffe;
   color: #fff;
   padding: 14px 0px;
-  width: 140px;
+  width: 100%;
   border-radius: 12px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   font-weight: bold;
@@ -28,6 +28,6 @@
 
 @media (min-width: 600px) {
   .search-submit-container button {
-    width: 200px;
+    width: 260px;
   }
 }

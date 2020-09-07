@@ -3,14 +3,20 @@ import React from "react";
 import { SearchConsumer } from "../../context/SearchContext";
 import SearchBar from "../../shared/SearchBar";
 
-const SearchBarSearcaigin = () => {
+const SearchBarOrigin = () => {
   return (
     <SearchConsumer>
-      {({ actions }) => (
-        <SearchBar isOrigin={true} setAddress={actions.setOrigin} />
+      {({ origin, destination, actions }) => (
+        <SearchBar
+          isOrigin={true}
+          setAddress={actions.setOrigin}
+          origin={origin}
+          destination={destination}
+          handleSetItineraries={actions.handleSetItineraries}
+        />
       )}
     </SearchConsumer>
   );
 };
 
-export default SearchBarSearcaigin;
+export default SearchBarOrigin;

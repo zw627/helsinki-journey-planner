@@ -13,8 +13,8 @@ module.exports = {
     return {
       query: `{
                 plan(
-                  from: {lat: ${body.origin.lat}, lon: ${body.origin.lon}},
-                  to: {lat: ${body.destination.lat}, lon: ${body.destination.lon}},
+                  from: {lat: ${body.origin["coordinates"]["lat"]}, lon: ${body.origin["coordinates"]["lon"]}},
+                  to: {lat: ${body.destination["coordinates"]["lat"]}, lon: ${body.destination["coordinates"]["lon"]}},
                   numItineraries: 5,
                   date: "${body.date}",
                   time: "${body.time}",
