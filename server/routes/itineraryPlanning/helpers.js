@@ -15,7 +15,7 @@ module.exports = {
                 plan(
                   from: {lat: ${body.origin.lat}, lon: ${body.origin.lon}},
                   to: {lat: ${body.destination.lat}, lon: ${body.destination.lon}},
-                  numItineraries: 3,
+                  numItineraries: 5,
                   date: "${body.date}",
                   time: "${body.time}",
                 ) {
