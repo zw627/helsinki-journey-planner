@@ -142,13 +142,14 @@
 
 .search-bar-container div span {
   position: absolute;
-  top: 7px;
-  right: 8px;
+  top: 5px;
+  right: 4px;
   text-align: center;
   font-size: 18px;
-  width: 24px;
-  height: 25px;
+  width: 32px;
+  height: 32px;
   border-radius: 5px;
+  padding-top: 2px;
   cursor: pointer;
 }
 
@@ -159,15 +160,7 @@
 @media (min-width: 400px) {
   .search-form-header-overlay,
   .search-form-container header {
-    height: 260px;
-  }
-
-  .search-form-container header h1 {
-    font-size: 60px;
-  }
-
-  .search-form-container header p {
-    font-size: 18px;
+    height: 275px;
   }
 }
 
