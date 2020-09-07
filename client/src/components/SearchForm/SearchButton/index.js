@@ -7,7 +7,7 @@ const SearchButton = () => {
   return (
     <SearchConsumer>
       {({ actions }) => (
-        <button type="submit" onClick={actions.getItineraries}>
+        <button type="submit" onClick={actions.getItineraries} onTouchStart={() => {}}>
           Search
         </button>
       )}
