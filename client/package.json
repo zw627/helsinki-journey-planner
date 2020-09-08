@@ -4,6 +4,7 @@
   "description": "The front-end part of the helsinki-city-departure",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
