@@ -139,25 +139,25 @@ const SearchBar = (props) => {
     setError("");
     props.setAddress(selectedResult);
 
-    // Origin: Fetch routes if destination is valid
-    if (props.isOrigin && props.destination) {
-      props.handleSetItineraries(
-        selectedResult,
-        props.destination,
-        getFormattedDate(),
-        getFormattedTime()
-      );
-    }
+    // // Origin: Fetch routes automatically if destination is valid
+    // if (props.isOrigin && props.destination) {
+    //   props.handleSetItineraries(
+    //     selectedResult,
+    //     props.destination,
+    //     getFormattedDate(),
+    //     getFormattedTime()
+    //   );
+    // }
 
-    // Desination: Fetch routes if origin is valid
-    else if (!props.isOrigin && props.origin) {
-      props.handleSetItineraries(
-        props.origin,
-        selectedResult,
-        getFormattedDate(),
-        getFormattedTime()
-      );
-    }
+    // // Desination: Fetch routes automatically if origin is valid
+    // else if (!props.isOrigin && props.origin) {
+    //   props.handleSetItineraries(
+    //     props.origin,
+    //     selectedResult,
+    //     getFormattedDate(),
+    //     getFormattedTime()
+    //   );
+    // }
   };
 
   // Handle "enter" and "return" keys

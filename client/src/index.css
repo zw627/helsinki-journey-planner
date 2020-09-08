@@ -45,11 +45,12 @@ input[type="text"] {
 
 ul {
   list-style: none;
+  padding: 0px;
 }
 
 #root {
   display: flex;
   justify-content: center;
   padding: 0px 8px;
-  margin-top: 18px;
+  margin: 18px auto;
 }
