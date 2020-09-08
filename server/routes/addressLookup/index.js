@@ -10,12 +10,11 @@ const router = express.Router();
 // https://digitransit.fi/en/developers/apis/2-geocoding-api/address-lookup/
 router.post("/", async (req, res, next) => {
   try {
-    // Import helpers
-    const simplifyResJson = require("./helpers").simplifyResJson;
+    // Lazy load helpers
+    const { simplifyResJson } = require("./helpers");
 
     // Fetch if all params are valid
     if (req.body.lat && req.body.lon) {
-
       // Fetch addresses
       const data = await fetch(
         `http://api.digitransit.fi/geocoding/v1/reverse?point.lat=${req.body.lat}&point.lon=${req.body.lon}&lang=en&size=1&layers=address`

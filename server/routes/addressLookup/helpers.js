@@ -6,8 +6,7 @@ module.exports = {
    * @param {boolean} simplify - True to simplify the object, false returns the original object.
    */
   simplifyResJson: function (json, simplify) {
-    // addressLookup has the same JSON structure as addressSearch
-    // Except json["features"] needs to be passed instead of json
+    // addressLookup can use the same helper from addressSearch
     return require("../addressSearch/helpers").simplifyResJson(
       json["features"],
       simplify
