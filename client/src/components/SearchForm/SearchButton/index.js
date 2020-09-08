@@ -2,7 +2,7 @@ import React from "react";
 
 import { SearchConsumer } from "../../context/SearchContext";
 import { getFormattedDate, getFormattedTime } from "../../../utils/index";
-import "./style.css";
+import "./index.css";
 
 const SearchButton = () => {
   return (

@@ -35,6 +35,10 @@ input {
   transition: all 0.2s ease-out;
 }
 
+button {
+  cursor: pointer;
+}
+
 input[type="text"] {
   -webkit-touch-callout: text; /* iOS Safari */
   -webkit-user-select: text; /* Safari */ /* Konqueror HTML */
