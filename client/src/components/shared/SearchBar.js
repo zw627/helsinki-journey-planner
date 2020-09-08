@@ -8,7 +8,6 @@ const SearchBar = (props) => {
   const [value, setValue] = useState("");
   const [results, setResults] = useState([]);
   const [focus, setFocus] = useState(false);
-  const [error, setError] = useState("");
   const [selected, setSelected] = useState({
     name: "",
     coordinates: { lat: 0.0, lon: 0.0 },
@@ -34,10 +33,19 @@ const SearchBar = (props) => {
     }
 
     // Reset if no valid address is selected
-    else if (!(selected["name"] || selected["coordinates"])) {
+    else if (
+      !(
+        selected["name"] ||
+        selected["coordinates"]["lat"] ||
+        selected["coordinates"]["lon"]
+      )
+    ) {
       setValue("");
       setResults([]);
-      setSelected({});
+      setSelected({
+        name: "",
+        coordinates: { lat: 0.0, lon: 0.0 },
+      });
     }
   };
 
@@ -47,7 +55,10 @@ const SearchBar = (props) => {
         text,
       });
       setResults(res.data);
-      setError("");
+      props.setNotification({
+        isPositive: false,
+        text: "",
+      });
 
       // Always save the first search result automatically
       // if (res.data.length > 0) {
@@ -60,7 +71,10 @@ const SearchBar = (props) => {
       // }
     } catch (err) {
       setResults([]);
-      setError(err.response.data.message);
+      props.setNotification({
+        isPositive: false,
+        text: err.response.data.message,
+      });
     }
   };
 
@@ -72,7 +86,10 @@ const SearchBar = (props) => {
     // Reset if users delete "Your current location"
     if (selected["name"] === "Your current location") {
       setValue("");
-      setSelected({});
+      setSelected({
+        name: "",
+        coordinates: { lat: 0.0, lon: 0.0 },
+      });
       props.setAddress({});
     }
 
@@ -105,7 +122,7 @@ const SearchBar = (props) => {
           setSelected(geoResult);
           setResults([]);
           setFocus(false);
-          setError("");
+          props.setNotification({ isPositive: false, text: "" });
           props.setAddress(geoResult);
 
           // Origin: Fetch routes if desination is valid
@@ -119,7 +136,7 @@ const SearchBar = (props) => {
           }
         },
         (err) => {
-          setError(err.message);
+          props.setNotification({ isPositive: false, text: err.message });
         }
       );
     }
@@ -136,7 +153,7 @@ const SearchBar = (props) => {
     setValue(selectedResult["name"]);
     setSelected(selectedResult);
     setFocus(false);
-    setError("");
+    props.setNotification({ isPositive: false, text: "" });
     props.setAddress(selectedResult);
 
     // // Origin: Fetch routes automatically if destination is valid
@@ -186,9 +203,12 @@ const SearchBar = (props) => {
   // Reset input and its related data, then focus on input
   const handleReset = () => {
     setValue("");
-    setSelected({});
+    setSelected({
+      name: "",
+      coordinates: { lat: 0.0, lon: 0.0 },
+    });
     setResults([]);
-    setError("");
+    props.setNotification({ isPositive: false, text: "" });
     props.setAddress({});
     setTimeout(() => {
       searchBarInputRef.current.focus();

@@ -6,12 +6,14 @@ import SearchBar from "../../shared/SearchBar";
 const SearchBarOrigin = () => {
   return (
     <SearchConsumer>
-      {({ origin, destination, actions }) => (
+      {({ origin, destination, notification, actions }) => (
         <SearchBar
           isOrigin={true}
           setAddress={actions.setOrigin}
           origin={origin}
           destination={destination}
+          notification={notification}
+          setNotification={actions.setNotification}
           handleSetItineraries={actions.handleSetItineraries}
         />
       )}
