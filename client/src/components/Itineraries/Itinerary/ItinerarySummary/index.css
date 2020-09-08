@@ -52,6 +52,13 @@
   font-size: 14px;
 }
 
+.itinerary-summary div:nth-child(3) span {
+  border: 1px solid #d4d4d4;
+  border-radius: 5px;
+  padding: 0px 2px;
+  font-size: 12px;
+}
+
 .itinerary-summary div:nth-child(4) {
   display: flex;
 }

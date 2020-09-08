@@ -8,13 +8,13 @@ import "./index.css";
 const ItinerarySummary = ({ itinerary }) => {
   // Itineray Time
   // 01:37 - 02:03 (26 min)
-  const itineraryTime = `${getHoursMinutes(
+  const duration = `${getHoursMinutes(
     itinerary["startTime"]
   )} - ${getHoursMinutes(itinerary["endTime"])} (${itinerary["duration"]} min)`;
 
   // Itineray Trips
   // WalkIcon > BusIcon 550 > BusIcon 39N > WalkIcon
-  const itineraryTrips = itinerary["trips"].map((trip, index) => {
+  const trips = itinerary["trips"].map((trip, index) => {
     return (
       <span className="itinerary-summary-trip" key={trip["id"]}>
         <TripIcon text={trip["mode"]} className="" />
@@ -32,17 +32,19 @@ const ItinerarySummary = ({ itinerary }) => {
 
   // The first public transport to catch
   // 01:42 from Otaranta E2204
-  const itineraryFirstPublicTransportTrip = `${getHoursMinutes(
-    itinerary["firstPublicTransportTrip"]["startTime"]
-  )} from ${itinerary["firstPublicTransportTrip"]["stop"]["name"]} ${
-    itinerary["firstPublicTransportTrip"]["stop"]["code"]
-  }`;
+  const firstPublicTransportTrip = (
+    <React.Fragment>
+      {getHoursMinutes(itinerary["firstPublicTransportTrip"]["startTime"])} from{" "}
+      {itinerary["firstPublicTransportTrip"]["stop"]["name"]}{" "}
+      <span>{itinerary["firstPublicTransportTrip"]["stop"]["code"]}</span>
+    </React.Fragment>
+  );
 
   return (
     <div className="itinerary-summary">
-      <div>{itineraryTime}</div>
-      <div>{itineraryTrips}</div>
-      <div>{itineraryFirstPublicTransportTrip}</div>
+      <div>{duration}</div>
+      <div>{trips}</div>
+      <div>{firstPublicTransportTrip}</div>
       <div>
         <TripIcon text="WALK" /> {itinerary["walkDistance"]} m
       </div>
