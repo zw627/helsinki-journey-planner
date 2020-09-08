@@ -1,11 +1,12 @@
 [
   {
-    "labelPriamry": "Kaivokatu 1",
+    "id": "node:5012343136",
+    "labelPriamry": "Kaivokatu 8",
     "labelSecondary": "Helsinki",
     "layer": "address",
     "coordinates": {
-      "lat": 60.170709,
-      "lon": 24.940873
+      "lat": 60.170294,
+      "lon": 24.941142
     }
   }
 ]

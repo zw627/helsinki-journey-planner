@@ -1,119 +1,122 @@
 [
   {
-    "duration": 38,
-    "walkDistance": 993,
+    "id": "cf7ee6c8-17d1-49d8-ada8-9416d59d10f1",
+    "duration": 19,
+    "walkDistance": 582,
+    "startTime": 1599544919000,
+    "endTime": 1599546090000,
+    "firstPublicTransportTrip": {
+      "id": "495caea3-701e-413a-a131-59b891da48da",
+      "mode": "SUBWAY",
+      "startTime": 1599545391000,
+      "trip": {
+        "tripHeadsign": "Vuosaari",
+        "routeShortName": "M1"
+      },
+      "stop": {
+        "code": "E0003",
+        "name": "Aalto-yliopisto",
+        "zoneId": "B"
+      }
+    },
+    "trips": [
+      {
+        "id": "df52db83-05e3-4ba5-a341-39ee39b995f6",
+        "mode": "WALK",
+        "startTime": 1599544919000,
+        "trip": null,
+        "stop": null
+      },
+      {
+        "id": "495caea3-701e-413a-a131-59b891da48da",
+        "mode": "SUBWAY",
+        "startTime": 1599545391000,
+        "trip": {
+          "tripHeadsign": "Vuosaari",
+          "routeShortName": "M1"
+        },
+        "stop": {
+          "code": "E0003",
+          "name": "Aalto-yliopisto",
+          "zoneId": "B"
+        }
+      },
+      {
+        "id": "480b4c8a-9353-4758-8930-57da78eae66f",
+        "mode": "WALK",
+        "startTime": 1599546021000,
+        "trip": null,
+        "stop": {
+          "code": "H0017",
+          "name": "Kamppi",
+          "zoneId": "A"
+        }
+      }
+    ],
     "legs": [
       {
+        "id": "66a53945-1dfb-4d63-825d-d24189a48c08",
         "mode": "WALK",
-        "startTime": "2020-09-04T13:02:06.000Z",
-        "endTime": "2020-09-04T13:05:00.000Z",
-        "duration": 2,
-        "distance": 182,
+        "startTime": 1599544919000,
+        "endTime": 1599545391000,
+        "duration": 7,
+        "distance": 498,
         "trip": null,
         "from": {
           "name": "Origin",
           "stop": null
         },
         "to": {
-          "name": "Merisotilaantori",
+          "name": "Aalto-yliopisto",
           "stop": {
-            "code": "H0421",
-            "name": "Merisotilaantori",
-            "zoneId": "A"
+            "code": "E0003",
+            "name": "Aalto-yliopisto",
+            "zoneId": "B"
           }
         }
       },
       {
-        "mode": "TRAM",
-        "startTime": "2020-09-04T13:05:00.000Z",
-        "endTime": "2020-09-04T13:14:14.000Z",
-        "duration": 9,
-        "distance": 1999,
-        "trip": {
-          "tripHeadsign": "Munkkiniemi",
-          "routeShortName": "4"
-        },
-        "from": {
-          "name": "Merisotilaantori",
-          "stop": {
-            "code": "H0421",
-            "name": "Merisotilaantori",
-            "zoneId": "A"
-          }
-        },
-        "to": {
-          "name": "Ylioppilastalo",
-          "stop": {
-            "code": "H0402",
-            "name": "Ylioppilastalo",
-            "zoneId": "A"
-          }
-        }
-      },
-      {
-        "mode": "WALK",
-        "startTime": "2020-09-04T13:14:14.000Z",
-        "endTime": "2020-09-04T13:18:42.000Z",
-        "duration": 4,
-        "distance": 347,
-        "trip": null,
-        "from": {
-          "name": "Ylioppilastalo",
-          "stop": {
-            "code": "H0402",
-            "name": "Ylioppilastalo",
-            "zoneId": "A"
-          }
-        },
-        "to": {
-          "name": "Rautatientori",
-          "stop": {
-            "code": "H0018",
-            "name": "Rautatientori",
-            "zoneId": "A"
-          }
-        }
-      },
-      {
+        "id": "ae1f76b6-67d4-4be0-916c-a0ecfa1e51a7",
         "mode": "SUBWAY",
-        "startTime": "2020-09-04T13:21:37.000Z",
-        "endTime": "2020-09-04T13:32:59.000Z",
-        "duration": 11,
-        "distance": 8959,
+        "startTime": 1599545391000,
+        "endTime": 1599546021000,
+        "duration": 10,
+        "distance": 8460,
         "trip": {
-          "tripHeadsign": "Matinkylä",
+          "tripHeadsign": "Vuosaari",
           "routeShortName": "M1"
         },
         "from": {
-          "name": "Rautatientori",
+          "name": "Aalto-yliopisto",
           "stop": {
-            "code": "H0018",
-            "name": "Rautatientori",
-            "zoneId": "A"
+            "code": "E0003",
+            "name": "Aalto-yliopisto",
+            "zoneId": "B"
           }
         },
         "to": {
-          "name": "Aalto-yliopisto",
+          "name": "Kamppi",
           "stop": {
-            "code": "E0004",
-            "name": "Aalto-yliopisto",
-            "zoneId": "B"
+            "code": "H0017",
+            "name": "Kamppi",
+            "zoneId": "A"
           }
         }
       },
       {
+        "id": "a323d73d-6fbc-48e9-93c1-5c2da6d8ba6a",
         "mode": "WALK",
-        "startTime": "2020-09-04T13:32:59.000Z",
-        "endTime": "2020-09-04T13:40:13.000Z",
-        "duration": 7,
-        "distance": 462,
+        "startTime": 1599546021000,
+        "endTime": 1599546090000,
+        "duration": 1,
+        "distance": 83,
         "trip": null,
         "from": {
-          "name": "Aalto-yliopisto",
+          "name": "Kamppi",
           "stop": {
-            "code": "E0004",
-            "name": "Aalto-yliopisto",
-            "zoneId": "B"
+            "code": "H0017",
+            "name": "Kamppi",
+            "zoneId": "A"
           }
         },
         "to": {
@@ -124,120 +127,123 @@
     ]
   },
   {
-    "duration": 40,
-    "walkDistance": 1082,
+    "id": "2825e6dd-3c13-480f-80b8-08466ed4ce85",
+    "duration": 19,
+    "walkDistance": 582,
+    "startTime": 1599545084000,
+    "endTime": 1599546269000,
+    "firstPublicTransportTrip": {
+      "id": "f19bf8ee-3669-4aed-96cc-de6c496f7670",
+      "mode": "SUBWAY",
+      "startTime": 1599545556000,
+      "trip": {
+        "tripHeadsign": "Mellunmäki",
+        "routeShortName": "M2"
+      },
+      "stop": {
+        "code": "E0003",
+        "name": "Aalto-yliopisto",
+        "zoneId": "B"
+      }
+    },
+    "trips": [
+      {
+        "id": "dcf04b9a-a6dd-4061-9df0-7936842d6f50",
+        "mode": "WALK",
+        "startTime": 1599545084000,
+        "trip": null,
+        "stop": null
+      },
+      {
+        "id": "f19bf8ee-3669-4aed-96cc-de6c496f7670",
+        "mode": "SUBWAY",
+        "startTime": 1599545556000,
+        "trip": {
+          "tripHeadsign": "Mellunmäki",
+          "routeShortName": "M2"
+        },
+        "stop": {
+          "code": "E0003",
+          "name": "Aalto-yliopisto",
+          "zoneId": "B"
+        }
+      },
+      {
+        "id": "d0d62ba6-166f-4cef-a509-2db0edf33f5c",
+        "mode": "WALK",
+        "startTime": 1599546200000,
+        "trip": null,
+        "stop": {
+          "code": "H0017",
+          "name": "Kamppi",
+          "zoneId": "A"
+        }
+      }
+    ],
     "legs": [
       {
+        "id": "7df1a76f-70e8-435e-adbc-f82ab890d2f1",
         "mode": "WALK",
-        "startTime": "2020-09-04T13:02:09.000Z",
-        "endTime": "2020-09-04T13:08:17.000Z",
-        "duration": 6,
-        "distance": 432,
+        "startTime": 1599545084000,
+        "endTime": 1599545556000,
+        "duration": 7,
+        "distance": 498,
         "trip": null,
         "from": {
           "name": "Origin",
           "stop": null
         },
         "to": {
-          "name": "Mastokatu",
+          "name": "Aalto-yliopisto",
           "stop": {
-            "code": "H0418",
-            "name": "Mastokatu",
-            "zoneId": "A"
+            "code": "E0003",
+            "name": "Aalto-yliopisto",
+            "zoneId": "B"
           }
         }
       },
       {
-        "mode": "TRAM",
-        "startTime": "2020-09-04T13:08:17.000Z",
-        "endTime": "2020-09-04T13:17:17.000Z",
-        "duration": 9,
-        "distance": 1895,
-        "trip": {
-          "tripHeadsign": "Ooppera",
-          "routeShortName": "5H"
-        },
-        "from": {
-          "name": "Mastokatu",
-          "stop": {
-            "code": "H0418",
-            "name": "Mastokatu",
-            "zoneId": "A"
-          }
-        },
-        "to": {
-          "name": "Rautatieasema",
-          "stop": {
-            "code": "H0302",
-            "name": "Rautatieasema",
-            "zoneId": "A"
-          }
-        }
-      },
-      {
-        "mode": "WALK",
-        "startTime": "2020-09-04T13:17:17.000Z",
-        "endTime": "2020-09-04T13:19:41.000Z",
-        "duration": 2,
-        "distance": 186,
-        "trip": null,
-        "from": {
-          "name": "Rautatieasema",
-          "stop": {
-            "code": "H0302",
-            "name": "Rautatieasema",
-            "zoneId": "A"
-          }
-        },
-        "to": {
-          "name": "Rautatientori",
-          "stop": {
-            "code": "H0018",
-            "name": "Rautatientori",
-            "zoneId": "A"
-          }
-        }
-      },
-      {
+        "id": "fef719a3-ef61-4d3b-a336-ec113600f509",
         "mode": "SUBWAY",
-        "startTime": "2020-09-04T13:23:46.000Z",
-        "endTime": "2020-09-04T13:35:27.000Z",
-        "duration": 11,
-        "distance": 8959,
+        "startTime": 1599545556000,
+        "endTime": 1599546200000,
+        "duration": 10,
+        "distance": 8460,
         "trip": {
-          "tripHeadsign": "Tapiola",
+          "tripHeadsign": "Mellunmäki",
           "routeShortName": "M2"
         },
         "from": {
-          "name": "Rautatientori",
+          "name": "Aalto-yliopisto",
           "stop": {
-            "code": "H0018",
-            "name": "Rautatientori",
-            "zoneId": "A"
+            "code": "E0003",
+            "name": "Aalto-yliopisto",
+            "zoneId": "B"
           }
         },
         "to": {
-          "name": "Aalto-yliopisto",
+          "name": "Kamppi",
           "stop": {
-            "code": "E0004",
-            "name": "Aalto-yliopisto",
-            "zoneId": "B"
+            "code": "H0017",
+            "name": "Kamppi",
+            "zoneId": "A"
           }
         }
       },
       {
+        "id": "6fb6fbb4-ebc3-4c86-a86a-fe345301a930",
         "mode": "WALK",
-        "startTime": "2020-09-04T13:35:27.000Z",
-        "endTime": "2020-09-04T13:42:41.000Z",
-        "duration": 7,
-        "distance": 462,
+        "startTime": 1599546200000,
+        "endTime": 1599546269000,
+        "duration": 1,
+        "distance": 83,
         "trip": null,
         "from": {
-          "name": "Aalto-yliopisto",
+          "name": "Kamppi",
           "stop": {
-            "code": "E0004",
-            "name": "Aalto-yliopisto",
-            "zoneId": "B"
+            "code": "H0017",
+            "name": "Kamppi",
+            "zoneId": "A"
           }
         },
         "to": {
@@ -248,120 +254,377 @@
     ]
   },
   {
-    "duration": 37,
-    "walkDistance": 993,
+    "id": "6b1f224d-2f19-4963-a557-8986f719d303",
+    "duration": 19,
+    "walkDistance": 582,
+    "startTime": 1599545224000,
+    "endTime": 1599546400000,
+    "firstPublicTransportTrip": {
+      "id": "8dcbbc46-fafe-44c7-8893-87814bade4f9",
+      "mode": "SUBWAY",
+      "startTime": 1599545696000,
+      "trip": {
+        "tripHeadsign": "Vuosaari",
+        "routeShortName": "M1"
+      },
+      "stop": {
+        "code": "E0003",
+        "name": "Aalto-yliopisto",
+        "zoneId": "B"
+      }
+    },
+    "trips": [
+      {
+        "id": "560b4ed5-a56b-4a34-9e91-a67ecba70375",
+        "mode": "WALK",
+        "startTime": 1599545224000,
+        "trip": null,
+        "stop": null
+      },
+      {
+        "id": "8dcbbc46-fafe-44c7-8893-87814bade4f9",
+        "mode": "SUBWAY",
+        "startTime": 1599545696000,
+        "trip": {
+          "tripHeadsign": "Vuosaari",
+          "routeShortName": "M1"
+        },
+        "stop": {
+          "code": "E0003",
+          "name": "Aalto-yliopisto",
+          "zoneId": "B"
+        }
+      },
+      {
+        "id": "4676d6db-bb13-425c-8597-4de2e41f5184",
+        "mode": "WALK",
+        "startTime": 1599546331000,
+        "trip": null,
+        "stop": {
+          "code": "H0017",
+          "name": "Kamppi",
+          "zoneId": "A"
+        }
+      }
+    ],
     "legs": [
       {
+        "id": "077bd059-f97f-4185-8f90-ffdbd756f9dd",
         "mode": "WALK",
-        "startTime": "2020-09-04T13:08:06.000Z",
-        "endTime": "2020-09-04T13:11:00.000Z",
-        "duration": 2,
-        "distance": 182,
+        "startTime": 1599545224000,
+        "endTime": 1599545696000,
+        "duration": 7,
+        "distance": 498,
         "trip": null,
         "from": {
           "name": "Origin",
           "stop": null
         },
         "to": {
-          "name": "Merisotilaantori",
+          "name": "Aalto-yliopisto",
           "stop": {
-            "code": "H0421",
-            "name": "Merisotilaantori",
-            "zoneId": "A"
+            "code": "E0003",
+            "name": "Aalto-yliopisto",
+            "zoneId": "B"
           }
         }
       },
       {
-        "mode": "TRAM",
-        "startTime": "2020-09-04T13:11:00.000Z",
-        "endTime": "2020-09-04T13:18:01.000Z",
-        "duration": 7,
-        "distance": 1999,
-        "trip": {
-          "tripHeadsign": "Munkkiniemi",
-          "routeShortName": "4"
-        },
-        "from": {
-          "name": "Merisotilaantori",
-          "stop": {
-            "code": "H0421",
-            "name": "Merisotilaantori",
-            "zoneId": "A"
-          }
-        },
-        "to": {
-          "name": "Ylioppilastalo",
-          "stop": {
-            "code": "H0402",
-            "name": "Ylioppilastalo",
-            "zoneId": "A"
-          }
-        }
-      },
-      {
-        "mode": "WALK",
-        "startTime": "2020-09-04T13:18:01.000Z",
-        "endTime": "2020-09-04T13:22:29.000Z",
-        "duration": 4,
-        "distance": 347,
-        "trip": null,
-        "from": {
-          "name": "Ylioppilastalo",
-          "stop": {
-            "code": "H0402",
-            "name": "Ylioppilastalo",
-            "zoneId": "A"
-          }
-        },
-        "to": {
-          "name": "Rautatientori",
-          "stop": {
-            "code": "H0018",
-            "name": "Rautatientori",
-            "zoneId": "A"
-          }
-        }
-      },
-      {
+        "id": "9be2b175-62aa-42a1-b31a-d5c90204281a",
         "mode": "SUBWAY",
-        "startTime": "2020-09-04T13:26:19.000Z",
-        "endTime": "2020-09-04T13:38:00.000Z",
-        "duration": 11,
-        "distance": 8959,
+        "startTime": 1599545696000,
+        "endTime": 1599546331000,
+        "duration": 10,
+        "distance": 8460,
         "trip": {
-          "tripHeadsign": "Matinkylä",
+          "tripHeadsign": "Vuosaari",
           "routeShortName": "M1"
         },
         "from": {
-          "name": "Rautatientori",
+          "name": "Aalto-yliopisto",
           "stop": {
-            "code": "H0018",
-            "name": "Rautatientori",
+            "code": "E0003",
+            "name": "Aalto-yliopisto",
+            "zoneId": "B"
+          }
+        },
+        "to": {
+          "name": "Kamppi",
+          "stop": {
+            "code": "H0017",
+            "name": "Kamppi",
+            "zoneId": "A"
+          }
+        }
+      },
+      {
+        "id": "4282b1b8-ff1f-41c4-8c7f-9ab5dd365286",
+        "mode": "WALK",
+        "startTime": 1599546331000,
+        "endTime": 1599546400000,
+        "duration": 1,
+        "distance": 83,
+        "trip": null,
+        "from": {
+          "name": "Kamppi",
+          "stop": {
+            "code": "H0017",
+            "name": "Kamppi",
             "zoneId": "A"
           }
         },
         "to": {
+          "name": "Destination",
+          "stop": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "7ee1c961-743a-43e0-853e-d8f280f1e082",
+    "duration": 19,
+    "walkDistance": 582,
+    "startTime": 1599545387000,
+    "endTime": 1599546548000,
+    "firstPublicTransportTrip": {
+      "id": "42ff0990-fe37-48f7-be5b-19140ced2209",
+      "mode": "SUBWAY",
+      "startTime": 1599545859000,
+      "trip": {
+        "tripHeadsign": "Mellunmäki",
+        "routeShortName": "M2"
+      },
+      "stop": {
+        "code": "E0003",
+        "name": "Aalto-yliopisto",
+        "zoneId": "B"
+      }
+    },
+    "trips": [
+      {
+        "id": "771242ba-87c9-4de8-89ac-fcc66280a4b8",
+        "mode": "WALK",
+        "startTime": 1599545387000,
+        "trip": null,
+        "stop": null
+      },
+      {
+        "id": "42ff0990-fe37-48f7-be5b-19140ced2209",
+        "mode": "SUBWAY",
+        "startTime": 1599545859000,
+        "trip": {
+          "tripHeadsign": "Mellunmäki",
+          "routeShortName": "M2"
+        },
+        "stop": {
+          "code": "E0003",
+          "name": "Aalto-yliopisto",
+          "zoneId": "B"
+        }
+      },
+      {
+        "id": "ce87bcc6-d5c7-442c-8c6d-ba664016818d",
+        "mode": "WALK",
+        "startTime": 1599546479000,
+        "trip": null,
+        "stop": {
+          "code": "H0017",
+          "name": "Kamppi",
+          "zoneId": "A"
+        }
+      }
+    ],
+    "legs": [
+      {
+        "id": "92534edf-2bdc-43fe-a629-def27cc862c1",
+        "mode": "WALK",
+        "startTime": 1599545387000,
+        "endTime": 1599545859000,
+        "duration": 7,
+        "distance": 498,
+        "trip": null,
+        "from": {
+          "name": "Origin",
+          "stop": null
+        },
+        "to": {
           "name": "Aalto-yliopisto",
           "stop": {
-            "code": "E0004",
+            "code": "E0003",
             "name": "Aalto-yliopisto",
             "zoneId": "B"
           }
         }
       },
       {
-        "mode": "WALK",
-        "startTime": "2020-09-04T13:38:00.000Z",
-        "endTime": "2020-09-04T13:45:14.000Z",
-        "duration": 7,
-        "distance": 462,
-        "trip": null,
+        "id": "152aeb93-647f-475b-9b86-a55d0e2f9394",
+        "mode": "SUBWAY",
+        "startTime": 1599545859000,
+        "endTime": 1599546479000,
+        "duration": 10,
+        "distance": 8460,
+        "trip": {
+          "tripHeadsign": "Mellunmäki",
+          "routeShortName": "M2"
+        },
         "from": {
           "name": "Aalto-yliopisto",
           "stop": {
-            "code": "E0004",
+            "code": "E0003",
             "name": "Aalto-yliopisto",
             "zoneId": "B"
+          }
+        },
+        "to": {
+          "name": "Kamppi",
+          "stop": {
+            "code": "H0017",
+            "name": "Kamppi",
+            "zoneId": "A"
+          }
+        }
+      },
+      {
+        "id": "6318e908-4043-4ca4-92a4-37c843bd19b2",
+        "mode": "WALK",
+        "startTime": 1599546479000,
+        "endTime": 1599546548000,
+        "duration": 1,
+        "distance": 83,
+        "trip": null,
+        "from": {
+          "name": "Kamppi",
+          "stop": {
+            "code": "H0017",
+            "name": "Kamppi",
+            "zoneId": "A"
+          }
+        },
+        "to": {
+          "name": "Destination",
+          "stop": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "e75968d1-a356-46e9-ae74-e1a3b2266a26",
+    "duration": 19,
+    "walkDistance": 582,
+    "startTime": 1599545542000,
+    "endTime": 1599546693000,
+    "firstPublicTransportTrip": {
+      "id": "c42c90a2-d248-47e2-a9f5-7fe0479d6563",
+      "mode": "SUBWAY",
+      "startTime": 1599546014000,
+      "trip": {
+        "tripHeadsign": "Vuosaari",
+        "routeShortName": "M1"
+      },
+      "stop": {
+        "code": "E0003",
+        "name": "Aalto-yliopisto",
+        "zoneId": "B"
+      }
+    },
+    "trips": [
+      {
+        "id": "52b3767e-bcef-4c4f-b43b-41d3272c70c6",
+        "mode": "WALK",
+        "startTime": 1599545542000,
+        "trip": null,
+        "stop": null
+      },
+      {
+        "id": "c42c90a2-d248-47e2-a9f5-7fe0479d6563",
+        "mode": "SUBWAY",
+        "startTime": 1599546014000,
+        "trip": {
+          "tripHeadsign": "Vuosaari",
+          "routeShortName": "M1"
+        },
+        "stop": {
+          "code": "E0003",
+          "name": "Aalto-yliopisto",
+          "zoneId": "B"
+        }
+      },
+      {
+        "id": "26d314e9-c706-405f-ade9-b4445f7bb829",
+        "mode": "WALK",
+        "startTime": 1599546624000,
+        "trip": null,
+        "stop": {
+          "code": "H0017",
+          "name": "Kamppi",
+          "zoneId": "A"
+        }
+      }
+    ],
+    "legs": [
+      {
+        "id": "eb5b9206-ad3c-45af-98fc-b305859a7d71",
+        "mode": "WALK",
+        "startTime": 1599545542000,
+        "endTime": 1599546014000,
+        "duration": 7,
+        "distance": 498,
+        "trip": null,
+        "from": {
+          "name": "Origin",
+          "stop": null
+        },
+        "to": {
+          "name": "Aalto-yliopisto",
+          "stop": {
+            "code": "E0003",
+            "name": "Aalto-yliopisto",
+            "zoneId": "B"
+          }
+        }
+      },
+      {
+        "id": "e645142f-6683-4bea-9932-57d691e1fd7f",
+        "mode": "SUBWAY",
+        "startTime": 1599546014000,
+        "endTime": 1599546624000,
+        "duration": 10,
+        "distance": 8460,
+        "trip": {
+          "tripHeadsign": "Vuosaari",
+          "routeShortName": "M1"
+        },
+        "from": {
+          "name": "Aalto-yliopisto",
+          "stop": {
+            "code": "E0003",
+            "name": "Aalto-yliopisto",
+            "zoneId": "B"
+          }
+        },
+        "to": {
+          "name": "Kamppi",
+          "stop": {
+            "code": "H0017",
+            "name": "Kamppi",
+            "zoneId": "A"
+          }
+        }
+      },
+      {
+        "id": "c7640054-a006-4bfb-94f1-229f4b45b786",
+        "mode": "WALK",
+        "startTime": 1599546624000,
+        "endTime": 1599546693000,
+        "duration": 1,
+        "distance": 83,
+        "trip": null,
+        "from": {
+          "name": "Kamppi",
+          "stop": {
+            "code": "H0017",
+            "name": "Kamppi",
+            "zoneId": "A"
           }
         },
         "to": {
