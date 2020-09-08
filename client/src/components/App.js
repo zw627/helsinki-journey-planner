@@ -1,7 +1,7 @@
 import React from "react";
 
 import SearchFrom from "./SearchForm";
-import Iteneraries from "./Iteneraries";
+import Itineraries from "./Itineraries";
 import SearchProvider from "./context/SearchContext";
 import "./App.css";
 
@@ -10,7 +10,7 @@ const App = () => {
     <div className="app">
       <SearchProvider>
         <SearchFrom />
-        <Iteneraries />
+        <Itineraries />
       </SearchProvider>
     </div>
   );

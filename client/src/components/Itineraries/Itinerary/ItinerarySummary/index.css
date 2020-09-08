@@ -1,0 +1,61 @@
+.itinerary-summary {
+  position: relative;
+}
+
+.itinerary-summary .MuiSvgIcon-root {
+  font-size: 16px;
+  display: block;
+  margin-top: 2px;
+}
+
+.itinerary-summary-trip {
+  display: flex;
+}
+
+.trips-public-transport-line {
+  border: 2px solid #d4d4d4;
+  border-radius: 6px;
+  padding: 0px 3px;
+  margin-top: -1px;
+  margin-left: 3px;
+  font-size: 15px;
+}
+
+.itinerary-summary div {
+  margin: 4px auto;
+}
+
+/* Time, trips */
+.itinerary-summary div:nth-child(1),
+.itinerary-summary div:nth-child(2) {
+  font-weight: 700;
+}
+
+/* Trips */
+.itinerary-summary div:nth-child(2) {
+  display: flex;
+  flex-direction: row;
+  margin: 8px auto;
+}
+
+/* Trips icons */
+.trips-seperator {
+  margin: 0px 3px;
+}
+
+/* First public transport to catch */
+/* Walk distance */
+.itinerary-summary div:nth-child(3),
+.itinerary-summary div:nth-child(4),
+.itinerary-summary div:nth-child(4) .MuiSvgIcon-root {
+  color: #909090;
+  font-size: 14px;
+}
+
+.itinerary-summary div:nth-child(4) {
+  display: flex;
+}
+
+.itinerary-summary div:nth-child(4) .MuiSvgIcon-root {
+  margin-top: 1px;
+}

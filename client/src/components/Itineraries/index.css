@@ -1,0 +1,23 @@
+.itineraries-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  padding: 10px;
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 14px 80px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.itineraries-container h1 {
+  margin: 10px;
+  font-size: 32px;
+}
+
+.itineraries {
+  background: white;
+  margin: 10px;
+  border-radius: 10px;
+  padding: 0;
+}
