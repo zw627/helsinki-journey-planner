@@ -9,29 +9,42 @@ const ItineraryDetails = ({ leg, isLast }) => {
   const startTime = getHoursMinutes(leg["startTime"]);
   const endTime = getHoursMinutes(leg["endTime"]);
 
-  // e.g. Aalto-yliopisto E0003
-  function getLocation(key = "from") {
-    if (leg[key]["stop"]) {
+  // e.g. "Aalto-yliopisto E0003", "Origin", or "Destination"
+  function getLocation() {
+    const stop = leg["from"]["stop"];
+    const locationName = leg["from"]["name"];
+
+    if (stop) {
+      const stopName = stop["name"];
+      const stopCode = stop["code"];
+      const stopZone = stop["zoneId"];
       return (
         <React.Fragment>
-          {leg[key]["stop"]["name"]} <span>{leg[key]["stop"]["code"]}</span>
+          {stopName} <span>{stopCode}</span> <span>Zone {stopZone}</span>
         </React.Fragment>
       );
     }
-    return <React.Fragment>{leg[key]["name"]}</React.Fragment>;
+
+    return locationName;
   }
 
-  // e.g. M1 Vuosaari
+  // e.g. "M1 Vuosaari" or "(WalkIcon) 43 m"
   function getTrip() {
-    if (leg["trip"]) {
+    const trip = leg["trip"];
+    const distance = leg["distance"];
+
+    if (trip) {
+      const line = trip["routeShortName"];
+      const lineDestination = trip["tripHeadsign"];
       return (
         <React.Fragment>
-          <span>{leg["trip"]["routeShortName"]}</span>
-          {leg["trip"]["tripHeadsign"]}
+          <span>{line}</span>
+          {lineDestination}
         </React.Fragment>
       );
     }
-    return "Walk";
+
+    return `${distance} m`;
   }
 
   return (
@@ -45,16 +58,14 @@ const ItineraryDetails = ({ leg, isLast }) => {
         <li>
           {startTime} - {endTime}
         </li>
-        <li>
-          About {leg["duration"]} min, {leg["distance"]} m
-        </li>
+        <li>About {leg["duration"]} min</li>
         <FiberManualRecordOutlinedIcon className="litinerary-waypoint" />
         <svg
           className="litinerary-waypoint-connection"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 10 156.5"
         >
-          <title>Untitled-1</title>
+          <title>Waypoint Connection Line</title>
           <line
             x1="5"
             y1="5"

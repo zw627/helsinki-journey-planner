@@ -11,6 +11,7 @@
   transition: 0.2s ease-out;
   z-index: 1000;
   min-height: 75px;
+  position: fixed;
 }
 
 .notification.slide-in {
@@ -26,8 +27,8 @@
 }
 
 .notification svg {
-  width: 24px;
-  height: 24px;
+  width: 32px;
+  height: 32px;
   margin-right: 12px;
   color: #ff6262;
 }
@@ -40,14 +41,14 @@
 
 @media (max-width: 767px) {
   .notification {
-    position: absolute;
     width: 97%;
+    margin-left: -48.5%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
   }
 
   .notification:active {
-    transform: translate(-50%, -45%);
+    transform: translate(0px, 2px);
   }
 
   @keyframes slide-in {
@@ -55,13 +56,13 @@
       top: -300px;
     }
     100% {
-      top: 55px;
+      top: 10px;
     }
   }
 
   @keyframes slide-out {
     0% {
-      top: 55px;
+      top: 10px;
     }
     100% {
       top: -300px;

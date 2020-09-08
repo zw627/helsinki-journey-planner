@@ -3,6 +3,7 @@
   padding-right: 60px;
   cursor: pointer;
   overflow: hidden;
+  overflow-x: overlay;
   white-space: nowrap;
   border-bottom: 1px solid #eaeaea;
   position: relative;
