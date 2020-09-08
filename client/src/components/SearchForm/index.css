@@ -11,7 +11,7 @@
 
 .search-form-header-overlay,
 .search-form-container header {
-  height: 255px;
+  height: 235px;
   width: 100%;
 }
 
@@ -43,16 +43,16 @@
 .search-form-container header h1 {
   font-family: "Pacifico", cursive;
   font-weight: 400;
-  font-size: 52px;
+  font-size: 46px;
   letter-spacing: 0px;
   margin: 0;
-  margin-top: -85px;
+  margin-top: -80px;
 }
 
 .search-form-container header p {
-  font-size: 16px;
+  font-size: 17px;
   margin: 0;
-  margin-top: -18px;
+  margin-top: -14px;
   text-transform: uppercase;
 }
 
@@ -156,7 +156,7 @@
   background-color: #eaeaea;
 }
 
-@media (min-width: 400px) {
+@media (min-width: 500px) {
   .search-form-header-overlay,
   .search-form-container header {
     height: 275px;
@@ -178,8 +178,12 @@
 }
 
 @media (min-width: 768px) {
-  .search-form-header-overlay,
-  .search-form-container header {
-    height: 300px;
+  .search-form-container header h1 {
+    font-size: 52px;
+  }
+
+  .search-form-container header p {
+    font-size: 19px;
+    margin-top: -14px;
   }
 }

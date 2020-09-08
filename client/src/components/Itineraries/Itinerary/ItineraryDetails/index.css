@@ -5,6 +5,7 @@
 .itinerary-details-leg h3 {
   font-size: 18px;
   margin: 16px 0px;
+  display: flex;
 }
 
 .itinerary-details-leg li {
@@ -26,7 +27,7 @@
 
 .itinerary-details-leg h3 span {
   font-size: 15px;
-  margin-left: 2px;
+  margin-left: 4px;
 }
 
 .itinerary-details-leg li span {
@@ -39,6 +40,7 @@
   top: 0;
   left: 0;
   font-size: 22px;
+  background: white;
 }
 
 .itinerary-details-leg .litinerary-waypoint-connection {

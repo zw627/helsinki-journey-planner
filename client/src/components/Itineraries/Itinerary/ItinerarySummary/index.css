@@ -2,15 +2,21 @@
   position: relative;
 }
 
+.itinerary-summary div {
+  margin-bottom: 12px;
+}
+
 .itinerary-summary .MuiSvgIcon-root {
   font-size: 16px;
   display: block;
-  margin-top: 2px;
+  margin-top: 2px !important;
 }
+
+/* ---------------------------------------------------------------- */
 
 .itinerary-summary-trip {
   display: flex;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
 }
 
 .trips-public-transport-line {
@@ -22,49 +28,68 @@
   font-size: 15px;
 }
 
-.itinerary-summary div {
-  margin: 4px auto;
-}
-
-/* Time, trips */
-.itinerary-summary div:nth-child(1),
-.itinerary-summary div:nth-child(2) {
+.itinerary-summary-time,
+.itinerary-summary-trips {
   font-weight: 700;
 }
 
-/* Trips */
-.itinerary-summary div:nth-child(2) {
+.itinerary-summary-trips {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  margin-top: 8px;
+  margin-bottom: 0px !important;
 }
 
-/* Trips icons */
-.trips-seperator {
+.itinerary-summary-trips .MuiSvgIcon-root.trips-seperator {
   margin: 0px 3px;
 }
 
-/* First public transport to catch */
-/* Walk distance */
-.itinerary-summary div:nth-child(3),
-.itinerary-summary div:nth-child(4),
-.itinerary-summary div:nth-child(4) .MuiSvgIcon-root {
+/* ---------------------------------------------------------------- */
+
+.itinerary-summary-first-public-transport,
+.itinerary-summary-distance-zones-fares,
+.itinerary-summary-distance-zones-fares .MuiSvgIcon-root {
   color: #909090;
   font-size: 14px;
 }
 
-.itinerary-summary div:nth-child(3) span {
+.itinerary-summary-first-public-transport {
+  margin-bottom: 8px !important;
+}
+
+.itinerary-summary-first-public-transport span {
   border: 1px solid #d4d4d4;
   border-radius: 5px;
   padding: 0px 2px;
   font-size: 12px;
 }
 
-.itinerary-summary div:nth-child(4) {
+.itinerary-summary-distance-zones-fares {
   display: flex;
+  flex-direction: row;
+  margin: 0px !important;
 }
 
-.itinerary-summary div:nth-child(4) .MuiSvgIcon-root {
+.distance-zones-fares-seperator {
+  margin: 0 8px;
+}
+
+.itinerary-summary-distance-zones-fares .MuiSvgIcon-root {
   margin-top: 1px;
+}
+
+.itinerary-summary-distance-zones-fares .itinerary-summary-zones {
+  border-radius: 100px;
+  background-color: #cacaca;
+  color: white;
+  font-size: 12px;
+  justify-content: center;
+  margin: 0px;
+  margin-right: 4px;
+  margin-top: 1px;
+  padding: 0px 3px;
+}
+
+.itinerary-summary-distance-zones-fares .itinerary-summary-zones span {
+  padding: 0px 3px;
 }
