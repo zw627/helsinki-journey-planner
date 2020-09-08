@@ -17,14 +17,14 @@ const ItinerarySummary = ({ itinerary }) => {
   const trips = itinerary["trips"].map((trip, index) => {
     return (
       <span className="itinerary-summary-trip" key={trip["id"]}>
+        {index !== 0 ? (
+          <NavigateNextRoundedIcon className="trips-seperator" />
+        ) : null}
         <TripIcon text={trip["mode"]} className="" />
         {trip["trip"] ? (
           <span className="trips-public-transport-line">
             {trip["trip"]["routeShortName"]}
           </span>
-        ) : null}
-        {index < itinerary["trips"].length - 1 ? (
-          <NavigateNextRoundedIcon className="trips-seperator" />
         ) : null}
       </span>
     );

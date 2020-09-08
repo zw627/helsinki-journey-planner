@@ -10,6 +10,7 @@
 
 .itinerary-summary-trip {
   display: flex;
+  margin-bottom: 8px;
 }
 
 .trips-public-transport-line {
@@ -35,7 +36,8 @@
 .itinerary-summary div:nth-child(2) {
   display: flex;
   flex-direction: row;
-  margin: 8px auto;
+  flex-wrap: wrap;
+  margin-top: 8px;
 }
 
 /* Trips icons */

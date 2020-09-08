@@ -1,5 +1,6 @@
 .itinerary {
   padding: 12px;
+  padding-right: 60px;
   cursor: pointer;
   overflow: hidden;
   white-space: nowrap;
