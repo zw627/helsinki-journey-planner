@@ -2,6 +2,8 @@
 // URL: https://api.digitransit.fi/routing/v1/routers/hsl/index/graphql
 // Docs: https://digitransit.fi/en/developers/apis/1-routing-api/itinerary-planning/
 
+const checkZero = require("../../utils").zeroToOne;
+
 module.exports = {
   /**
    * Set up the JSON equivalent of GraphQL query for Digitransit GraphQL API (itinerary planning).
@@ -94,10 +96,10 @@ module.exports = {
           id: require("uuid").v4(),
 
           // Total duration in minutes
-          duration: Math.floor(itinerary["duration"] / 60),
+          duration: checkZero(Math.floor(itinerary["duration"] / 60)),
 
           // Walk distance in meters
-          walkDistance: Math.floor(itinerary["walkDistance"]),
+          walkDistance: checkZero(Math.floor(itinerary["walkDistance"])),
 
           startTime: itinerary["startTime"],
           endTime: itinerary["endTime"],
@@ -115,8 +117,8 @@ module.exports = {
               mode: leg["mode"], // e.g. WALK, TRAM
               startTime: leg["startTime"],
               endTime: leg["endTime"],
-              duration: Math.floor(leg["duration"] / 60), // Minutes
-              distance: Math.floor(leg["distance"]), // Meters
+              duration: checkZero(Math.floor(leg["duration"] / 60)), // Minutes
+              distance: checkZero(Math.floor(leg["distance"])), // Meters
               trip: leg["trip"], // e.g. M1 Matinkylä, null
               from: {
                 name: leg["from"]["name"],
