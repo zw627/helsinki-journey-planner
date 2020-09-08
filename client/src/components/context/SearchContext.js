@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 const SearchContext = React.createContext();
@@ -13,6 +13,10 @@ const SearchProvider = ({ children }) => {
     coordinates: { lat: 0.0, lon: 0.0 },
   });
   const [itineraries, setItineraries] = useState([]);
+  const [notification, setNotification] = useState({
+    isPositive: false,
+    text: "",
+  });
 
   // Pass all data as parameters instead of using states
   // to avoid fetch is triggered before useState
@@ -40,9 +44,20 @@ const SearchProvider = ({ children }) => {
         setItineraries(res.data);
       }
     } catch (err) {
+      setItineraries([]);
+      setNotification({ isPositive: false, text: err.response.data.message });
       console.log(err.response.data.message);
     }
   };
+
+  // useEffect(() => {
+  //   handleSetItineraries(
+  //     { coordinates: { lat: 60.18526, lon: 24.829319 } },
+  //     { coordinates: { lat: 60.168992, lon: 24.932366 } },
+  //     "2020-09-08",
+  //     "09:00:00"
+  //   );
+  // }, []);
 
   return (
     <SearchContext.Provider
@@ -50,10 +65,12 @@ const SearchProvider = ({ children }) => {
         origin,
         destination,
         itineraries,
+        notification,
         actions: {
           setOrigin,
           setDestination,
           handleSetItineraries,
+          setNotification,
         },
       }}
     >

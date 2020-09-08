@@ -1,14 +1,16 @@
 import React from "react";
 
+import SearchProvider from "./context/SearchContext";
 import SearchFrom from "./SearchForm";
 import Itineraries from "./Itineraries";
-import SearchProvider from "./context/SearchContext";
+import Notification from "./Notification";
 import "./App.css";
 
 const App = () => {
   return (
     <div className="app">
       <SearchProvider>
+        <Notification />
         <SearchFrom />
         <Itineraries />
       </SearchProvider>
