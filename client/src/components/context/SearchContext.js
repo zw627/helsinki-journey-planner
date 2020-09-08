@@ -50,14 +50,23 @@ const SearchProvider = ({ children }) => {
     }
   }
 
-  // useEffect(() => {
-  //   handleSetItineraries(
-  //     { coordinates: { lat: 60.18526, lon: 24.829319 } },
-  //     { coordinates: { lat: 60.168992, lon: 24.932366 } },
-  //     "2020-09-08",
-  //     "09:00:00"
-  //   );
-  // }, []);
+  // For testing purposes
+  useEffect(() => {
+    // // Kamppi to Railway Station
+    // handleSetItineraries(
+    //   { coordinates: { lat: 60.169022, lon: 24.931691 } },
+    //   { coordinates: { lat: 60.170384, lon: 24.939846 } },
+    //   "2020-09-08",
+    //   "09:00:00"
+    // );
+    // // Aalto to Espoo
+    // handleSetItineraries(
+    //   { coordinates: { lat: 60.18526, lon: 24.829319 } },
+    //   { coordinates: { lat: 60.224187, lon: 24.660363 } },
+    //   "2020-09-08",
+    //   "09:00:00"
+    // );
+  }, []);
 
   return (
     <SearchContext.Provider
