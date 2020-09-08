@@ -12,9 +12,9 @@ router.post("/", async (req, res, next) => {
   try {
     // Fetch if input has more than 2 characters
     if (req.body.text.length > 1) {
-      // Import helpers
-      const setupQuery = require("./helpers").setupQuery;
-      const simplifyResJson = require("./helpers").simplifyResJson;
+      // Lazy load helpers
+      const { setupQuery } = require("./helpers");
+      const { simplifyResJson } = require("./helpers");
 
       // Fetch addresses
       const query = setupQuery(req.body, "default");

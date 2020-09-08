@@ -26,9 +26,9 @@ router.post("/", async (req, res, next) => {
 
     // Fetch if all params are valid
     if (allParametersAreValid && twoLocationsAreNotIdentical) {
-      // Import helpers
-      const setupQuery = require("./helpers").setupQuery;
-      const simplifyResJson = require("./helpers").simplifyResJson;
+      // Lazy load helpers
+      const { setupQuery } = require("./helpers");
+      const { simplifyResJson } = require("./helpers");
 
       // Fetch itineraries
       const query = setupQuery(req.body);
