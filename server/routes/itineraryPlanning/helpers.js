@@ -22,6 +22,8 @@ module.exports = {
                   itineraries {
                     duration
                     walkDistance
+                    startTime
+                    endTime
                     fares {
                       type
                       cents
@@ -73,32 +75,56 @@ module.exports = {
   simplifyResJson: function (json, simplify) {
     if (simplify) {
       return json["data"]["plan"]["itineraries"].map((itinerary) => {
+        // All trips invovled (walk, bus, tram)
+        const trips = itinerary["legs"].map((leg) => ({
+          id: require("uuid").v4(),
+          mode: leg["mode"], // e.g. WALK, TRAM
+          startTime: leg["startTime"],
+          trip: leg["trip"], // e.g. M1 Matinkylä, null
+          stop: leg["from"]["stop"],
+        }));
+
+        // The first public transport trip in the list
+        const firstPublicTransportTrip = trips.find(
+          (trip) => trip["mode"] !== "WALK"
+        );
+
         return {
           // Generate ID
           id: require("uuid").v4(),
 
           // Total duration in minutes
-          duration: Math.floor(itinerary.duration / 60),
+          duration: Math.floor(itinerary["duration"] / 60),
 
           // Walk distance in meters
-          walkDistance: Math.floor(itinerary.walkDistance),
+          walkDistance: Math.floor(itinerary["walkDistance"]),
+
+          startTime: itinerary["startTime"],
+          endTime: itinerary["endTime"],
+
+          // The first public transport you need to catch
+          firstPublicTransportTrip,
+
+          // All trips invovled (walk, bus, tram)
+          trips,
 
           // All routes
-          legs: itinerary.legs.map((leg) => {
+          legs: itinerary["legs"].map((leg) => {
             return {
-              mode: leg.mode, // e.g. WALK, TRAM
-              startTime: new Date(leg.startTime), // UTC
-              endTime: new Date(leg.endTime), // UTC
-              duration: Math.floor(leg.duration / 60), // Minutes
-              distance: Math.floor(leg.distance), // Meters
-              trip: leg.trip, // e.g. M1 Matinkylä, null
+              id: require("uuid").v4(),
+              mode: leg["mode"], // e.g. WALK, TRAM
+              startTime: leg["startTime"],
+              endTime: leg["endTime"],
+              duration: Math.floor(leg["duration"] / 60), // Minutes
+              distance: Math.floor(leg["distance"]), // Meters
+              trip: leg["trip"], // e.g. M1 Matinkylä, null
               from: {
-                name: leg.from.name,
-                stop: leg.from.stop,
+                name: leg["from"]["name"],
+                stop: leg["from"]["stop"],
               },
               to: {
-                name: leg.to.name,
-                stop: leg.to.stop,
+                name: leg["to"]["name"],
+                stop: leg["to"]["stop"],
               },
             };
           }),
