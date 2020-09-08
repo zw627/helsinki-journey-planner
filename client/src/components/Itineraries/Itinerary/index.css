@@ -1,0 +1,24 @@
+.itinerary {
+  padding: 12px;
+  cursor: pointer;
+  overflow: hidden;
+  white-space: nowrap;
+  border-bottom: 1px solid #eaeaea;
+  position: relative;
+}
+
+.itinerary:last-child {
+  border: none;
+}
+
+.MuiSvgIcon-root.itinerary-expand-icon {
+  position: absolute;
+  top: 44px;
+  right: 5%;
+  font-size: 40px;
+  transition: all 0.2s ease-out;
+}
+
+.MuiSvgIcon-root.itinerary-expand-icon.itinerary-expand-icon-is-expanded {
+  transform: rotate(180deg);
+}

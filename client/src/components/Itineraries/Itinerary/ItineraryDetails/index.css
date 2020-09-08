@@ -1,0 +1,63 @@
+.itinerary-details-leg {
+  position: relative;
+}
+
+.itinerary-details-leg h3 {
+  font-size: 18px;
+  margin: 16px 0px;
+}
+
+.itinerary-details-leg li {
+  margin: 2px 0px;
+  padding: 0px;
+}
+
+.itinerary-details-leg h3,
+.itinerary-details-leg li {
+  margin-left: 30px;
+}
+
+.itinerary-details-leg li span,
+.itinerary-details-leg h3 span {
+  border: 2px solid #d4d4d4;
+  border-radius: 6px;
+  padding: 0px 3px;
+}
+
+.itinerary-details-leg h3 span {
+  font-size: 15px;
+  margin-left: 2px;
+}
+
+.itinerary-details-leg li span {
+  font-size: 14px;
+  margin-right: 3px;
+}
+
+.MuiSvgIcon-root.litinerary-waypoint {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 22px;
+}
+
+.itinerary-details-leg .litinerary-waypoint-connection {
+  height: 90px;
+  width: 10px;
+  position: absolute;
+  top: 24px;
+  left: 5.9px;
+}
+
+.itinerary-details-leg .litinerary-waypoint-connection line {
+  stroke: #d4d4d4;
+}
+
+.MuiSvgIcon-root.itinerary-details-leg-icon,
+.itinerary-details-leg li {
+  font-size: 16px;
+}
+
+.MuiSvgIcon-root.itinerary-details-leg-icon {
+  margin-bottom: -2px;
+}
