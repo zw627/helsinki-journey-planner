@@ -37,13 +37,13 @@ router.post("/", async (req, res, next) => {
       if (jsonMerged.length > 0) {
         res.json(simplifyResJson(jsonMerged, true));
       } else {
-        res.status(404).json({ message: "No address is found." });
+        res.status(404).json({ message: "No results found." });
       }
     }
 
     // Do nothing if input has less than 2 characters
     else {
-      res.status(400).json({ message: "Minimal number of characters: 2" });
+      res.status(400).json({ message: "Minimal two characters." });
     }
   } catch (err) {
     next(err);

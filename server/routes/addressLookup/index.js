@@ -26,14 +26,14 @@ router.post("/", async (req, res, next) => {
       if (json["features"].length > 0) {
         res.json(simplifyResJson(json, true));
       } else {
-        res.status(404).json({ message: "No address is found." });
+        res.status(404).json({ message: "No results found." });
       }
     }
 
     // Do nothing if one param is missing
     else {
       res.status(400).json({
-        message: "One or more parameters are missing.",
+        message: "Invalid coordinates.",
       });
     }
   } catch (err) {

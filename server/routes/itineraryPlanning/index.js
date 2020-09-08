@@ -46,7 +46,7 @@ router.post("/", async (req, res, next) => {
       if (json["data"]["plan"]["itineraries"].length > 0) {
         res.json(simplifyResJson(json, true));
       } else {
-        res.status(404).json({ message: "No route is found." });
+        res.status(404).json({ message: "No results found." });
       }
     }
 
@@ -54,7 +54,7 @@ router.post("/", async (req, res, next) => {
     else {
       res.status(400).json({
         message:
-          "One or more parameters missing. Or identical origin and destination.",
+          "Identical origin and destination. Or invalid origin, destination, date, or time.",
       });
     }
   } catch (err) {
