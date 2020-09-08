@@ -15,11 +15,11 @@ const SearchBar = (props) => {
 
   const searchBarInputRef = useRef(null);
 
-  const handleFocus = () => {
+  function handleFocus() {
     setFocus(true);
-  };
+  }
 
-  const handleBlur = () => {
+  function handleBlur() {
     // Out of focus unmounts the results list
     setFocus(false);
 
@@ -46,10 +46,11 @@ const SearchBar = (props) => {
         name: "",
         coordinates: { lat: 0.0, lon: 0.0 },
       });
+      props.setItineraries([]);
     }
-  };
+  }
 
-  const fetchResults = async (text) => {
+  async function fetchResults(text) {
     try {
       const res = await axios.post("/api/address-search", {
         text,
@@ -76,9 +77,9 @@ const SearchBar = (props) => {
         text: err.response.data.message,
       });
     }
-  };
+  }
 
-  const handleInput = (e) => {
+  function handleInput(e) {
     // Enforce singple space ("aalto  yliopisto" => "aalto yliopisto" )
     const filteredInput = e.target.value.replace(/ +/g, " ");
     setValue(filteredInput);
@@ -102,9 +103,9 @@ const SearchBar = (props) => {
     else if (value.length > 1) {
       fetchResults(value);
     }
-  };
+  }
 
-  const handleGeolocation = () => {
+  function handleGeolocation() {
     if ("geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
@@ -140,9 +141,9 @@ const SearchBar = (props) => {
         }
       );
     }
-  };
+  }
 
-  const handleSelect = (address) => {
+  function handleSelect(address) {
     const selectedResult = {
       name: address["labelPriamry"],
       coordinates: address["coordinates"],
@@ -175,10 +176,10 @@ const SearchBar = (props) => {
     //     getFormattedTime()
     //   );
     // }
-  };
+  }
 
   // Handle "enter" and "return" keys
-  const hanldeKeyDown = (e) => {
+  function hanldeKeyDown(e) {
     // Select the first search result
     if ((e.key === 13 || e.key === "Enter") && results.length > 0) {
       handleSelect(results[0]);
@@ -198,10 +199,10 @@ const SearchBar = (props) => {
         searchBarInputRef.current.blur();
       }, 10);
     }
-  };
+  }
 
   // Reset input and its related data, then focus on input
-  const handleReset = () => {
+  function handleReset() {
     setValue("");
     setSelected({
       name: "",
@@ -210,10 +211,11 @@ const SearchBar = (props) => {
     setResults([]);
     props.setNotification({ isPositive: false, text: "" });
     props.setAddress({});
+    props.setItineraries([]);
     setTimeout(() => {
       searchBarInputRef.current.focus();
     }, 10);
-  };
+  }
 
   const labelText = props.isOrigin ? "Origin" : "Destination";
   const inputId = props.isOrigin ? "origin-input" : "destination-input";

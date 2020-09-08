@@ -20,7 +20,7 @@ const SearchProvider = ({ children }) => {
 
   // Pass all data as parameters instead of using states
   // to avoid fetch is triggered before useState
-  const handleSetItineraries = async (origin, destination, date, time) => {
+  async function handleSetItineraries(origin, destination, date, time) {
     try {
       if (
         origin["coordinates"]["lat"] &&
@@ -48,7 +48,7 @@ const SearchProvider = ({ children }) => {
       setNotification({ isPositive: false, text: err.response.data.message });
       console.log(err.response.data.message);
     }
-  };
+  }
 
   // useEffect(() => {
   //   handleSetItineraries(
@@ -69,6 +69,7 @@ const SearchProvider = ({ children }) => {
         actions: {
           setOrigin,
           setDestination,
+          setItineraries,
           handleSetItineraries,
           setNotification,
         },

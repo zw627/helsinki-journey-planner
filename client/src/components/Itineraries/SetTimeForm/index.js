@@ -6,23 +6,23 @@ import { pad, getFormattedDate } from "../../../utils";
 const SetTimeForm = (props) => {
   const [hours, setHours] = useState("");
   const [minutes, setMinutes] = useState("");
-  const [date, setDate] = useState("");
+  // const [date, setDate] = useState("");
 
-  const handleHours = (e) => {
+  function handleHours(e) {
     // Only numbers allowed, max 2 characters, max 23
     let filtered = e.target.value.replace(/[^0-9]/g, "").substring(0, 2);
     if (filtered > 23) filtered = 23;
     setHours(filtered);
-  };
+  }
 
-  const handleMinutes = (e) => {
+  function handleMinutes(e) {
     // Only numbers allowed, max 2 characters, max 59
     let filtered = e.target.value.replace(/[^0-9]/g, "").substring(0, 2);
     if (filtered > 59) filtered = 59;
     setMinutes(filtered);
-  };
+  }
 
-  const handleSetTime = (e) => {
+  function handleSetTime(e) {
     e.preventDefault();
     const time = `${hours}:${minutes}`;
     props.handleSetItineraries(
@@ -31,7 +31,7 @@ const SetTimeForm = (props) => {
       getFormattedDate(),
       time
     );
-  };
+  }
 
   useEffect(() => {
     // Set current time after users clicked search (this component is rendered)

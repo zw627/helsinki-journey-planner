@@ -14,6 +14,7 @@ const SearchBarOrigin = () => {
           destination={destination}
           notification={notification}
           setNotification={actions.setNotification}
+          setItineraries={actions.setItineraries}
           handleSetItineraries={actions.handleSetItineraries}
         />
       )}

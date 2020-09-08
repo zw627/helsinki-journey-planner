@@ -10,7 +10,7 @@ const SearchResults = ({
 }) => {
   let searchResultsUlElement;
 
-  const renderResultsLiElement = (results) => {
+  function renderResultsLiElement(results) {
     // Show results if results are valid and input has more than 2 characters
     if (results.length > 0 && value.length > 1) {
       return results.map((address) => (
@@ -21,7 +21,7 @@ const SearchResults = ({
       ));
     }
     return null;
-  };
+  }
 
   // Origin search results
   // If on focus, show <ul> because "Use Current Location" is always present

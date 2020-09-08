@@ -9,9 +9,9 @@ import "./index.css";
 const Itinerary = ({ itinerary }) => {
   const [isExpanded, setExpand] = useState(false);
 
-  const handleOnclick = () => {
+  function handleOnclick() {
     setExpand(!isExpanded);
-  };
+  }
 
   // Render details if it is clicked
   return (

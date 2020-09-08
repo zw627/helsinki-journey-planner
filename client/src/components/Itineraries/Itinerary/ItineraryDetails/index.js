@@ -10,19 +10,19 @@ const ItineraryDetails = ({ leg, isLast }) => {
   const endTime = getHoursMinutes(leg["endTime"]);
 
   // e.g. Aalto-yliopisto E0003
-  const getLocation = (key = "from") => {
+  function getLocation(key = "from") {
     if (leg[key]["stop"]) {
       return (
-        <h3>
+        <React.Fragment>
           {leg[key]["stop"]["name"]} <span>{leg[key]["stop"]["code"]}</span>
-        </h3>
+        </React.Fragment>
       );
     }
-    return <h3>{leg[key]["name"]}</h3>;
-  };
+    return <React.Fragment>{leg[key]["name"]}</React.Fragment>;
+  }
 
   // e.g. M1 Vuosaari
-  const getTrip = () => {
+  function getTrip() {
     if (leg["trip"]) {
       return (
         <React.Fragment>
@@ -32,12 +32,12 @@ const ItineraryDetails = ({ leg, isLast }) => {
       );
     }
     return "Walk";
-  };
+  }
 
   return (
     <React.Fragment>
       <ul className="itinerary-details-leg">
-        {getLocation()}
+        <h3>{getLocation()}</h3>
         <li>
           <TripIcon text={leg["mode"]} className="itinerary-details-leg-icon" />{" "}
           {getTrip()}

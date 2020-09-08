@@ -4,28 +4,33 @@ import { SearchConsumer } from "../../context/SearchContext";
 import { getFormattedDate, getFormattedTime } from "../../../utils/index";
 import "./index.css";
 
-const SearchButton = () => {
-  return (
-    <SearchConsumer>
-      {({ origin, destination, actions }) => {
-        const handleOnClick = (e) => {
-          e.preventDefault();
-          actions.handleSetItineraries(
-            origin,
-            destination,
-            getFormattedDate(),
-            getFormattedTime()
-          );
-        };
+const SearchButton = (props) => {
+  function handleOnClick(e) {
+    e.preventDefault();
+    props.handleSetItineraries(
+      props.origin,
+      props.destination,
+      getFormattedDate(),
+      getFormattedTime()
+    );
+  }
 
-        return (
-          <button type="submit" onClick={handleOnClick}>
-            Search
-          </button>
-        );
-      }}
-    </SearchConsumer>
+  return (
+    <button type="submit" onClick={handleOnClick}>
+      Search
+    </button>
   );
 };
 
-export default SearchButton;
+const SearchButtonWrapper = () => (
+  <SearchConsumer>
+    {({ origin, destination, actions }) => (
+      <SearchButton
+        origin={origin}
+        destination={destination}
+        handleSetItineraries={actions.handleSetItineraries}
+      />
+    )}
+  </SearchConsumer>
+);
+export default SearchButtonWrapper;

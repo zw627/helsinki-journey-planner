@@ -5,23 +5,7 @@ import CheckCircleOutlineRoundedIcon from "@material-ui/icons/CheckCircleOutline
 import { SearchConsumer } from "../context/SearchContext";
 import "./index.css";
 
-export default function NotificationWrapper() {
-  return (
-    <SearchConsumer>
-      {({ notification, actions }) =>
-        notification["text"] ? (
-          <Notification
-            isPositive={notification["isPositive"]}
-            text={notification["text"]}
-            setNotification={actions.setNotification}
-          />
-        ) : null
-      }
-    </SearchConsumer>
-  );
-}
-
-function Notification(props) {
+const Notification = (props) => {
   const [slideOut, setSlideOut] = useState(false);
 
   const slideOutTimer = useRef(0);
@@ -75,4 +59,22 @@ function Notification(props) {
       <span>{props.text}</span>
     </div>
   );
-}
+};
+
+const NotificationWrapper = () => {
+  return (
+    <SearchConsumer>
+      {({ notification, actions }) =>
+        notification["text"] ? (
+          <Notification
+            isPositive={notification["isPositive"]}
+            text={notification["text"]}
+            setNotification={actions.setNotification}
+          />
+        ) : null
+      }
+    </SearchConsumer>
+  );
+};
+
+export default NotificationWrapper;
