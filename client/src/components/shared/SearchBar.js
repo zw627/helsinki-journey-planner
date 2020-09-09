@@ -46,9 +46,10 @@ const SearchBar = (props) => {
     setSelectedResult(filteredAddress);
     props.setAddress(filteredAddress);
 
-    // Clear focus and error
+    // Clear focus, error, and old itineraries
     setFocus(false);
     props.setNotification({ isPositive: false, text: "" });
+    props.setItineraries([]);
   }
 
   function handleFocus() {
