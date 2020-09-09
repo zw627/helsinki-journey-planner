@@ -23,3 +23,11 @@ These scripts are valid in the project root directory only.
 
 - `npm run server`: Start the server.
 - `npm run client`: Start the client.
+
+**Build:**
+
+- `npm run client-build`: Build the client.
+
+## Deployment
+
+A `.ebignore` is included to ignore the `client` while deploying to AWS Elastic Beanstalk.
