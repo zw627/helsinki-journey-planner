@@ -9,23 +9,25 @@
   font-size: 16px;
 }
 
-.itineraries-house-minutes-input {
+.itineraries-time-input,
+.itineraries-date-input {
   background-color: white;
   border-radius: 10px;
   text-align: center;
   display: flex;
   justify-content: center;
+  width: 80px;
 }
 
-.itineraries-house-minutes-input,
+.itineraries-time-input,
+.itineraries-date-input,
 .itineraries-form button {
-  width: 100px;
   padding: 0;
   height: 48px;
 }
 
-.itineraries-house-minutes-input {
-  width: 80px;
+.itineraries-date-input {
+  margin: 0px 8px;
 }
 
 .itineraries-form input {
@@ -53,13 +55,13 @@
 }
 
 .itineraries-form button {
-  margin-left: 10px;
   background: #487ffe;
   color: #fff;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   font-size: 16px;
   font-weight: 700;
   padding: 14px 0px;
+  width: 100px;
 }
 
 .itineraries-form button:active {

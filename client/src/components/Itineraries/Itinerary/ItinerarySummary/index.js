@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import NavigateNextRoundedIcon from "@material-ui/icons/NavigateNextRounded";
 
 import TripIcon from "../../../shared/TripIcon";
