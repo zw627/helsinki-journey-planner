@@ -16,6 +16,7 @@ const Itineraries = () => (
             origin={origin}
             destination={destination}
             setItineraries={actions.setItineraries}
+            setNotification={actions.setNotification}
             handleSetItineraries={actions.handleSetItineraries}
           />
           <ul className="itineraries">

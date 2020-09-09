@@ -11,7 +11,7 @@ import DirectionsSubwayRoundedIcon from "@material-ui/icons/DirectionsSubwayRoun
 import TramRoundedIcon from "@material-ui/icons/TramRounded";
 import DirectionsWalkRoundedIcon from "@material-ui/icons/DirectionsWalkRounded";
 
-const TripIcon = (props) => {
+const TripIcon = ({ text, className }) => {
   const getIcon = (text, className) => {
     switch (text) {
       case "AIRPLANE":
@@ -43,9 +43,7 @@ const TripIcon = (props) => {
     }
   };
 
-  return (
-    <React.Fragment>{getIcon(props.text, props.className)}</React.Fragment>
-  );
+  return <React.Fragment>{getIcon(text, className)}</React.Fragment>;
 };
 
 TripIcon.propTypes = {

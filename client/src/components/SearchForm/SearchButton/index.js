@@ -5,12 +5,12 @@ import { SearchConsumer } from "../../context/SearchContext";
 import { getFormattedDate, getFormattedTime } from "../../../utils/index";
 import "./index.css";
 
-const SearchButton = (props) => {
+const SearchButton = ({ origin, destination, handleSetItineraries }) => {
   function handleOnClick(e) {
     e.preventDefault();
-    props.handleSetItineraries(
-      props.origin,
-      props.destination,
+    handleSetItineraries(
+      origin,
+      destination,
       getFormattedDate(),
       getFormattedTime()
     );

@@ -4,7 +4,13 @@ import PropTypes from "prop-types";
 import { pad, getLastDay } from "../../../utils";
 import "./index.css";
 
-const SetTimeForm = (props) => {
+const SetTimeForm = ({
+  origin,
+  destination,
+  setItineraries,
+  setNotification,
+  handleSetItineraries,
+}) => {
   const [hours, setHours] = useState("");
   const [minutes, setMinutes] = useState("");
   const [month, setMonth] = useState("");
@@ -54,11 +60,11 @@ const SetTimeForm = (props) => {
     const year = new Date().getFullYear();
     const date = `${year}-${month}-${day}`;
     const time = `${hours}:${minutes}`;
-    props.handleSetItineraries(props.origin, props.destination, date, time);
-
+    handleSetItineraries(origin, destination, date, time);
+    setNotification({ isPositive: false, text: "" });
     // Unmount if origin and destination inputs are somehow empty
-    if (!props.origin["name"] || !props.destination["name"]) {
-      props.setItineraries([]);
+    if (!origin["name"] || !destination["name"]) {
+      setItineraries([]);
     }
   }
 
@@ -99,6 +105,7 @@ SetTimeForm.propTypes = {
   origin: PropTypes.object.isRequired,
   destination: PropTypes.object.isRequired,
   setItineraries: PropTypes.func.isRequired,
+  setNotification: PropTypes.func.isRequired,
   handleSetItineraries: PropTypes.func.isRequired,
 };
 
