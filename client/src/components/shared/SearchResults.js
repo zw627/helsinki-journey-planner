@@ -1,51 +1,58 @@
 import React from "react";
 
-const SearchResults = ({
-  isOrigin,
-  value,
-  focus,
-  results,
-  handleSelect,
-  handleGeolocation,
-}) => {
-  let searchResultsUlElement;
+const SearchResults = (props) => {
+  function renderResults() {
+    // Render results if available
+    // and search value has more than 2 characters
+    if (props.searchResults.length > 0 && props.searchValue.length > 2)
+      return props.searchResults.map((result) => {
+        const id = result["id"];
+        const namePriamry = result["labelPriamry"];
+        const nameSecondary = result["labelSecondary"];
 
-  function renderResultsLiElement(results) {
-    // Show results if results are valid and input has more than 2 characters
-    if (results.length > 0 && value.length > 1) {
-      return results.map((address) => (
-        <li onMouseDown={() => handleSelect(address)} key={address["id"]}>
-          {address["labelPriamry"]}
-          <span>{address["labelSecondary"]}</span>
-        </li>
-      ));
+        return (
+          <li onMouseDown={() => props.handleSelectedResult(result)} key={id}>
+            {namePriamry}
+            <span>{nameSecondary}</span>
+          </li>
+        );
+      });
+  }
+
+  function renderWrapper() {
+    let wrapper;
+
+    // Origin search results
+    // If on focus, show <ul> because "Use Current Location" is always present
+    if (props.isFocus && props.isOrigin) {
+      wrapper = (
+        <ul>
+          <li
+            onMouseDown={props.handleGeolocation}
+            key="58bfeeaf-5785-4966-9037-b248397608a7"
+          >
+            Use Current Location
+          </li>
+          {renderResults()}
+        </ul>
+      );
     }
-    return null;
+
+    // Destination search results
+    // If on focus, <ul> itself is not rendered unless there are results
+    else if (
+      props.isFocus &&
+      !props.isOrigin &&
+      props.searchResults.length > 0 &&
+      props.searchValue.length > 2
+    ) {
+      wrapper = <ul>{renderResults()}</ul>;
+    }
+
+    return wrapper;
   }
 
-  // Origin search results
-  // If on focus, show <ul> because "Use Current Location" is always present
-  if (focus && isOrigin) {
-    searchResultsUlElement = (
-      <ul>
-        <li
-          onMouseDown={handleGeolocation}
-          key="58bfeeaf-5785-4966-9037-b248397608a7"
-        >
-          Use Current Location
-        </li>
-        {renderResultsLiElement(results)}
-      </ul>
-    );
-  }
-
-  // Destination search results
-  // If on focus, <ul> itself is not rendered unless there are results
-  else if (focus && !isOrigin && results.length > 0 && value.length > 1) {
-    searchResultsUlElement = <ul>{renderResultsLiElement(results)}</ul>;
-  }
-
-  return <React.Fragment>{searchResultsUlElement}</React.Fragment>;
+  return <React.Fragment>{renderWrapper()}</React.Fragment>;
 };
 
 export default SearchResults;
