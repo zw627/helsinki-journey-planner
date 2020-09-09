@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const SearchResults = (props) => {
   function renderResults() {
@@ -53,6 +54,15 @@ const SearchResults = (props) => {
   }
 
   return <React.Fragment>{renderWrapper()}</React.Fragment>;
+};
+
+SearchResults.propTypes = {
+  isOrigin: PropTypes.bool.isRequired,
+  searchValue: PropTypes.string.isRequired,
+  searchResults: PropTypes.arrayOf(PropTypes.object),
+  isFocus: PropTypes.bool.isRequired,
+  handleGeolocation: PropTypes.func.isRequired,
+  handleSelectedResult: PropTypes.func.isRequired,
 };
 
 export default SearchResults;

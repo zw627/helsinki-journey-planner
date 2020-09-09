@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import FiberManualRecordOutlinedIcon from "@material-ui/icons/FiberManualRecordOutlined";
 
 import { getHoursMinutes } from "../../../../utils/index";
@@ -113,6 +114,11 @@ const ItineraryDetails = ({ leg, isLast }) => {
       }
     </React.Fragment>
   );
+};
+
+ItineraryDetails.propTypes = {
+  leg: PropTypes.object,
+  isLast: PropTypes.bool.isRequired,
 };
 
 export default ItineraryDetails;

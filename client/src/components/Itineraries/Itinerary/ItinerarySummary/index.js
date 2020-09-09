@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import NavigateNextRoundedIcon from "@material-ui/icons/NavigateNextRounded";
 
 import TripIcon from "../../../shared/TripIcon";
@@ -117,6 +118,10 @@ const ItinerarySummary = ({ itinerary }) => {
       </div>
     </div>
   );
+};
+
+ItinerarySummary.propTypes = {
+  itinerary: PropTypes.object.isRequired,
 };
 
 export default ItinerarySummary;

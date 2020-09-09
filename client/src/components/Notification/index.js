@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import PropTypes from "prop-types";
 import ErrorOutlineRoundedIcon from "@material-ui/icons/ErrorOutlineRounded";
 import CheckCircleOutlineRoundedIcon from "@material-ui/icons/CheckCircleOutlineRounded";
 
@@ -59,6 +60,12 @@ const Notification = (props) => {
       <span>{props.text}</span>
     </div>
   );
+};
+
+Notification.propTypes = {
+  isPositive: PropTypes.bool.isRequired,
+  text: PropTypes.string.isRequired,
+  setNotification: PropTypes.func.isRequired,
 };
 
 const NotificationWrapper = () => {

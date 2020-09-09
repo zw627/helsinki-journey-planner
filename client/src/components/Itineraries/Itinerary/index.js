@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import ExpandMoreRoundedIcon from "@material-ui/icons/ExpandMoreRounded";
 
 import ItineraryDetails from "./ItineraryDetails/";
@@ -36,6 +37,10 @@ const Itinerary = ({ itinerary }) => {
       />
     </li>
   );
+};
+
+Itinerary.propTypes = {
+  itinerary: PropTypes.object.isRequired,
 };
 
 export default Itinerary;

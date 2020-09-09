@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import { SearchConsumer } from "../../context/SearchContext";
 import { getFormattedDate, getFormattedTime } from "../../../utils/index";
@@ -20,6 +21,12 @@ const SearchButton = (props) => {
       Search
     </button>
   );
+};
+
+SearchButton.propTypes = {
+  origin: PropTypes.object.isRequired,
+  destination: PropTypes.object.isRequired,
+  handleSetItineraries: PropTypes.func.isRequired,
 };
 
 const SearchButtonWrapper = () => (
