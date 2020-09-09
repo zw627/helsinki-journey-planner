@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import PropTypes from "prop-types";
 import axios from "axios";
 
 import SearchResults from "./SearchResults";
@@ -204,6 +205,13 @@ const SearchBar = (props) => {
       />
     </div>
   );
+};
+
+SearchBar.propTypes = {
+  isOrigin: PropTypes.bool.isRequired,
+  setAddress: PropTypes.func.isRequired,
+  setNotification: PropTypes.func.isRequired,
+  setItineraries: PropTypes.func.isRequired,
 };
 
 export default SearchBar;

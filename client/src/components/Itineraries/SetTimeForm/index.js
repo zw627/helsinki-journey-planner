@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 
-import "./index.css";
 import { pad, getLastDay } from "../../../utils";
+import "./index.css";
 
 const SetTimeForm = (props) => {
   const [hours, setHours] = useState("");
@@ -92,6 +93,13 @@ const SetTimeForm = (props) => {
       </button>
     </form>
   );
+};
+
+SetTimeForm.propTypes = {
+  origin: PropTypes.object.isRequired,
+  destination: PropTypes.object.isRequired,
+  setItineraries: PropTypes.func.isRequired,
+  handleSetItineraries: PropTypes.func.isRequired,
 };
 
 export default SetTimeForm;

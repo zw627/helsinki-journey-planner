@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import FlightRoundedIcon from "@material-ui/icons/FlightRounded";
 import DirectionsBikeRoundedIcon from "@material-ui/icons/DirectionsBikeRounded";
@@ -45,6 +46,11 @@ const TripIcon = (props) => {
   return (
     <React.Fragment>{getIcon(props.text, props.className)}</React.Fragment>
   );
+};
+
+TripIcon.propTypes = {
+  text: PropTypes.string.isRequired,
+  className: PropTypes.string,
 };
 
 export default TripIcon;
