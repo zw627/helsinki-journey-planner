@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+import { toTitleCase } from "../../utils";
+
 const SearchResults = (props) => {
   function renderResults() {
     // Render results if available
@@ -10,11 +12,14 @@ const SearchResults = (props) => {
         const id = result["id"];
         const namePriamry = result["labelPriamry"];
         const nameSecondary = result["labelSecondary"];
+        const layer = toTitleCase(result["layer"]);
 
         return (
           <li onMouseDown={() => props.handleSelectedResult(result)} key={id}>
             {namePriamry}
-            <span>{nameSecondary}</span>
+            <span>
+              {nameSecondary} ({layer})
+            </span>
           </li>
         );
       });
