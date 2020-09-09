@@ -76,3 +76,20 @@ export function debounce(func, wait) {
     timeout = setTimeout(later, wait);
   };
 }
+
+/**
+ * Capitalize the first character of each word in a sentence.
+ * e.g. "A stoRy OF h" returns "A Story of H".
+ * @param {string} string - Any sentences.
+ * @returns {string} e.g. "A Story of H"
+ */
+export function toTitleCase(string) {
+  // Save each word to an array
+  let wordArray = string.toLowerCase().split(" ");
+
+  // Capitalize the first character
+  wordArray = wordArray.map((word) => word.charAt(0).toUpperCase() + word.substring(1));
+
+  // Put each word back to a string
+  return wordArray.join(" ");
+}
