@@ -1,4 +1,7 @@
-// e.g. 2020-09-04
+/**
+ * Get the current date.
+ * @returns {string} e.g. "2020-09-04"
+ */
 export function getFormattedDate() {
   const year = new Date().getFullYear();
   const month = new Date().getMonth() + 1;
@@ -6,7 +9,10 @@ export function getFormattedDate() {
   return `${year}-${month}-${day}`;
 }
 
-// e.g. 11:51:02
+/**
+ * Get the current time.
+ * @returns {string} e.g. 11:51:02.
+ */
 export function getFormattedTime() {
   const sec = new Date().getSeconds();
   const min = new Date().getMinutes();
@@ -14,7 +20,12 @@ export function getFormattedTime() {
   return `${hour}:${min}:${sec}`;
 }
 
-// e.g. 11:51
+/**
+ * Get hours and minutes from any time format that is supported by JavaScript.
+ * e.g. It returns "13:48" from 1599648480989.
+ * @param {string|number} time - e.g. 1599648480989, "Wed Sep 05 2020 13:49:04 GMT+0300 (Eastern European Summer Time)", etc.
+ * @returns {string} e.g. "13:48"
+ */
 export function getHoursMinutes(time) {
   const hours = new Date(time).getHours();
   const minutes = new Date(time).getMinutes();
@@ -22,9 +33,35 @@ export function getHoursMinutes(time) {
   return `${pad(hours)}:${pad(minutes)}`;
 }
 
-// Add leading 0 to a number that is smaller than 10
-// and remove all fractional digits
+/**
+ * Add leading 0 to a number that is smaller than 10 and remove all fractional digits.
+ * @param {number} num - A number.
+ * @returns {string} e.g. "05".
+ */
 export function pad(num) {
   if (num < 10) return "0" + Math.trunc(num).toString();
   return Math.trunc(num).toString();
+}
+
+/**
+ * Debounce an operation.
+ * @param {void} func - The function that you want to execute after the debounce time.
+ * @param {number} wait - The amount of time you want the debounce function to wait after the last received action before executing func.
+ * @returns {func} The function being passed as argument.
+ */
+export function debounce(func, wait) {
+  let timeout;
+
+  return function executedFunction(...args) {
+    const later = () => {
+      // End the debounce
+      timeout = null;
+      // Execute the input function
+      func(...args);
+    };
+    // Prevents the input function from executed
+    clearTimeout(timeout);
+    // Restart the debounce
+    timeout = setTimeout(later, wait);
+  };
 }

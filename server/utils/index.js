@@ -1,4 +1,9 @@
 module.exports = {
+  /**
+   * Returns 1 if the input is less than 1, else returns the original input.
+   * @param {number} num - A number.
+   * @returns {number} 1 if the input is less than 1, else returns the original input.
+   */
   zeroToOne: function (num) {
     if (num < 1) {
       return 1;
@@ -6,6 +11,12 @@ module.exports = {
     return num;
   },
 
+  /**
+   * Returns an array that contains all the previous letters in alphabet.
+   * e.g. input "C" returns ["A", "B"].
+   * @param {string} letter - An single alphabet letter in English.
+   * @returns {string[]} e.g. ["A", "B"]
+   */
   getPreviousLettersInAlphabet: function (letter) {
     let output = [];
 
