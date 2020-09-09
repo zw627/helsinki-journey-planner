@@ -44,9 +44,9 @@ const SearchProvider = ({ children }) => {
         setItineraries(res.data);
       }
     } catch (err) {
-      setItineraries([]);
+      // Do not unmount the current itineraries if exists (set time)
+      if (!itineraries.length > 0) setItineraries([]);
       setNotification({ isPositive: false, text: err.response.data.message });
-      console.log(err.response.data.message);
     }
   }
 

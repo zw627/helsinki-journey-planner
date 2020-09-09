@@ -21,6 +21,17 @@ export function getFormattedTime() {
 }
 
 /**
+ * Get the last day of the month.
+ * e.g. September 2020 should returns 30.
+ * @param {number} month - Month.
+ * @returns {number} e.g. 30.
+ */
+export function getLastDay(month) {
+  const year = new Date().getFullYear();
+  return new Date(year, month, 0).getDate();
+}
+
+/**
  * Get hours and minutes from any time format that is supported by JavaScript.
  * e.g. It returns "13:48" from 1599648480989.
  * @param {string|number} time - e.g. 1599648480989, "Wed Sep 05 2020 13:49:04 GMT+0300 (Eastern European Summer Time)", etc.
