@@ -39,17 +39,17 @@ const SearchBar = (props) => {
       coordinates: address["coordinates"],
     };
 
-    // Set search and input value
-    setSearchValue(filteredAddress["name"]);
+    // Set input value
     searchBarInputRef.current.value = filteredAddress["name"];
 
     // Set address object
     setSelectedResult(filteredAddress);
     props.setAddress(filteredAddress);
 
-    // Clear focus and error
+    // Clear focus, error, and old itineraries
     setFocus(false);
     props.setNotification({ isPositive: false, text: "" });
+    props.setItineraries([]);
   }
 
   function handleFocus() {
@@ -64,7 +64,6 @@ const SearchBar = (props) => {
 
     // Preserve input and search value (if an address is selected)
     if (name && lat && lon) {
-      setSearchValue(name);
       searchBarInputRef.current.value = name;
     }
 
@@ -97,7 +96,6 @@ const SearchBar = (props) => {
           };
 
           // Set search and input value
-          setSearchValue(filteredAddress["name"]);
           searchBarInputRef.current.value = filteredAddress["name"];
 
           // Set address object
