@@ -6,16 +6,14 @@ import Itineraries from "./Itineraries";
 import Notification from "./Notification";
 import "./App.css";
 
-const App = () => {
-  return (
-    <div className="app">
-      <SearchProvider>
-        <Notification />
-        <SearchFrom />
-        <Itineraries />
-      </SearchProvider>
-    </div>
-  );
-};
+const App = () => (
+  <div className="app">
+    <SearchProvider>
+      <Notification />
+      <SearchFrom />
+      <Itineraries />
+    </SearchProvider>
+  </div>
+);
 
 export default App;

@@ -68,20 +68,18 @@ Notification.propTypes = {
   setNotification: PropTypes.func.isRequired,
 };
 
-const NotificationWrapper = () => {
-  return (
-    <SearchConsumer>
-      {({ notification, actions }) =>
-        notification["text"] ? (
-          <Notification
-            isPositive={notification["isPositive"]}
-            text={notification["text"]}
-            setNotification={actions.setNotification}
-          />
-        ) : null
-      }
-    </SearchConsumer>
-  );
-};
+const NotificationWrapper = () => (
+  <SearchConsumer>
+    {({ notification, actions }) =>
+      notification["text"] ? (
+        <Notification
+          isPositive={notification["isPositive"]}
+          text={notification["text"]}
+          setNotification={actions.setNotification}
+        />
+      ) : null
+    }
+  </SearchConsumer>
+);
 
 export default NotificationWrapper;
