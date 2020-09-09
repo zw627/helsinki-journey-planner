@@ -114,7 +114,7 @@ module.exports = {
             }
 
             // Add previous zones if missing, e.g. D should be ABCD
-            else if (zones.length > 0 && zones[0] !== "A") {
+            else {
               zones.sort();
               const lastLetter = zones[zones.length - 1];
               zones = [...getPreviousLettersInAlphabet(lastLetter), lastLetter];
