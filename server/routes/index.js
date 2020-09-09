@@ -10,7 +10,7 @@ const router = express.Router();
 // "/api"
 router
   .get("/", (req, res) => {
-    res.json({ text: "Greetings from the server!" });
+    res.sendStatus(200);
   })
   .use("/address-lookup", addressLookup)
   .use("/address-search", addressSearch)

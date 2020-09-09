@@ -30,16 +30,19 @@ const SearchProvider = ({ children }) => {
         date &&
         time
       ) {
-        const res = await axios.post("/api/itinerary-planning", {
-          origin: {
-            coordinates: origin["coordinates"],
-          },
-          destination: {
-            coordinates: destination["coordinates"],
-          },
-          date,
-          time,
-        });
+        const res = await axios.post(
+          process.env.REACT_APP_API_ITINERARY_PLANNING,
+          {
+            origin: {
+              coordinates: origin["coordinates"],
+            },
+            destination: {
+              coordinates: destination["coordinates"],
+            },
+            date,
+            time,
+          }
+        );
         console.log(res.data);
         setItineraries(res.data);
       }

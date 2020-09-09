@@ -5,11 +5,15 @@ const bodyParser = require("body-parser");
 const routes = require("./routes");
 
 // Set up Express
-const port = 5000;
+const port = process.env.PORT || 5000;
 const app = express();
 
 // Use parser (for request body)
 app.use(bodyParser.json());
+
+app.get("/", (req, res) => {
+  res.sendStatus(200);
+});
 
 // Use routes
 app.use("/api", routes);

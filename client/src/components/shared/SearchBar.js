@@ -28,7 +28,7 @@ const SearchBar = ({
   // Fetch and set results
   async function handleSearchResults(value) {
     try {
-      const res = await axios.post("/api/address-search", {
+      const res = await axios.post(process.env.REACT_APP_API_ADDRESS_SEARCH, {
         text: value,
       });
       setSearchResults(res.data);
