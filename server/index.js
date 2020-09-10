@@ -1,6 +1,7 @@
 "use strict";
 
 const express = require("express");
+const cors = require("cors");
 const bodyParser = require("body-parser");
 const routes = require("./routes");
 
@@ -11,12 +12,27 @@ const app = express();
 // Use parser (for request body)
 app.use(bodyParser.json());
 
+// Use CORS if it is not development
+let corsOptions;
+if (!(app.get("env") === "development")) {
+  const whitelist = ["https://helsinki-journey-planner.netlify.app"];
+  corsOptions = {
+    origin: (origin, callback) => {
+      if (whitelist.indexOf(origin) !== -1) {
+        callback(null, true);
+      } else {
+        callback(new Error("Access denied, this origin is not allowed."));
+      }
+    },
+  };
+}
+
 app.get("/", (req, res) => {
-  res.sendStatus(200);
+  res.send("");
 });
 
 // Use routes
-app.use("/api", routes);
+app.use("/api", cors(corsOptions), routes);
 
 // Handle error 404
 app.use((req, res, next) => {
