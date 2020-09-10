@@ -1,10 +1,10 @@
 [
   {
-    "id": "b6150b15-490c-453e-afd3-35a668252377",
-    "duration": 5,
-    "walkDistance": 335,
-    "startTime": 1599544891000,
-    "endTime": 1599545222000,
+    "id": "76190901-f1d2-4699-b2bb-8d0617be8493",
+    "duration": 67,
+    "walkDistance": 1250,
+    "startTime": 1599614830000,
+    "endTime": 1599618898000,
     "fares": [
       {
         "type": "regular",
@@ -13,364 +13,197 @@
       }
     ],
     "faresSum": 280,
-    "zones": ["A", "B"],
+    "zones": ["A", "B", "C"],
     "firstPublicTransportTrip": {
-      "id": "3314446f-544a-488f-8fd8-506583ed5f7f",
-      "mode": "SUBWAY",
-      "startTime": 1599545183000,
+      "id": "400e92eb-7fa7-4ba2-bc39-c759827702f9",
+      "mode": "BUS",
+      "startTime": 1599615060000,
       "trip": {
-        "tripHeadsign": "Vuosaari",
-        "routeShortName": "M1"
+        "tripHeadsign": "Itäkeskus(M)",
+        "routeShortName": "550"
       },
       "stop": {
-        "code": "H0017",
-        "name": "Kamppi",
-        "zoneId": "A"
+        "code": "E2225",
+        "name": "Aalto-yliopisto (M)",
+        "zoneId": "B"
       }
     },
     "tripsSummary": [
       {
-        "id": "f9c3376d-7012-45bb-8a64-a395be904f1d",
+        "id": "37c69b99-7f83-4604-b4c9-245bc5609603",
         "mode": "WALK",
-        "startTime": 1599544891000,
+        "startTime": 1599614830000,
         "trip": null,
         "stop": null
       },
       {
-        "id": "3314446f-544a-488f-8fd8-506583ed5f7f",
-        "mode": "SUBWAY",
-        "startTime": 1599545183000,
+        "id": "400e92eb-7fa7-4ba2-bc39-c759827702f9",
+        "mode": "BUS",
+        "startTime": 1599615060000,
         "trip": {
-          "tripHeadsign": "Vuosaari",
-          "routeShortName": "M1"
+          "tripHeadsign": "Itäkeskus(M)",
+          "routeShortName": "550"
         },
         "stop": {
-          "code": "H0017",
-          "name": "Kamppi",
-          "zoneId": "A"
+          "code": "E2225",
+          "name": "Aalto-yliopisto (M)",
+          "zoneId": "B"
+        }
+      },
+      {
+        "id": "d1653203-8401-4f9e-8f46-5d2d74673a03",
+        "mode": "WALK",
+        "startTime": 1599615600000,
+        "trip": null,
+        "stop": {
+          "code": "E1049",
+          "name": "Puustellinmäki",
+          "zoneId": "B"
+        }
+      },
+      {
+        "id": "edd3efb6-cba2-459a-b0f8-81329f32a1d7",
+        "mode": "BUS",
+        "startTime": 1599617160000,
+        "trip": {
+          "tripHeadsign": "Espoon keskus",
+          "routeShortName": "200"
+        },
+        "stop": {
+          "code": "E1052",
+          "name": "Puustellinmäki",
+          "zoneId": "B"
+        }
+      },
+      {
+        "id": "d5bd37ab-7ee5-4294-9fab-6619f0590085",
+        "mode": "WALK",
+        "startTime": 1599618180000,
+        "trip": null,
+        "stop": {
+          "code": "E6312",
+          "name": "Fallåker",
+          "zoneId": "C"
         }
       }
     ],
     "legs": [
       {
-        "id": "cc802d6e-1453-4c22-af4f-af64c902b0a1",
+        "id": "259bcc98-3c11-4800-b7e1-c45360f9f534",
         "mode": "WALK",
-        "startTime": 1599544891000,
-        "endTime": 1599545183000,
-        "duration": 4,
-        "distance": 335,
+        "startTime": 1599614830000,
+        "endTime": 1599615060000,
+        "duration": 3,
+        "distance": 249,
         "trip": null,
         "from": {
           "name": "Origin",
           "stop": null
         },
         "to": {
-          "name": "Kamppi",
+          "name": "Aalto-yliopisto (M)",
           "stop": {
-            "code": "H0017",
-            "name": "Kamppi",
-            "zoneId": "A"
+            "code": "E2225",
+            "name": "Aalto-yliopisto (M)",
+            "zoneId": "B"
           }
         }
       },
       {
-        "id": "9224d200-1994-4149-baef-9c6f7a9f674d",
-        "mode": "SUBWAY",
-        "startTime": 1599545183000,
-        "endTime": 1599545221000,
-        "duration": 1,
-        "distance": 507,
-        "trip": {
-          "tripHeadsign": "Vuosaari",
-          "routeShortName": "M1"
-        },
-        "from": {
-          "name": "Kamppi",
-          "stop": {
-            "code": "H0017",
-            "name": "Kamppi",
-            "zoneId": "A"
-          }
-        },
-        "to": {
-          "name": "Rautatientori",
-          "stop": {
-            "code": "H0019",
-            "name": "Rautatientori",
-            "zoneId": "A"
-          }
-        }
-      }
-    ]
-  },
-  {
-    "id": "94fa0405-f247-4805-a6c4-bc1172968d47",
-    "duration": 9,
-    "walkDistance": 677,
-    "startTime": 1599544800000,
-    "endTime": 1599545386000,
-    "fares": null,
-    "zones": [],
-    "tripsSummary": [
-      {
-        "id": "aeadb59f-4c29-4028-8ae0-629bce4fb950",
-        "mode": "WALK",
-        "startTime": 1599544800000,
-        "trip": null,
-        "stop": null
-      }
-    ],
-    "legs": [
-      {
-        "id": "4bcba908-cf5f-4ddc-84e9-7bb2f4732cdd",
-        "mode": "WALK",
-        "startTime": 1599544800000,
-        "endTime": 1599545386000,
+        "id": "f5ae9560-da07-4f03-aa70-1477f1b74521",
+        "mode": "BUS",
+        "startTime": 1599615060000,
+        "endTime": 1599615600000,
         "duration": 9,
-        "distance": 676,
-        "trip": null,
-        "from": {
-          "name": "Origin",
-          "stop": null
-        },
-        "to": {
-          "name": "Destination",
-          "stop": null
-        }
-      }
-    ]
-  },
-  {
-    "id": "b3c2328b-6456-402f-9fa6-ce70d5fbfc41",
-    "duration": 5,
-    "walkDistance": 335,
-    "startTime": 1599545064000,
-    "endTime": 1599545391000,
-    "fares": [
-      {
-        "type": "regular",
-        "cents": 280,
-        "currency": "EUR"
-      }
-    ],
-    "faresSum": 280,
-    "zones": ["A", "B"],
-    "firstPublicTransportTrip": {
-      "id": "fee012a7-6e16-4ae4-ae0b-3854034d1646",
-      "mode": "SUBWAY",
-      "startTime": 1599545356000,
-      "trip": {
-        "tripHeadsign": "Mellunmäki",
-        "routeShortName": "M2"
-      },
-      "stop": {
-        "code": "H0017",
-        "name": "Kamppi",
-        "zoneId": "A"
-      }
-    },
-    "tripsSummary": [
-      {
-        "id": "e63f5d31-e87e-4159-8e96-4aa35f4144f6",
-        "mode": "WALK",
-        "startTime": 1599545064000,
-        "trip": null,
-        "stop": null
-      },
-      {
-        "id": "fee012a7-6e16-4ae4-ae0b-3854034d1646",
-        "mode": "SUBWAY",
-        "startTime": 1599545356000,
+        "distance": 5839,
         "trip": {
-          "tripHeadsign": "Mellunmäki",
-          "routeShortName": "M2"
-        },
-        "stop": {
-          "code": "H0017",
-          "name": "Kamppi",
-          "zoneId": "A"
-        }
-      }
-    ],
-    "legs": [
-      {
-        "id": "7a0adf5b-51bd-4e20-aa85-4b51b92fde3d",
-        "mode": "WALK",
-        "startTime": 1599545064000,
-        "endTime": 1599545356000,
-        "duration": 4,
-        "distance": 335,
-        "trip": null,
-        "from": {
-          "name": "Origin",
-          "stop": null
-        },
-        "to": {
-          "name": "Kamppi",
-          "stop": {
-            "code": "H0017",
-            "name": "Kamppi",
-            "zoneId": "A"
-          }
-        }
-      },
-      {
-        "id": "fc426aa1-bf07-41b6-adea-ab1c3d0b8ced",
-        "mode": "SUBWAY",
-        "startTime": 1599545356000,
-        "endTime": 1599545390000,
-        "duration": 1,
-        "distance": 507,
-        "trip": {
-          "tripHeadsign": "Mellunmäki",
-          "routeShortName": "M2"
+          "tripHeadsign": "Itäkeskus(M)",
+          "routeShortName": "550"
         },
         "from": {
-          "name": "Kamppi",
+          "name": "Aalto-yliopisto (M)",
           "stop": {
-            "code": "H0017",
-            "name": "Kamppi",
-            "zoneId": "A"
+            "code": "E2225",
+            "name": "Aalto-yliopisto (M)",
+            "zoneId": "B"
           }
         },
         "to": {
-          "name": "Rautatientori",
+          "name": "Puustellinmäki",
           "stop": {
-            "code": "H0019",
-            "name": "Rautatientori",
-            "zoneId": "A"
-          }
-        }
-      }
-    ]
-  },
-  {
-    "id": "e597b62c-8bd5-47b6-b503-58c659884033",
-    "duration": 9,
-    "walkDistance": 427,
-    "startTime": 1599544884000,
-    "endTime": 1599545465000,
-    "fares": [
-      {
-        "type": "regular",
-        "cents": 280,
-        "currency": "EUR"
-      }
-    ],
-    "faresSum": 280,
-    "zones": ["A", "B"],
-    "firstPublicTransportTrip": {
-      "id": "f1fc2bf6-901f-4cb3-9e5b-31deb5169cd8",
-      "mode": "TRAM",
-      "startTime": 1599545078000,
-      "trip": {
-        "tripHeadsign": "Pasila as.",
-        "routeShortName": "9"
-      },
-      "stop": {
-        "code": "H0824",
-        "name": "Kampintori",
-        "zoneId": "A"
-      }
-    },
-    "tripsSummary": [
-      {
-        "id": "96026612-9625-419c-af9c-2809f7c0e943",
-        "mode": "WALK",
-        "startTime": 1599544884000,
-        "trip": null,
-        "stop": null
-      },
-      {
-        "id": "f1fc2bf6-901f-4cb3-9e5b-31deb5169cd8",
-        "mode": "TRAM",
-        "startTime": 1599545078000,
-        "trip": {
-          "tripHeadsign": "Pasila as.",
-          "routeShortName": "9"
-        },
-        "stop": {
-          "code": "H0824",
-          "name": "Kampintori",
-          "zoneId": "A"
-        }
-      },
-      {
-        "id": "8d58c0bf-1080-4a63-a820-1cd9bc51bfb0",
-        "mode": "WALK",
-        "startTime": 1599545252000,
-        "trip": null,
-        "stop": {
-          "code": "H0301",
-          "name": "Rautatieasema",
-          "zoneId": "A"
-        }
-      }
-    ],
-    "legs": [
-      {
-        "id": "eb176863-0244-4ea5-a313-0b5e34b27dac",
-        "mode": "WALK",
-        "startTime": 1599544884000,
-        "endTime": 1599545078000,
-        "duration": 3,
-        "distance": 200,
-        "trip": null,
-        "from": {
-          "name": "Origin",
-          "stop": null
-        },
-        "to": {
-          "name": "Kampintori",
-          "stop": {
-            "code": "H0824",
-            "name": "Kampintori",
-            "zoneId": "A"
+            "code": "E1049",
+            "name": "Puustellinmäki",
+            "zoneId": "B"
           }
         }
       },
       {
-        "id": "a0240e54-2b89-49ef-b474-fdc9dae2c87a",
-        "mode": "TRAM",
-        "startTime": 1599545078000,
-        "endTime": 1599545252000,
+        "id": "ef9cebe4-ea84-479f-9c7e-a0afedaca8d5",
+        "mode": "WALK",
+        "startTime": 1599615600000,
+        "endTime": 1599615742000,
         "duration": 2,
-        "distance": 680,
-        "trip": {
-          "tripHeadsign": "Pasila as.",
-          "routeShortName": "9"
-        },
+        "distance": 184,
+        "trip": null,
         "from": {
-          "name": "Kampintori",
+          "name": "Puustellinmäki",
           "stop": {
-            "code": "H0824",
-            "name": "Kampintori",
-            "zoneId": "A"
+            "code": "E1049",
+            "name": "Puustellinmäki",
+            "zoneId": "B"
           }
         },
         "to": {
-          "name": "Rautatieasema",
+          "name": "Puustellinmäki",
           "stop": {
-            "code": "H0301",
-            "name": "Rautatieasema",
-            "zoneId": "A"
+            "code": "E1052",
+            "name": "Puustellinmäki",
+            "zoneId": "B"
           }
         }
       },
       {
-        "id": "9d841d3a-1cf8-4bc4-bcd4-1da45fb162b1",
+        "id": "adbd7611-ac62-41ec-947f-9a88ded4d2da",
+        "mode": "BUS",
+        "startTime": 1599617160000,
+        "endTime": 1599618180000,
+        "duration": 17,
+        "distance": 9670,
+        "trip": {
+          "tripHeadsign": "Espoon keskus",
+          "routeShortName": "200"
+        },
+        "from": {
+          "name": "Puustellinmäki",
+          "stop": {
+            "code": "E1052",
+            "name": "Puustellinmäki",
+            "zoneId": "B"
+          }
+        },
+        "to": {
+          "name": "Fallåker",
+          "stop": {
+            "code": "E6312",
+            "name": "Fallåker",
+            "zoneId": "C"
+          }
+        }
+      },
+      {
+        "id": "a003642e-4f6d-4180-82d0-e854a20cf887",
         "mode": "WALK",
-        "startTime": 1599545252000,
-        "endTime": 1599545465000,
-        "duration": 3,
-        "distance": 226,
+        "startTime": 1599618180000,
+        "endTime": 1599618898000,
+        "duration": 11,
+        "distance": 816,
         "trip": null,
         "from": {
-          "name": "Rautatieasema",
+          "name": "Fallåker",
           "stop": {
-            "code": "H0301",
-            "name": "Rautatieasema",
-            "zoneId": "A"
+            "code": "E6312",
+            "name": "Fallåker",
+            "zoneId": "C"
           }
         },
         "to": {
@@ -381,11 +214,11 @@
     ]
   },
   {
-    "id": "17d526b3-00a0-4baf-87fb-e64a8c508e64",
-    "duration": 5,
-    "walkDistance": 335,
-    "startTime": 1599545208000,
-    "endTime": 1599545543000,
+    "id": "a034892c-e221-456c-8467-bf5c6ee0a041",
+    "duration": 60,
+    "walkDistance": 1250,
+    "startTime": 1599616630000,
+    "endTime": 1599620278000,
     "fares": [
       {
         "type": "regular",
@@ -394,92 +227,844 @@
       }
     ],
     "faresSum": 280,
-    "zones": ["A", "B"],
+    "zones": ["A", "B", "C"],
     "firstPublicTransportTrip": {
-      "id": "5eeddce3-609e-4a50-8165-53eea921a87b",
-      "mode": "SUBWAY",
-      "startTime": 1599545500000,
+      "id": "a41baa54-5f50-4454-b1fb-1836f3d2f8c9",
+      "mode": "BUS",
+      "startTime": 1599616860000,
       "trip": {
-        "tripHeadsign": "Vuosaari",
+        "tripHeadsign": "Itäkeskus(M)",
+        "routeShortName": "550"
+      },
+      "stop": {
+        "code": "E2225",
+        "name": "Aalto-yliopisto (M)",
+        "zoneId": "B"
+      }
+    },
+    "tripsSummary": [
+      {
+        "id": "dd84a3c5-0cf3-4a20-a408-c129743609fa",
+        "mode": "WALK",
+        "startTime": 1599616630000,
+        "trip": null,
+        "stop": null
+      },
+      {
+        "id": "a41baa54-5f50-4454-b1fb-1836f3d2f8c9",
+        "mode": "BUS",
+        "startTime": 1599616860000,
+        "trip": {
+          "tripHeadsign": "Itäkeskus(M)",
+          "routeShortName": "550"
+        },
+        "stop": {
+          "code": "E2225",
+          "name": "Aalto-yliopisto (M)",
+          "zoneId": "B"
+        }
+      },
+      {
+        "id": "00f1e9b7-6353-4383-82ab-e54d51137c8c",
+        "mode": "WALK",
+        "startTime": 1599617460000,
+        "trip": null,
+        "stop": {
+          "code": "E1049",
+          "name": "Puustellinmäki",
+          "zoneId": "B"
+        }
+      },
+      {
+        "id": "c8d06741-9f68-4e26-9500-3e0fa7e5edff",
+        "mode": "BUS",
+        "startTime": 1599618540000,
+        "trip": {
+          "tripHeadsign": "Espoon keskus",
+          "routeShortName": "200"
+        },
+        "stop": {
+          "code": "E1052",
+          "name": "Puustellinmäki",
+          "zoneId": "B"
+        }
+      },
+      {
+        "id": "76e7ca66-c684-4898-bb73-0db3711f0f7f",
+        "mode": "WALK",
+        "startTime": 1599619560000,
+        "trip": null,
+        "stop": {
+          "code": "E6312",
+          "name": "Fallåker",
+          "zoneId": "C"
+        }
+      }
+    ],
+    "legs": [
+      {
+        "id": "d943aa92-7bc4-4388-8cd4-e8ac85d53708",
+        "mode": "WALK",
+        "startTime": 1599616630000,
+        "endTime": 1599616860000,
+        "duration": 3,
+        "distance": 249,
+        "trip": null,
+        "from": {
+          "name": "Origin",
+          "stop": null
+        },
+        "to": {
+          "name": "Aalto-yliopisto (M)",
+          "stop": {
+            "code": "E2225",
+            "name": "Aalto-yliopisto (M)",
+            "zoneId": "B"
+          }
+        }
+      },
+      {
+        "id": "d625ea6d-37f1-4dc3-aeb1-3a883d7a69ec",
+        "mode": "BUS",
+        "startTime": 1599616860000,
+        "endTime": 1599617460000,
+        "duration": 10,
+        "distance": 5839,
+        "trip": {
+          "tripHeadsign": "Itäkeskus(M)",
+          "routeShortName": "550"
+        },
+        "from": {
+          "name": "Aalto-yliopisto (M)",
+          "stop": {
+            "code": "E2225",
+            "name": "Aalto-yliopisto (M)",
+            "zoneId": "B"
+          }
+        },
+        "to": {
+          "name": "Puustellinmäki",
+          "stop": {
+            "code": "E1049",
+            "name": "Puustellinmäki",
+            "zoneId": "B"
+          }
+        }
+      },
+      {
+        "id": "51eb945c-7732-4910-8b9c-370fe44fc392",
+        "mode": "WALK",
+        "startTime": 1599617460000,
+        "endTime": 1599617602000,
+        "duration": 2,
+        "distance": 184,
+        "trip": null,
+        "from": {
+          "name": "Puustellinmäki",
+          "stop": {
+            "code": "E1049",
+            "name": "Puustellinmäki",
+            "zoneId": "B"
+          }
+        },
+        "to": {
+          "name": "Puustellinmäki",
+          "stop": {
+            "code": "E1052",
+            "name": "Puustellinmäki",
+            "zoneId": "B"
+          }
+        }
+      },
+      {
+        "id": "941c1299-a03d-484b-9375-06694eaf9ed1",
+        "mode": "BUS",
+        "startTime": 1599618540000,
+        "endTime": 1599619560000,
+        "duration": 17,
+        "distance": 9670,
+        "trip": {
+          "tripHeadsign": "Espoon keskus",
+          "routeShortName": "200"
+        },
+        "from": {
+          "name": "Puustellinmäki",
+          "stop": {
+            "code": "E1052",
+            "name": "Puustellinmäki",
+            "zoneId": "B"
+          }
+        },
+        "to": {
+          "name": "Fallåker",
+          "stop": {
+            "code": "E6312",
+            "name": "Fallåker",
+            "zoneId": "C"
+          }
+        }
+      },
+      {
+        "id": "4c63d0f1-bb0d-4fcd-9625-ff1b30bee773",
+        "mode": "WALK",
+        "startTime": 1599619560000,
+        "endTime": 1599620278000,
+        "duration": 11,
+        "distance": 816,
+        "trip": null,
+        "from": {
+          "name": "Fallåker",
+          "stop": {
+            "code": "E6312",
+            "name": "Fallåker",
+            "zoneId": "C"
+          }
+        },
+        "to": {
+          "name": "Destination",
+          "stop": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "e063b5de-a6c0-40fd-af5d-12f4446c30d0",
+    "duration": 61,
+    "walkDistance": 1186,
+    "startTime": 1599617530000,
+    "endTime": 1599621238000,
+    "fares": [
+      {
+        "type": "regular",
+        "cents": 280,
+        "currency": "EUR"
+      }
+    ],
+    "faresSum": 280,
+    "zones": ["A", "B", "C"],
+    "firstPublicTransportTrip": {
+      "id": "2d89c3b0-a615-4305-ae10-b5cf11557145",
+      "mode": "BUS",
+      "startTime": 1599617760000,
+      "trip": {
+        "tripHeadsign": "Martinlaakso as.",
+        "routeShortName": "555"
+      },
+      "stop": {
+        "code": "E2225",
+        "name": "Aalto-yliopisto (M)",
+        "zoneId": "B"
+      }
+    },
+    "tripsSummary": [
+      {
+        "id": "bb810a13-500c-4306-8e8e-065d023cbcca",
+        "mode": "WALK",
+        "startTime": 1599617530000,
+        "trip": null,
+        "stop": null
+      },
+      {
+        "id": "2d89c3b0-a615-4305-ae10-b5cf11557145",
+        "mode": "BUS",
+        "startTime": 1599617760000,
+        "trip": {
+          "tripHeadsign": "Martinlaakso as.",
+          "routeShortName": "555"
+        },
+        "stop": {
+          "code": "E2225",
+          "name": "Aalto-yliopisto (M)",
+          "zoneId": "B"
+        }
+      },
+      {
+        "id": "44bb6b90-ef70-4c3d-b42f-92027931b795",
+        "mode": "WALK",
+        "startTime": 1599619020000,
+        "trip": null,
+        "stop": {
+          "code": "V1288",
+          "name": "Terhotie",
+          "zoneId": "B"
+        }
+      },
+      {
+        "id": "c0f0e44b-befe-41a8-bedb-3117fd70c086",
+        "mode": "BUS",
+        "startTime": 1599619620000,
+        "trip": {
+          "tripHeadsign": "Espoontori",
+          "routeShortName": "565"
+        },
+        "stop": {
+          "code": "V1291",
+          "name": "Terhotie",
+          "zoneId": "B"
+        }
+      },
+      {
+        "id": "c542526e-262f-4ea1-b039-94f8f6f54af6",
+        "mode": "WALK",
+        "startTime": 1599620520000,
+        "trip": null,
+        "stop": {
+          "code": "E6312",
+          "name": "Fallåker",
+          "zoneId": "C"
+        }
+      }
+    ],
+    "legs": [
+      {
+        "id": "6069a5d1-595f-473f-aba1-b64fd86f1508",
+        "mode": "WALK",
+        "startTime": 1599617530000,
+        "endTime": 1599617760000,
+        "duration": 3,
+        "distance": 249,
+        "trip": null,
+        "from": {
+          "name": "Origin",
+          "stop": null
+        },
+        "to": {
+          "name": "Aalto-yliopisto (M)",
+          "stop": {
+            "code": "E2225",
+            "name": "Aalto-yliopisto (M)",
+            "zoneId": "B"
+          }
+        }
+      },
+      {
+        "id": "00571959-d002-40cd-b029-140205f963e5",
+        "mode": "BUS",
+        "startTime": 1599617760000,
+        "endTime": 1599619020000,
+        "duration": 21,
+        "distance": 10868,
+        "trip": {
+          "tripHeadsign": "Martinlaakso as.",
+          "routeShortName": "555"
+        },
+        "from": {
+          "name": "Aalto-yliopisto (M)",
+          "stop": {
+            "code": "E2225",
+            "name": "Aalto-yliopisto (M)",
+            "zoneId": "B"
+          }
+        },
+        "to": {
+          "name": "Terhotie",
+          "stop": {
+            "code": "V1288",
+            "name": "Terhotie",
+            "zoneId": "B"
+          }
+        }
+      },
+      {
+        "id": "1fe46e23-0c71-4d79-9473-6eceee540e14",
+        "mode": "WALK",
+        "startTime": 1599619020000,
+        "endTime": 1599619113000,
+        "duration": 1,
+        "distance": 120,
+        "trip": null,
+        "from": {
+          "name": "Terhotie",
+          "stop": {
+            "code": "V1288",
+            "name": "Terhotie",
+            "zoneId": "B"
+          }
+        },
+        "to": {
+          "name": "Terhotie",
+          "stop": {
+            "code": "V1291",
+            "name": "Terhotie",
+            "zoneId": "B"
+          }
+        }
+      },
+      {
+        "id": "b00085f2-ea03-4987-9412-ee642caaa01c",
+        "mode": "BUS",
+        "startTime": 1599619620000,
+        "endTime": 1599620520000,
+        "duration": 15,
+        "distance": 9112,
+        "trip": {
+          "tripHeadsign": "Espoontori",
+          "routeShortName": "565"
+        },
+        "from": {
+          "name": "Terhotie",
+          "stop": {
+            "code": "V1291",
+            "name": "Terhotie",
+            "zoneId": "B"
+          }
+        },
+        "to": {
+          "name": "Fallåker",
+          "stop": {
+            "code": "E6312",
+            "name": "Fallåker",
+            "zoneId": "C"
+          }
+        }
+      },
+      {
+        "id": "f8163d84-a6e9-469d-b645-2c93308fc2bc",
+        "mode": "WALK",
+        "startTime": 1599620520000,
+        "endTime": 1599621238000,
+        "duration": 11,
+        "distance": 816,
+        "trip": null,
+        "from": {
+          "name": "Fallåker",
+          "stop": {
+            "code": "E6312",
+            "name": "Fallåker",
+            "zoneId": "C"
+          }
+        },
+        "to": {
+          "name": "Destination",
+          "stop": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "b286d0c9-be3a-47ef-8099-b0d2772c291d",
+    "duration": 50,
+    "walkDistance": 1250,
+    "startTime": 1599618970000,
+    "endTime": 1599622018000,
+    "fares": [
+      {
+        "type": "regular",
+        "cents": 280,
+        "currency": "EUR"
+      }
+    ],
+    "faresSum": 280,
+    "zones": ["A", "B", "C"],
+    "firstPublicTransportTrip": {
+      "id": "d69d8da5-b0e0-4d59-88de-a81928bcfc2e",
+      "mode": "BUS",
+      "startTime": 1599619200000,
+      "trip": {
+        "tripHeadsign": "Itäkeskus(M)",
+        "routeShortName": "550"
+      },
+      "stop": {
+        "code": "E2225",
+        "name": "Aalto-yliopisto (M)",
+        "zoneId": "B"
+      }
+    },
+    "tripsSummary": [
+      {
+        "id": "8cc22c5a-fbd6-48b9-b292-56c3bf9ed734",
+        "mode": "WALK",
+        "startTime": 1599618970000,
+        "trip": null,
+        "stop": null
+      },
+      {
+        "id": "d69d8da5-b0e0-4d59-88de-a81928bcfc2e",
+        "mode": "BUS",
+        "startTime": 1599619200000,
+        "trip": {
+          "tripHeadsign": "Itäkeskus(M)",
+          "routeShortName": "550"
+        },
+        "stop": {
+          "code": "E2225",
+          "name": "Aalto-yliopisto (M)",
+          "zoneId": "B"
+        }
+      },
+      {
+        "id": "017d4ce1-c558-44aa-9327-bc20264b4d0b",
+        "mode": "WALK",
+        "startTime": 1599619800000,
+        "trip": null,
+        "stop": {
+          "code": "E1049",
+          "name": "Puustellinmäki",
+          "zoneId": "B"
+        }
+      },
+      {
+        "id": "8292c56f-ef9a-4a19-b668-ca4134f87cf4",
+        "mode": "BUS",
+        "startTime": 1599620100000,
+        "trip": {
+          "tripHeadsign": "Espoon keskus",
+          "routeShortName": "200"
+        },
+        "stop": {
+          "code": "E1052",
+          "name": "Puustellinmäki",
+          "zoneId": "B"
+        }
+      },
+      {
+        "id": "9315da7c-1d8a-4f9a-94b3-97bc7f5670f1",
+        "mode": "WALK",
+        "startTime": 1599621300000,
+        "trip": null,
+        "stop": {
+          "code": "E6312",
+          "name": "Fallåker",
+          "zoneId": "C"
+        }
+      }
+    ],
+    "legs": [
+      {
+        "id": "cda949b6-25da-4399-addd-3530f9b13b5e",
+        "mode": "WALK",
+        "startTime": 1599618970000,
+        "endTime": 1599619200000,
+        "duration": 3,
+        "distance": 249,
+        "trip": null,
+        "from": {
+          "name": "Origin",
+          "stop": null
+        },
+        "to": {
+          "name": "Aalto-yliopisto (M)",
+          "stop": {
+            "code": "E2225",
+            "name": "Aalto-yliopisto (M)",
+            "zoneId": "B"
+          }
+        }
+      },
+      {
+        "id": "8538ab7a-ed52-438c-904b-fc84fb81ab8f",
+        "mode": "BUS",
+        "startTime": 1599619200000,
+        "endTime": 1599619800000,
+        "duration": 10,
+        "distance": 5839,
+        "trip": {
+          "tripHeadsign": "Itäkeskus(M)",
+          "routeShortName": "550"
+        },
+        "from": {
+          "name": "Aalto-yliopisto (M)",
+          "stop": {
+            "code": "E2225",
+            "name": "Aalto-yliopisto (M)",
+            "zoneId": "B"
+          }
+        },
+        "to": {
+          "name": "Puustellinmäki",
+          "stop": {
+            "code": "E1049",
+            "name": "Puustellinmäki",
+            "zoneId": "B"
+          }
+        }
+      },
+      {
+        "id": "0a2b8f00-e41f-40ac-9a2a-f3f5f2dcb539",
+        "mode": "WALK",
+        "startTime": 1599619800000,
+        "endTime": 1599619942000,
+        "duration": 2,
+        "distance": 184,
+        "trip": null,
+        "from": {
+          "name": "Puustellinmäki",
+          "stop": {
+            "code": "E1049",
+            "name": "Puustellinmäki",
+            "zoneId": "B"
+          }
+        },
+        "to": {
+          "name": "Puustellinmäki",
+          "stop": {
+            "code": "E1052",
+            "name": "Puustellinmäki",
+            "zoneId": "B"
+          }
+        }
+      },
+      {
+        "id": "28e33e91-cf01-41fa-b33b-2b6e6c273df0",
+        "mode": "BUS",
+        "startTime": 1599620100000,
+        "endTime": 1599621300000,
+        "duration": 20,
+        "distance": 9670,
+        "trip": {
+          "tripHeadsign": "Espoon keskus",
+          "routeShortName": "200"
+        },
+        "from": {
+          "name": "Puustellinmäki",
+          "stop": {
+            "code": "E1052",
+            "name": "Puustellinmäki",
+            "zoneId": "B"
+          }
+        },
+        "to": {
+          "name": "Fallåker",
+          "stop": {
+            "code": "E6312",
+            "name": "Fallåker",
+            "zoneId": "C"
+          }
+        }
+      },
+      {
+        "id": "0cd4adac-5894-4f1d-bb9e-5cddba69721e",
+        "mode": "WALK",
+        "startTime": 1599621300000,
+        "endTime": 1599622018000,
+        "duration": 11,
+        "distance": 816,
+        "trip": null,
+        "from": {
+          "name": "Fallåker",
+          "stop": {
+            "code": "E6312",
+            "name": "Fallåker",
+            "zoneId": "C"
+          }
+        },
+        "to": {
+          "name": "Destination",
+          "stop": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "c92d5287-1ba3-4fa3-9197-0ace2cb9ea29",
+    "duration": 65,
+    "walkDistance": 1676,
+    "startTime": 1599618608000,
+    "endTime": 1599622511000,
+    "fares": [
+      {
+        "type": "regular",
+        "cents": 280,
+        "currency": "EUR"
+      }
+    ],
+    "faresSum": 280,
+    "zones": ["A", "B", "C"],
+    "firstPublicTransportTrip": {
+      "id": "05add262-3aa4-4555-9ac9-fc09209d1361",
+      "mode": "SUBWAY",
+      "startTime": 1599619080000,
+      "trip": {
+        "tripHeadsign": "Matinkylä",
         "routeShortName": "M1"
       },
       "stop": {
-        "code": "H0017",
-        "name": "Kamppi",
-        "zoneId": "A"
+        "code": "E0004",
+        "name": "Aalto-yliopisto",
+        "zoneId": "B"
       }
     },
     "tripsSummary": [
       {
-        "id": "1200503e-f7ea-4419-b1b1-af84d2e0cf06",
+        "id": "fca39fe1-08c5-428f-afaf-48dc61850614",
         "mode": "WALK",
-        "startTime": 1599545208000,
+        "startTime": 1599618608000,
         "trip": null,
         "stop": null
       },
       {
-        "id": "5eeddce3-609e-4a50-8165-53eea921a87b",
+        "id": "05add262-3aa4-4555-9ac9-fc09209d1361",
         "mode": "SUBWAY",
-        "startTime": 1599545500000,
+        "startTime": 1599619080000,
         "trip": {
-          "tripHeadsign": "Vuosaari",
+          "tripHeadsign": "Matinkylä",
           "routeShortName": "M1"
         },
         "stop": {
-          "code": "H0017",
-          "name": "Kamppi",
-          "zoneId": "A"
+          "code": "E0004",
+          "name": "Aalto-yliopisto",
+          "zoneId": "B"
+        }
+      },
+      {
+        "id": "4169b0d0-d905-4fd6-87af-0948113488eb",
+        "mode": "WALK",
+        "startTime": 1599619560000,
+        "trip": null,
+        "stop": {
+          "code": "E0012",
+          "name": "Matinkylä",
+          "zoneId": "B"
+        }
+      },
+      {
+        "id": "c4c374bc-bd02-4927-86db-ff42621f9502",
+        "mode": "BUS",
+        "startTime": 1599620280000,
+        "trip": {
+          "tripHeadsign": "Jorvi",
+          "routeShortName": "531"
+        },
+        "stop": {
+          "code": "E3158",
+          "name": "Matinkylä (M)",
+          "zoneId": "B"
+        }
+      },
+      {
+        "id": "5e6929e3-66d4-4cb0-bf22-63aaadc07779",
+        "mode": "WALK",
+        "startTime": 1599621720000,
+        "trip": null,
+        "stop": {
+          "code": "E6311",
+          "name": "Fallåker",
+          "zoneId": "C"
         }
       }
     ],
     "legs": [
       {
-        "id": "056694a5-c572-4b12-a974-84f14a872732",
+        "id": "57479b44-6d61-4d65-a6d9-1f1bd830b00a",
         "mode": "WALK",
-        "startTime": 1599545208000,
-        "endTime": 1599545500000,
-        "duration": 4,
-        "distance": 335,
+        "startTime": 1599618608000,
+        "endTime": 1599619080000,
+        "duration": 7,
+        "distance": 498,
         "trip": null,
         "from": {
           "name": "Origin",
           "stop": null
         },
         "to": {
-          "name": "Kamppi",
+          "name": "Aalto-yliopisto",
           "stop": {
-            "code": "H0017",
-            "name": "Kamppi",
-            "zoneId": "A"
+            "code": "E0004",
+            "name": "Aalto-yliopisto",
+            "zoneId": "B"
           }
         }
       },
       {
-        "id": "ff2e75c3-8d4a-48a7-b985-7f1f88c026df",
+        "id": "66e93c84-47b6-4f72-9aef-8cfa123108d5",
         "mode": "SUBWAY",
-        "startTime": 1599545500000,
-        "endTime": 1599545542000,
-        "duration": 1,
-        "distance": 507,
+        "startTime": 1599619080000,
+        "endTime": 1599619560000,
+        "duration": 8,
+        "distance": 5899,
         "trip": {
-          "tripHeadsign": "Vuosaari",
+          "tripHeadsign": "Matinkylä",
           "routeShortName": "M1"
         },
         "from": {
-          "name": "Kamppi",
+          "name": "Aalto-yliopisto",
           "stop": {
-            "code": "H0017",
-            "name": "Kamppi",
-            "zoneId": "A"
+            "code": "E0004",
+            "name": "Aalto-yliopisto",
+            "zoneId": "B"
           }
         },
         "to": {
-          "name": "Rautatientori",
+          "name": "Matinkylä",
           "stop": {
-            "code": "H0019",
-            "name": "Rautatientori",
-            "zoneId": "A"
+            "code": "E0012",
+            "name": "Matinkylä",
+            "zoneId": "B"
           }
+        }
+      },
+      {
+        "id": "b4e24390-1ae3-4da4-99cd-ea14df7291c0",
+        "mode": "WALK",
+        "startTime": 1599619560000,
+        "endTime": 1599619779000,
+        "duration": 3,
+        "distance": 283,
+        "trip": null,
+        "from": {
+          "name": "Matinkylä",
+          "stop": {
+            "code": "E0012",
+            "name": "Matinkylä",
+            "zoneId": "B"
+          }
+        },
+        "to": {
+          "name": "Matinkylä (M)",
+          "stop": {
+            "code": "E3158",
+            "name": "Matinkylä (M)",
+            "zoneId": "B"
+          }
+        }
+      },
+      {
+        "id": "41505fa7-d83e-425a-8091-0554991c5fe6",
+        "mode": "BUS",
+        "startTime": 1599620280000,
+        "endTime": 1599621720000,
+        "duration": 24,
+        "distance": 11747,
+        "trip": {
+          "tripHeadsign": "Jorvi",
+          "routeShortName": "531"
+        },
+        "from": {
+          "name": "Matinkylä (M)",
+          "stop": {
+            "code": "E3158",
+            "name": "Matinkylä (M)",
+            "zoneId": "B"
+          }
+        },
+        "to": {
+          "name": "Fallåker",
+          "stop": {
+            "code": "E6311",
+            "name": "Fallåker",
+            "zoneId": "C"
+          }
+        }
+      },
+      {
+        "id": "1fccd9a2-54e0-44d4-9a8b-3a97d86feeab",
+        "mode": "WALK",
+        "startTime": 1599621720000,
+        "endTime": 1599622511000,
+        "duration": 13,
+        "distance": 893,
+        "trip": null,
+        "from": {
+          "name": "Fallåker",
+          "stop": {
+            "code": "E6311",
+            "name": "Fallåker",
+            "zoneId": "C"
+          }
+        },
+        "to": {
+          "name": "Destination",
+          "stop": null
         }
       }
     ]

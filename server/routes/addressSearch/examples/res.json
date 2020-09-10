@@ -20,16 +20,6 @@
     }
   },
   {
-    "id": "node:102437578",
-    "labelPriamry": "Ravintola Station",
-    "labelSecondary": "Pukinmäki, Helsinki",
-    "layer": "venue",
-    "coordinates": {
-      "lat": 60.243028,
-      "lon": 24.994486
-    }
-  },
-  {
     "id": "node:1380974090",
     "labelPriamry": "Railway Square",
     "labelSecondary": "Kluuvi, Helsinki",
@@ -47,6 +37,16 @@
     "coordinates": {
       "lat": 60.510766,
       "lon": 25.136097
+    }
+  },
+  {
+    "id": "node:102437578",
+    "labelPriamry": "Ravintola Station",
+    "labelSecondary": "Pukinmäki, Helsinki",
+    "layer": "venue",
+    "coordinates": {
+      "lat": 60.243028,
+      "lon": 24.994486
     }
   },
   {
@@ -110,6 +110,16 @@
     }
   },
   {
+    "id": "GTFS:HSL:2000202",
+    "labelPriamry": "Alberga statio",
+    "labelSecondary": "Pohjois-Leppävaara, Esbo",
+    "layer": "station",
+    "coordinates": {
+      "lat": 60.219424,
+      "lon": 24.814576
+    }
+  },
+  {
     "id": "GTFS:HSL:4000212",
     "labelPriamry": "Aviapolis station",
     "labelSecondary": "Veromies, Vanda",
@@ -151,55 +161,47 @@
     }
   },
   {
-    "id": "GTFS:HSL:9000201",
-    "labelPriamry": "Savio station",
-    "labelSecondary": "Kervo",
-    "layer": "station",
-    "coordinates": {
-      "lat": 60.380389,
-      "lon": 25.097695
-    }
-  },
-  {
-    "id": "GTFS:HSL:1000212",
-    "labelPriamry": "Malm station",
-    "labelSecondary": "Nedre Malm, Helsingfors",
-    "layer": "station",
-    "coordinates": {
-      "lat": 60.25095,
-      "lon": 25.01076
-    }
-  },
-  {
-    "id": "GTFS:HSL:1000214",
-    "labelPriamry": "Parkstad station",
-    "labelSecondary": "Parkstad, Helsingfors",
-    "layer": "station",
-    "coordinates": {
-      "lat": 60.276033,
-      "lon": 25.036777
-    }
-  },
-  {
-    "id": "GTFS:HSL:4720205#V7205",
-    "labelPriamry": "Räckhals station V7205",
-    "labelSecondary": "Asola, Vanda",
-    "stopSign": "V7205",
+    "id": "GTFS:HSL:1174102#H2118",
+    "labelPriamry": "Ilmala station H2118",
+    "labelSecondary": "Mellersta Böle, Helsingfors",
+    "stopSign": "H2118",
     "layer": "stop",
     "coordinates": {
-      "lat": 60.33399,
-      "lon": 25.06449
+      "lat": 60.20796,
+      "lon": 24.92078
     }
   },
   {
-    "id": "GTFS:HSL:4720206#V7206",
-    "labelPriamry": "Räckhals station V7206",
-    "labelSecondary": "Asola, Vanda",
-    "stopSign": "V7206",
+    "id": "GTFS:HSL:1174101#H2119",
+    "labelPriamry": "Ilmala station H2119",
+    "labelSecondary": "Mellersta Böle, Helsingfors",
+    "stopSign": "H2119",
     "layer": "stop",
     "coordinates": {
-      "lat": 60.3343,
-      "lon": 25.06437
+      "lat": 60.208023,
+      "lon": 24.921068
+    }
+  },
+  {
+    "id": "GTFS:HSL:1171151#H2187",
+    "labelPriamry": "Ilmala station H2187",
+    "labelSecondary": "Mellersta Böle, Helsingfors",
+    "stopSign": "H2187",
+    "layer": "stop",
+    "coordinates": {
+      "lat": 60.207833,
+      "lon": 24.920638
+    }
+  },
+  {
+    "id": "GTFS:HSL:1171150#H2188",
+    "labelPriamry": "Ilmala station H2188",
+    "labelSecondary": "Västra Böle, Helsingfors",
+    "stopSign": "H2188",
+    "layer": "stop",
+    "coordinates": {
+      "lat": 60.2085,
+      "lon": 24.91885
     }
   }
 ]

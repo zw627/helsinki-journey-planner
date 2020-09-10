@@ -76,8 +76,7 @@ module.exports = {
    */
   simplifyResJson: function (json, simplify) {
     // Lazy load helpers
-    const { zeroToOne } = require("../../utils");
-    const { getPreviousLettersInAlphabet } = require("../../utils");
+    const { zeroToOne, getPreviousLettersInAlphabet } = require("../../utils");
 
     if (simplify) {
       return json["data"]["plan"]["itineraries"].map((itinerary) => {

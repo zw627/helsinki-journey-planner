@@ -2,6 +2,8 @@
 
 const express = require("express");
 const fetch = require("node-fetch");
+const { setupQuery, simplifyResJson } = require("./helpers");
+const { hasInvalidValue } = require("../../utils");
 
 const router = express.Router();
 
@@ -10,26 +12,20 @@ const router = express.Router();
 // https://digitransit.fi/en/developers/apis/1-routing-api/itinerary-planning/
 router.post("/", async (req, res, next) => {
   try {
+    const origin = req.body.origin;
+    const destination = req.body.destination;
+    const date = req.body.date;
+    const time = req.body.time;
+
     const allParametersAreValid =
-      req.body.origin["coordinates"]["lat"] &&
-      req.body.origin["coordinates"]["lon"] &&
-      req.body.destination["coordinates"]["lat"] &&
-      req.body.destination["coordinates"]["lon"] &&
-      req.body.date &&
-      req.body.time;
+      !hasInvalidValue(origin) && !hasInvalidValue(destination) && date && time;
 
     const twoLocationsAreNotIdentical =
-      req.body.origin["coordinates"]["lat"] !==
-        req.body.destination["coordinates"]["lat"] &&
-      req.body.origin["coordinates"]["lon"] !==
-        req.body.destination["coordinates"]["lon"];
+      origin["coordinates"]["lat"] !== destination["coordinates"]["lat"] &&
+      origin["coordinates"]["lon"] !== destination["coordinates"]["lon"];
 
     // Fetch if all params are valid
     if (allParametersAreValid && twoLocationsAreNotIdentical) {
-      // Lazy load helpers
-      const { setupQuery } = require("./helpers");
-      const { simplifyResJson } = require("./helpers");
-
       // Fetch itineraries
       const query = setupQuery(req.body);
       const data = await fetch(

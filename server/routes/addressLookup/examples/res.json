@@ -1,12 +1,12 @@
 [
   {
-    "id": "node:5012343136",
-    "labelPriamry": "Kaivokatu 8",
-    "labelSecondary": "Helsinki",
+    "id": "way:512677483",
+    "labelPriamry": "Otakaari 24",
+    "labelSecondary": "Espoo",
     "layer": "address",
     "coordinates": {
-      "lat": 60.170294,
-      "lon": 24.941142
+      "lat": 60.18526,
+      "lon": 24.829319
     }
   }
 ]

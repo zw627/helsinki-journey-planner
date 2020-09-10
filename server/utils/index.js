@@ -30,4 +30,17 @@ module.exports = {
 
     return output;
   },
+
+  /**
+   * Check if an object has any invalid values
+   * e.g. { one: "b", two: "" } returns "A Story of H".
+   * @param {object} obj - An object.
+   * @returns {bool} True or false.
+   */
+  hasInvalidValue: function (obj) {
+    if (obj) {
+      const arr = Object.values(obj);
+      return arr.some((x) => x === "" || x === null || x === undefined);
+    }
+  },
 };

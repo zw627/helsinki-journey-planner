@@ -2,6 +2,7 @@
 
 const express = require("express");
 const fetch = require("node-fetch");
+const { setupQuery, simplifyResJson } = require("./helpers");
 
 const router = express.Router();
 
@@ -11,11 +12,7 @@ const router = express.Router();
 router.post("/", async (req, res, next) => {
   try {
     // Fetch if input has more than 2 characters
-    if (req.body.text.length > 1) {
-      // Lazy load helpers
-      const { setupQuery } = require("./helpers");
-      const { simplifyResJson } = require("./helpers");
-
+    if (req.body.text.length > 2) {
       // Fetch addresses
       const query = setupQuery(req.body, "default");
       const data = await fetch(
