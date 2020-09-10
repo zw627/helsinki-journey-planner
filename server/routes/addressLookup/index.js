@@ -2,7 +2,7 @@
 
 const express = require("express");
 const fetch = require("node-fetch");
-const { simplifyResJson } = require("./helpers");
+const { simplifyResJson } = require("./localHelpers");
 
 const router = express.Router();
 
@@ -11,8 +11,6 @@ const router = express.Router();
 // https://digitransit.fi/en/developers/apis/2-geocoding-api/address-lookup/
 router.post("/", async (req, res, next) => {
   try {
-    
-
     // Fetch if all params are valid
     if (req.body.lat && req.body.lon) {
       // Fetch addresses

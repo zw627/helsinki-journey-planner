@@ -2,7 +2,7 @@
 
 const express = require("express");
 const fetch = require("node-fetch");
-const { setupQuery, simplifyResJson } = require("./helpers");
+const { setupQuery, simplifyResJson } = require("./localHelpers");
 
 const router = express.Router();
 

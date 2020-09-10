@@ -8,7 +8,7 @@ module.exports = {
    */
   simplifyResJson: function (json, simplify) {
     // addressLookup can use the same helper from addressSearch
-    return require("../addressSearch/helpers").simplifyResJson(
+    return require("../addressSearch/localHelpers").simplifyResJson(
       json["features"],
       simplify
     );
