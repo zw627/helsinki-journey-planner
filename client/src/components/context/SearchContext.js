@@ -43,7 +43,6 @@ const SearchProvider = ({ children }) => {
             time,
           }
         );
-        console.log(res.data);
         setItineraries(res.data);
       }
     } catch (err) {
