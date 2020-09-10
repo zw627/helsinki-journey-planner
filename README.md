@@ -1,8 +1,17 @@
-# helsinki-journey-planner
+# Helsinki Journey Planner
 
-An app that provides real-time itinerary information for the public transport in Helsinki.
+An app that provides real-time itinerary information for the public transport in Helsinki. [Try it here.](https://helsinki-journey-planner.netlify.app/)
 
-## Project structure
+![Home Page](https://github.com/zw627/helsinki-journey-planner/blob/master/README.jpg)
+
+## Project
+
+- **Front-end:** React.
+- **Back-end:** Node.js (Express) REST API.
+- **Deployment:** Netlify, AWS Elastic Beanstalk.
+- **Third-party API:** Digitransit.
+
+## Folder structure
 
 **This is a monorepo:**
 
@@ -30,4 +39,8 @@ These scripts are valid in the project root directory only.
 
 ## Deployment
 
-A `.ebignore` is included to ignore the `client` while deploying to AWS Elastic Beanstalk.
+- Server: A `.ebignore` is included to ignore the `client` directory while deploying to AWS Elastic Beanstalk.
+- Server: CORS restriction is enable for production.
+- Client: API URLs are toggled based on environment.
+- Client: `"homepage": "."` is added inside `package.json` to enable relative paths (convenient for serving build as a static site).
+ 
