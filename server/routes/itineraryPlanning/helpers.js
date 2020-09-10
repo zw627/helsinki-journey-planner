@@ -6,8 +6,8 @@ module.exports = {
   /**
    * Set up the JSON equivalent of GraphQL query for Digitransit GraphQL API (itinerary planning).
    * https://digitransit.fi/en/developers/apis/1-routing-api/itinerary-planning/
-   * @param {Object} body - The JSON body of the HTTP request.
-   * @returns {Object} The JSON equivalent of GraphQL query for Digitransit  GraphQL API (itinerary planning).
+   * @param {object} body - The JSON body of the HTTP request.
+   * @returns {object} The JSON equivalent of GraphQL query for Digitransit  GraphQL API (itinerary planning).
    */
   setupQuery: function (body) {
     // https://digitransit.fi/en/developers/apis/1-routing-api/0-graphql/
@@ -70,9 +70,9 @@ module.exports = {
   /**
    * Simplify the response JSON object from Digitransit GraphQL API (itinerary planning).
    * https://digitransit.fi/en/developers/apis/1-routing-api/itinerary-planning/
-   * @param {Object} json - The response JSON object from the API.
+   * @param {object} json - The response JSON object from the API.
    * @param {boolean} simplify - True to simplify the object, false returns the original object.
-   * @returns {Object} The simplified JSON object from Digitransit GraphQL API (itinerary planning).
+   * @returns {object} The simplified JSON object from Digitransit GraphQL API (itinerary planning).
    */
   simplifyResJson: function (json, simplify) {
     // Lazy load helpers

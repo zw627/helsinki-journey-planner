@@ -2,7 +2,7 @@ module.exports = {
   /**
    * Set up the query string for Digitransit address search API.
    * https://digitransit.fi/en/developers/apis/2-geocoding-api/address-search/
-   * @param {Object} body - The JSON body of the HTTP request.
+   * @param {object} body - The JSON body of the HTTP request.
    * @param {string} type - "default" for addresses, "transport" for public transport stations.
    * @returns {string} The query string for Digitransit address search API. e.g. http://api.digitransit.fi/geocoding/v1/search?text=konemiehentie%202
    */
@@ -34,9 +34,9 @@ module.exports = {
   /**
    * Simplify the response JSON object from Digitransit address search API.
    * https://digitransit.fi/en/developers/apis/2-geocoding-api/address-search/
-   * @param {Object} json - The merged JSON object from the two responses from the API.
+   * @param {object} json - The merged JSON object from the two responses from the API.
    * @param {boolean} simplify - True to simplify the object, false returns the original object.
-   * @returns {Object} The simplified JSON object from Digitransit address search API.
+   * @returns {object} The simplified JSON object from Digitransit address search API.
    */
   simplifyResJson: function (json, simplify) {
     if (simplify) {
