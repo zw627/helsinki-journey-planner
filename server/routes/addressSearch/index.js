@@ -19,14 +19,14 @@ router.post("/", async (req, res, next) => {
       // Fetch addresses
       const query = setupQuery(req.body, "default");
       const data = await fetch(
-        `http://api.digitransit.fi/geocoding/v1/search?${query}`
+        `https://api.digitransit.fi/geocoding/v1/search?${query}`
       );
       const json = await data.json();
 
       // Fetch public transport stations
       const queryTransport = setupQuery(req.body, "transport");
       const dataTransport = await fetch(
-        `http://api.digitransit.fi/geocoding/v1/search?${queryTransport}`
+        `https://api.digitransit.fi/geocoding/v1/search?${queryTransport}`
       );
       const jsonTransport = await dataTransport.json();
 

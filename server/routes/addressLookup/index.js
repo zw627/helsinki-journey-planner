@@ -17,7 +17,7 @@ router.post("/", async (req, res, next) => {
     if (req.body.lat && req.body.lon) {
       // Fetch addresses
       const data = await fetch(
-        `http://api.digitransit.fi/geocoding/v1/reverse?point.lat=${req.body.lat}&point.lon=${req.body.lon}&lang=en&size=1&layers=address`
+        `https://api.digitransit.fi/geocoding/v1/reverse?point.lat=${req.body.lat}&point.lon=${req.body.lon}&lang=en&size=1&layers=address`
       );
       const json = await data.json();
 
