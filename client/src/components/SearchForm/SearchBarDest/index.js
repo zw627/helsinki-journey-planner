@@ -1,7 +1,7 @@
 import React from "react";
 
 import { SearchConsumer } from "../../context/SearchContext";
-import SearchBar from "../../shared/SearchBar";
+import SearchBar from "../../shared/SearchBar/";
 
 const SearchBarDest = () => (
   <SearchConsumer>

@@ -2,10 +2,10 @@ import React, { useState, useRef, useEffect } from "react";
 import PropTypes from "prop-types";
 import { withRouter } from "react-router";
 
-import SearchResults from "./SearchResults";
-import useQueryString from "../hooks/useQuery";
-import useSearchResults from "../hooks/useSearchResults";
-import { debounce, hasInvalidValue } from "../../utils";
+import SearchResults from "./SearchResults/";
+import useQueryString from "../../hooks/useQuery";
+import useSearchResults from "../../hooks/useSearchResults";
+import { debounce, hasInvalidValue } from "../../../utils";
 
 // SearchBar is used by SearchBarDest and SearchBarOrigin
 const SearchBar = ({
