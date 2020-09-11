@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { withRouter } from "react-router";
-import axios from "axios";
+import Axios from "axios";
 
 import { hasInvalidValue } from "../../utils";
 
@@ -15,8 +15,6 @@ const SearchProvider = ({ children, history }) => {
     name: "",
     coordinates: { lat: 0.0, lon: 0.0 },
   });
-  const [originInputValue, setOriginInputValue] = useState("");
-  const [destInputValue, setDestInputValue] = useState("");
   const [itineraries, setItineraries] = useState([]);
   const [notification, setNotification] = useState({
     isPositive: false,
@@ -25,22 +23,29 @@ const SearchProvider = ({ children, history }) => {
 
   // Pass all data as parameters instead of using states
   // to avoid fetch is triggered before useState
-  async function handleSetItineraries(origin, destination, date, time) {
+  async function fetchItineraries(origin, destination, date, time) {
     try {
+      // If all params are valid
       if (
         !hasInvalidValue(origin) &&
         !hasInvalidValue(destination) &&
         date &&
         time
       ) {
-        const res = await axios.post(
+        let originName = origin["name"];
+        let destName = destination["name"];
+        const originCoordinates = origin["coordinates"];
+        const destCoordinates = destination["coordinates"];
+
+        // Fetch
+        const res = await Axios.post(
           process.env.REACT_APP_API_ITINERARY_PLANNING,
           {
             origin: {
-              coordinates: origin["coordinates"],
+              coordinates: originCoordinates,
             },
             destination: {
-              coordinates: destination["coordinates"],
+              coordinates: destCoordinates,
             },
             date,
             time,
@@ -48,12 +53,20 @@ const SearchProvider = ({ children, history }) => {
         );
         setItineraries(res.data);
 
+        // If geolocation, fetch name of the coordinates
+        if (originName === "Your current location") {
+          originName = await fetchAddressName(originCoordinates);
+        } else if (destName === "Your current location") {
+          destName = await fetchAddressName(destCoordinates);
+        }
+
         // Push params to URL
-        const query = `origin-name=${origin["name"]}&origin-lat=${origin["coordinates"]["lat"]}&origin-lon=${origin["coordinates"]["lon"]}&destination-name=${destination["name"]}&destination-lat=${destination["coordinates"]["lat"]}&destination-lon=${destination["coordinates"]["lon"]}&date=${date}&time=${time}`;
+        const query = `origin-name=${originName}&origin-lat=${originCoordinates["lat"]}&origin-lon=${originCoordinates["lon"]}&destination-name=${destName}&destination-lat=${destCoordinates["lat"]}&destination-lon=${destCoordinates["lon"]}&date=${date}&time=${time}`;
         const encodedQuery = `?${encodeURIComponent(query)}`;
-        history.push({
-          search: encodedQuery,
-        });
+        history.push({ search: encodedQuery });
+
+        // Update title
+        document.title = `Helsinki Journey Planner - ${originName} to ${destName}`;
       }
     } catch (err) {
       // Do not unmount the current itineraries if exists (set time)
@@ -62,41 +75,31 @@ const SearchProvider = ({ children, history }) => {
     }
   }
 
-  // For testing purposes
-  useEffect(() => {
-    // // Kamppi to Railway Station
-    // handleSetItineraries(
-    //   { coordinates: { lat: 60.169022, lon: 24.931691 } },
-    //   { coordinates: { lat: 60.170384, lon: 24.939846 } },
-    //   "2020-09-08",
-    //   "09:00:00"
-    // );
-    // // Aalto to Espoo
-    // handleSetItineraries(
-    //   { coordinates: { lat: 60.18526, lon: 24.829319 } },
-    //   { coordinates: { lat: 60.224187, lon: 24.660363 } },
-    //   "2020-09-08",
-    //   "09:00:00"
-    // );
-  }, []);
+  async function fetchAddressName(coordinates) {
+    try {
+      const res = await Axios.post(
+        process.env.REACT_APP_API_ADDRESS_LOOKUP,
+        coordinates
+      );
+      const name = res.data[0]["labelPriamry"];
+      console.log(name);
+      return name;
+    } catch (err) {}
+  }
 
   return (
     <SearchContext.Provider
       value={{
         origin,
         destination,
-        originInputValue,
-        destInputValue,
-        itineraries,
         notification,
+        itineraries,
         actions: {
           setOrigin,
-          setOriginInputValue,
           setDestination,
-          setDestInputValue,
           setNotification,
           setItineraries,
-          handleSetItineraries,
+          fetchItineraries,
         },
       }}
     >

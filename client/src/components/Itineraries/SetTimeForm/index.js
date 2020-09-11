@@ -8,9 +8,9 @@ import "./index.css";
 const SetTimeForm = ({
   origin,
   destination,
-  setItineraries,
   setNotification,
-  handleSetItineraries,
+  setItineraries,
+  fetchItineraries,
 }) => {
   const [hours, setHours] = useState("");
   const [minutes, setMinutes] = useState("");
@@ -62,7 +62,7 @@ const SetTimeForm = ({
     const year = new Date().getFullYear();
     const date = `${year}-${month}-${day}`;
     const time = `${hours}:${minutes}`;
-    handleSetItineraries(origin, destination, date, time);
+    fetchItineraries(origin, destination, date, time);
     setNotification({ isPositive: false, text: "" });
     // Unmount if origin and destination inputs are somehow empty
     if (!origin["name"] || !destination["name"]) {
@@ -144,9 +144,9 @@ const SetTimeForm = ({
 SetTimeForm.propTypes = {
   origin: PropTypes.object.isRequired,
   destination: PropTypes.object.isRequired,
-  setItineraries: PropTypes.func.isRequired,
   setNotification: PropTypes.func.isRequired,
-  handleSetItineraries: PropTypes.func.isRequired,
+  setItineraries: PropTypes.func.isRequired,
+  fetchItineraries: PropTypes.func.isRequired,
 };
 
 export default SetTimeForm;

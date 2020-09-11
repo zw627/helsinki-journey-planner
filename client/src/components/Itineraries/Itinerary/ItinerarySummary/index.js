@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import NavigateNextRoundedIcon from "@material-ui/icons/NavigateNextRounded";
 
-import TripIcon from "../../../shared/TripIcon";
+import TripIcon from "../../../shared/TripIcon/";
 import { getHoursMinutes } from "../../../../utils";
 import "./index.css";
 

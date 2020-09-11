@@ -15,9 +15,9 @@ const Itineraries = () => (
           <SetTimeForm
             origin={origin}
             destination={destination}
-            setItineraries={actions.setItineraries}
             setNotification={actions.setNotification}
-            handleSetItineraries={actions.handleSetItineraries}
+            setItineraries={actions.setItineraries}
+            fetchItineraries={actions.fetchItineraries}
           />
           <ul className="itineraries">
             {itineraries.map((itinerary) => (

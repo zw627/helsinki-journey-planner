@@ -2,8 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import FiberManualRecordOutlinedIcon from "@material-ui/icons/FiberManualRecordOutlined";
 
+import TripIcon from "../../../shared/TripIcon/";
 import { getHoursMinutes } from "../../../../utils/index";
-import TripIcon from "../../../shared/TripIcon";
 import "./index.css";
 
 const ItineraryDetails = ({ leg, isLast }) => {
