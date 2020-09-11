@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 
-import { pad, getLastDay } from "../../../utils";
+import useQueryString from "../../hooks/useQuery";
+import { pad, getLastDay, hasInvalidValue } from "../../../utils";
 import "./index.css";
 
 const SetTimeForm = ({
@@ -15,47 +16,48 @@ const SetTimeForm = ({
   const [minutes, setMinutes] = useState("");
   const [month, setMonth] = useState("");
   const [day, setDay] = useState("");
+  const [isInitializing, setInitializing] = useState(true);
+  const [queryObject] = useState(useQueryString(isInitializing));
 
-  // Only numbers allowed, max 2 characters
+  // Max 2 characters, num only
   function filter(string) {
     return string.replace(/[^0-9]/g, "").substring(0, 2);
   }
 
+  // Max 23, num only
   function handleHours(e) {
     let filtered = filter(e.target.value);
     if (filtered > 23) filtered = 23;
     setHours(filtered);
   }
 
+  // Max 59, num only
   function handleMinutes(e) {
     let filtered = filter(e.target.value);
     if (filtered > 59) filtered = 59;
     setMinutes(filtered);
   }
 
+  // Max last day, num only
   function handleDay(e) {
     const lastDay = getLastDay(month);
-
     let filtered = filter(e.target.value);
     if (filtered > lastDay) filtered = lastDay;
     setDay(filtered);
   }
 
+  // Max 12, num only
   function handleMonth(e) {
     let filtered = filter(e.target.value);
     if (filtered > 12) filtered = 12;
     setMonth(filtered);
   }
 
-  function handleSetTime(e) {
-    e.preventDefault();
-
-    // For visual purpose, 1:3 => 01:03
+  function handleSetTime(month, day, hours, minutes) {
     setHours(pad(hours));
     setMinutes(pad(minutes));
     setMonth(pad(month));
     setDay(pad(day));
-
     // Fetch new itineraries
     const year = new Date().getFullYear();
     const date = `${year}-${month}-${day}`;
@@ -68,35 +70,73 @@ const SetTimeForm = ({
     }
   }
 
-  useEffect(() => {
-    // Set current time after users clicked search (this component is rendered)
+  function handleSet(e) {
+    e.preventDefault();
+    handleSetTime(month, day, hours, minutes);
+  }
+
+  function handleNow(e) {
+    e.preventDefault();
     const currentDate = new Date();
-    setHours(pad(currentDate.getHours()));
-    setMinutes(pad(currentDate.getMinutes()));
-    setDay(pad(currentDate.getDate()));
-    setMonth(pad(currentDate.getMonth() + 1));
-  }, []);
+    const hours = pad(currentDate.getHours());
+    const minutes = pad(currentDate.getMinutes());
+    const day = pad(currentDate.getDate());
+    const month = pad(currentDate.getMonth() + 1);
+    handleSetTime(month, day, hours, minutes);
+  }
+
+  // Fetch data based the URL params if available
+  useEffect(() => {
+    if (!hasInvalidValue(queryObject) && isInitializing) {
+      const queryTime = queryObject["time"].split(":");
+      const queryDate = queryObject["date"].split("-");
+      setHours(pad(queryTime[0]));
+      setMinutes(pad(queryTime[1]));
+      setDay(pad(queryDate[2]));
+      setMonth(pad(queryDate[1]));
+      setInitializing(false);
+    }
+  }, [queryObject, isInitializing]);
 
   return (
     <form className="itineraries-form">
-      <div className="itineraries-time-input">
-        <input type="text" value={hours} onChange={handleHours} maxLength="2" />
-        <span>:</span>
-        <input
-          type="text"
-          value={minutes}
-          onChange={handleMinutes}
-          maxLength="2"
-        />
+      <div className="itineraries-form-inputs">
+        <div className="itineraries-time-input">
+          <input
+            type="text"
+            value={hours}
+            onChange={handleHours}
+            maxLength="2"
+          />
+          <span>:</span>
+          <input
+            type="text"
+            value={minutes}
+            onChange={handleMinutes}
+            maxLength="2"
+          />
+        </div>
+
+        <div className="itineraries-date-input">
+          <input type="text" value={day} onChange={handleDay} maxLength="2" />
+          <span>.</span>
+          <input
+            type="text"
+            value={month}
+            onChange={handleMonth}
+            maxLength="2"
+          />
+        </div>
       </div>
-      <div className="itineraries-date-input">
-        <input type="text" value={day} onChange={handleDay} maxLength="2" />
-        <span>.</span>
-        <input type="text" value={month} onChange={handleMonth} maxLength="2" />
+
+      <div className="itineraries-form-buttons">
+        <button type="submit" onClick={handleSet} onTouchEnd={() => {}}>
+          Set
+        </button>
+        <button type="submit" onClick={handleNow} onTouchEnd={() => {}}>
+          Now
+        </button>
       </div>
-      <button type="submit" onClick={handleSetTime} onTouchEnd={() => {}}>
-        Set Time
-      </button>
     </form>
   );
 };

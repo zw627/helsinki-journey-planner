@@ -49,8 +49,7 @@ router.post("/", async (req, res, next) => {
     // Do nothing if one param is missing
     else {
       res.status(400).json({
-        message:
-          "Identical origin and destination. Or invalid origin, destination, date, or time.",
+        message: "Addresses identical and invalid.",
       });
     }
   } catch (err) {

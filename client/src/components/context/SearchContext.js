@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
+import { withRouter } from "react-router";
 import axios from "axios";
+
+import { hasInvalidValue } from "../../utils";
 
 const SearchContext = React.createContext();
 
-const SearchProvider = ({ children }) => {
+const SearchProvider = ({ children, history }) => {
   const [origin, setOrigin] = useState({
     name: "",
     coordinates: { lat: 0.0, lon: 0.0 },
@@ -12,6 +15,8 @@ const SearchProvider = ({ children }) => {
     name: "",
     coordinates: { lat: 0.0, lon: 0.0 },
   });
+  const [originInputValue, setOriginInputValue] = useState("");
+  const [destInputValue, setDestInputValue] = useState("");
   const [itineraries, setItineraries] = useState([]);
   const [notification, setNotification] = useState({
     isPositive: false,
@@ -23,10 +28,8 @@ const SearchProvider = ({ children }) => {
   async function handleSetItineraries(origin, destination, date, time) {
     try {
       if (
-        origin["coordinates"]["lat"] &&
-        origin["coordinates"]["lon"] &&
-        destination["coordinates"]["lat"] &&
-        destination["coordinates"]["lon"] &&
+        !hasInvalidValue(origin) &&
+        !hasInvalidValue(destination) &&
         date &&
         time
       ) {
@@ -44,6 +47,13 @@ const SearchProvider = ({ children }) => {
           }
         );
         setItineraries(res.data);
+
+        // Push params to URL
+        const query = `origin-name=${origin["name"]}&origin-lat=${origin["coordinates"]["lat"]}&origin-lon=${origin["coordinates"]["lon"]}&destination-name=${destination["name"]}&destination-lat=${destination["coordinates"]["lat"]}&destination-lon=${destination["coordinates"]["lon"]}&date=${date}&time=${time}`;
+        const encodedQuery = `?${encodeURIComponent(query)}`;
+        history.push({
+          search: encodedQuery,
+        });
       }
     } catch (err) {
       // Do not unmount the current itineraries if exists (set time)
@@ -75,14 +85,18 @@ const SearchProvider = ({ children }) => {
       value={{
         origin,
         destination,
+        originInputValue,
+        destInputValue,
         itineraries,
         notification,
         actions: {
           setOrigin,
+          setOriginInputValue,
           setDestination,
+          setDestInputValue,
+          setNotification,
           setItineraries,
           handleSetItineraries,
-          setNotification,
         },
       }}
     >
@@ -91,5 +105,5 @@ const SearchProvider = ({ children }) => {
   );
 };
 
-export default SearchProvider;
+export default withRouter(SearchProvider);
 export const SearchConsumer = SearchContext.Consumer;

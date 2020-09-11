@@ -7,14 +7,14 @@
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^2.6.1",
     "nodemon": "^2.0.4",
     "uuid": "^8.3.0"
   },
   "scripts": {
-    "start": "node server/index.js",
-    "server": "nodemon server/index.js",
-    "client": "npm start --prefix client",
+    "start": "cd client && npm run build && cd../ && node index.js",
+    "server": "nodemon index.js",
+    "client": "cd client && npm start",
     "client-install": "cd client && npm install",
     "client-build": "cd client && npm run build"
   }
