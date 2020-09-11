@@ -128,7 +128,7 @@ const SearchBar = ({
     }
     // Select "Use Current Location" (if no search result)
     else if (isEnterOrReturn && searchResults.length === 0) {
-      handleSelectedResult(handleGeolocation(), true);
+      handleGeolocation();
       blurInput();
     }
   }
