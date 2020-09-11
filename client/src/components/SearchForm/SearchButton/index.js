@@ -5,10 +5,10 @@ import { SearchConsumer } from "../../context/SearchContext";
 import { getCurrentDate, getCurrentTime } from "../../../utils/index";
 import "./index.css";
 
-const SearchButton = ({ origin, destination, handleSetItineraries }) => {
+const SearchButton = ({ origin, destination, fetchItineraries }) => {
   function handleOnClick(e) {
     e.preventDefault();
-    handleSetItineraries(
+    fetchItineraries(
       origin,
       destination,
       getCurrentDate(),
@@ -26,7 +26,7 @@ const SearchButton = ({ origin, destination, handleSetItineraries }) => {
 SearchButton.propTypes = {
   origin: PropTypes.object.isRequired,
   destination: PropTypes.object.isRequired,
-  handleSetItineraries: PropTypes.func.isRequired,
+  fetchItineraries: PropTypes.func.isRequired,
 };
 
 const SearchButtonWrapper = () => (
@@ -35,7 +35,7 @@ const SearchButtonWrapper = () => (
       <SearchButton
         origin={origin}
         destination={destination}
-        handleSetItineraries={actions.handleSetItineraries}
+        fetchItineraries={actions.fetchItineraries}
       />
     )}
   </SearchConsumer>

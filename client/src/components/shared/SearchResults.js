@@ -7,8 +7,8 @@ const SearchResults = ({
   isOrigin,
   searchValue,
   searchResults,
-  handleSelectedResult,
-  handleGeolocation,
+  selectResult,
+  getGeolocation,
 }) => {
   function renderResults() {
     // Render results if available
@@ -21,7 +21,7 @@ const SearchResults = ({
         const layer = toTitleCase(result["layer"]);
 
         return (
-          <li onMouseDown={() => handleSelectedResult(result)} key={id}>
+          <li onMouseDown={() => selectResult(result)} key={id}>
             {namePriamry}
             <span>
               {nameSecondary} ({layer})
@@ -34,7 +34,7 @@ const SearchResults = ({
   return (
     <ul>
       <li
-        onMouseDown={handleGeolocation}
+        onMouseDown={getGeolocation}
         key={
           isOrigin
             ? "58bfeeaf-5785-4966-9037-b248397608a7-origin"
@@ -52,8 +52,8 @@ SearchResults.propTypes = {
   isOrigin: PropTypes.bool.isRequired,
   searchValue: PropTypes.string.isRequired,
   searchResults: PropTypes.arrayOf(PropTypes.object).isRequired,
-  handleSelectedResult: PropTypes.func.isRequired,
-  handleGeolocation: PropTypes.func.isRequired,
+  selectResult: PropTypes.func.isRequired,
+  getGeolocation: PropTypes.func.isRequired,
 };
 
 export default SearchResults;
