@@ -1,4 +1,5 @@
 import React from "react";
+import { BrowserRouter } from "react-router-dom";
 
 import SearchProvider from "./context/SearchContext";
 import SearchFrom from "./SearchForm";
@@ -8,11 +9,13 @@ import "./App.css";
 
 const App = () => (
   <div className="app">
-    <SearchProvider>
-      <Notification />
-      <SearchFrom />
-      <Itineraries />
-    </SearchProvider>
+    <BrowserRouter>
+      <SearchProvider>
+        <Notification />
+        <SearchFrom />
+        <Itineraries />
+      </SearchProvider>
+    </BrowserRouter>
   </div>
 );
 

@@ -5,11 +5,10 @@ import { toTitleCase } from "../../utils";
 
 const SearchResults = ({
   isOrigin,
-  isFocus,
   searchValue,
   searchResults,
-  handleGeolocation,
   handleSelectedResult,
+  handleGeolocation,
 }) => {
   function renderResults() {
     // Render results if available
@@ -32,49 +31,29 @@ const SearchResults = ({
       });
   }
 
-  function renderWrapper() {
-    let wrapper;
-
-    // Origin search results
-    // If on focus, show <ul> because "Use Current Location" is always present
-    if (isFocus && isOrigin) {
-      wrapper = (
-        <ul>
-          <li
-            onMouseDown={handleGeolocation}
-            key="58bfeeaf-5785-4966-9037-b248397608a7"
-          >
-            Use Current Location
-          </li>
-          {renderResults()}
-        </ul>
-      );
-    }
-
-    // Destination search results
-    // If on focus, <ul> itself is not rendered unless there are results
-    else if (
-      isFocus &&
-      !isOrigin &&
-      searchResults.length > 0 &&
-      searchValue.length > 2
-    ) {
-      wrapper = <ul>{renderResults()}</ul>;
-    }
-
-    return wrapper;
-  }
-
-  return <React.Fragment>{renderWrapper()}</React.Fragment>;
+  return (
+    <ul>
+      <li
+        onMouseDown={handleGeolocation}
+        key={
+          isOrigin
+            ? "58bfeeaf-5785-4966-9037-b248397608a7-origin"
+            : "58bfeeaf-5785-4966-9037-b248397608a7-destination"
+        }
+      >
+        Use Current Location
+      </li>
+      {renderResults()}
+    </ul>
+  );
 };
 
 SearchResults.propTypes = {
   isOrigin: PropTypes.bool.isRequired,
-  isFocus: PropTypes.bool.isRequired,
   searchValue: PropTypes.string.isRequired,
-  searchResults: PropTypes.arrayOf(PropTypes.object),
-  handleGeolocation: PropTypes.func.isRequired,
+  searchResults: PropTypes.arrayOf(PropTypes.object).isRequired,
   handleSelectedResult: PropTypes.func.isRequired,
+  handleGeolocation: PropTypes.func.isRequired,
 };
 
 export default SearchResults;

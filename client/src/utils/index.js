@@ -2,7 +2,7 @@
  * Get the current date.
  * @returns {string} e.g. "2020-09-04"
  */
-export function getFormattedDate() {
+export function getCurrentDate() {
   const year = new Date().getFullYear();
   const month = new Date().getMonth() + 1;
   const day = new Date().getDate();
@@ -13,7 +13,7 @@ export function getFormattedDate() {
  * Get the current time.
  * @returns {string} e.g. 11:51:02.
  */
-export function getFormattedTime() {
+export function getCurrentTime() {
   const sec = new Date().getSeconds();
   const min = new Date().getMinutes();
   const hour = new Date().getHours();
@@ -88,8 +88,23 @@ export function toTitleCase(string) {
   let wordArray = string.toLowerCase().split(" ");
 
   // Capitalize the first character
-  wordArray = wordArray.map((word) => word.charAt(0).toUpperCase() + word.substring(1));
+  wordArray = wordArray.map(
+    (word) => word.charAt(0).toUpperCase() + word.substring(1)
+  );
 
   // Put each word back to a string
   return wordArray.join(" ");
+}
+
+/**
+ * Check if an object has any invalid values.
+ * e.g. { name: "aalto", location: "" } returns false.
+ * @param {object} obj - An object.
+ * @returns {bool} True or false.
+ */
+export function hasInvalidValue(obj) {
+  if (obj) {
+    const arr = Object.values(obj);
+    return arr.some((x) => x === "" || x === null || x === undefined);
+  }
 }
