@@ -9,34 +9,58 @@
   font-size: 16px;
 }
 
+.itineraries-form input,
+.itineraries-form button {
+  height: 48px;
+  width: 32px;
+}
+
+.itineraries-form button {
+  width: 62px;
+}
+
+.itineraries-form-inputs,
+.itineraries-form-buttons {
+  display: flex;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.itineraries-form-inputs {
+  margin-right: 10px;
+}
+
+.itineraries-form-inputs div:first-child {
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+.itineraries-form-buttons {
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
 .itineraries-time-input,
 .itineraries-date-input {
   background-color: white;
-  border-radius: 10px;
   text-align: center;
   display: flex;
   justify-content: center;
-  width: 80px;
 }
 
 .itineraries-time-input,
 .itineraries-date-input,
-.itineraries-form button {
+.itineraries-form-buttons {
   padding: 0;
   height: 48px;
 }
 
 .itineraries-date-input {
-  margin: 0px 8px;
-}
-
-.itineraries-form input {
-  width: 30px;
-  /* padding: 8px 0px; */
+  border-left: 1px solid #f1f1f1;
 }
 
 .itineraries-form input:first-child {
   text-align: right;
+  padding: 0px;
   padding-right: 1px;
 }
 
@@ -46,24 +70,34 @@
 
 .itineraries-form input:last-child {
   text-align: left;
+  padding: 0px;
   padding-left: 1px;
+  text-align: left;
 }
 
-.itineraries-form input,
-.itineraries-form button {
-  border-radius: 8px;
-}
-
-.itineraries-form button {
+.itineraries-form-buttons button {
   background: #487ffe;
   color: #fff;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   font-size: 16px;
   font-weight: 700;
   padding: 14px 0px;
-  width: 100px;
 }
 
-.itineraries-form button:active {
+.itineraries-form-buttons button:active {
   background: #1a5df9;
+}
+
+.itineraries-form-buttons button:last-child {
+  border-left: 1px solid #3f6fdc;
+}
+
+@media (min-width: 400px) {
+  .itineraries-form input,
+  .itineraries-form button {
+    width: 40px;
+  }
+
+  .itineraries-form button {
+    width: 80px;
+  }
 }

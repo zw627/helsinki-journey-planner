@@ -148,6 +148,7 @@ const SearchBar = ({
     }, 10);
   }
 
+  // Fetch data based the URL params if available
   useEffect(() => {
     let { origin, destination, date, time } = queryObject;
     const address = isOrigin ? origin : destination;
