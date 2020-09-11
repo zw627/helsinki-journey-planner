@@ -15,7 +15,7 @@ An app that provides real-time itinerary information for the public transport in
 
 **This is a monorepo:**
 
-- Project root directory contains the server side entry file `index.js`, and the back-end `package.json` and `node_modules`.
+- The project root directory contains the server side entry file `index.js`, and the server side `package.json` and `node_modules`.
 - `server` directory contains the rest of the server side codes.
 - `client` directory contains a standalone `create-react-app` with its own `package.json` and `node_modules`.
 
@@ -32,7 +32,7 @@ These scripts are valid in the project root directory only.
 
 - `npm run server` or `yarn server`: Start the server.
 - `npm run client` or `yarn client`: Start the client.
-- `npm start` or `yarn start`: Build the client project first, then server it with the back-end server.
+- `npm start` or `yarn start`: Build the client project first, then serve it with the back-end server.
 
 **Build:**
 
