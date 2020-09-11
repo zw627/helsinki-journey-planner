@@ -8,7 +8,7 @@ An app that provides real-time itinerary information for the public transport in
 
 - **Front-end:** React.
 - **Back-end:** Node.js (Express).
-- **Deployment:** Netlify, AWS Elastic Beanstalk.
+- **Deployment:** Netlify, AWS Elastic Beanstalk, AWS Amplify.
 - **Third-party API:** Digitransit.
 
 ## Folder structure
