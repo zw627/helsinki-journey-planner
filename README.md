@@ -40,7 +40,7 @@ These scripts are valid in the project root directory only.
 
 ## Deployment
 
-~~ - Server: A `.ebignore` is included to ignore the `client` directory while deploying to AWS Elastic Beanstalk.~~
+~~- Server: A `.ebignore` is included to ignore the `client` directory while deploying to AWS Elastic Beanstalk.~~
 - Server: CORS restriction is enable for production.
 - Client: API URLs are toggled based on environment.
 - Client: `"homepage": "."` is added inside `package.json` to enable relative paths (convenient for serving build as a static site).
