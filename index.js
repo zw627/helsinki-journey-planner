@@ -1,13 +1,14 @@
 "use strict";
 
 const express = require("express");
+const path = require("path");
 const cors = require("cors");
 const bodyParser = require("body-parser");
-const routes = require("./routes");
+const routes = require("./server/routes");
 
 // Set up Express
-const port = process.env.PORT || 5000;
 const app = express();
+const port = process.env.PORT || 5000;
 
 // Use parser (for request body)
 app.use(bodyParser.json());
@@ -27,8 +28,10 @@ if (!(app.get("env") === "development")) {
   };
 }
 
+app.use(express.static(path.join(__dirname, "client/build")));
+
 app.get("/", (req, res) => {
-  res.send("");
+  res.sendFile(path.join(__dirname, "client/build/index.html"));
 });
 
 // Use routes

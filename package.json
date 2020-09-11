@@ -12,9 +12,9 @@
     "uuid": "^8.3.0"
   },
   "scripts": {
-    "start": "node server/index.js",
-    "server": "nodemon server/index.js",
-    "client": "npm start --prefix client",
+    "start": "cd client && npm run build && cd../ && node index.js",
+    "server": "nodemon index.js",
+    "client": "cd client && npm start",
     "client-install": "cd client && npm install",
     "client-build": "cd client && npm run build"
   }
