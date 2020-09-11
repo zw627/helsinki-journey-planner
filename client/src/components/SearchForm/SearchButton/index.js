@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import { SearchConsumer } from "../../context/SearchContext";
-import { getFormattedDate, getFormattedTime } from "../../../utils/index";
+import { getCurrentDate, getCurrentTime } from "../../../utils/index";
 import "./index.css";
 
 const SearchButton = ({ origin, destination, handleSetItineraries }) => {
@@ -11,8 +11,8 @@ const SearchButton = ({ origin, destination, handleSetItineraries }) => {
     handleSetItineraries(
       origin,
       destination,
-      getFormattedDate(),
-      getFormattedTime()
+      getCurrentDate(),
+      getCurrentTime()
     );
   }
 

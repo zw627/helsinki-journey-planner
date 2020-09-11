@@ -1,59 +1,93 @@
 import React, { useState, useRef, useEffect } from "react";
 import PropTypes from "prop-types";
-import axios from "axios";
 
 import SearchResults from "./SearchResults";
-import { debounce } from "../../utils";
+import useQueryString from "../hooks/useQuery";
+import useSearchResults from "../hooks/useSearchResults";
+import { debounce, hasInvalidValue } from "../../utils";
 
 // SearchBar is used by SearchBarDest and SearchBarOrigin
 const SearchBar = ({
   isOrigin,
   address,
-  oppositeAddress,
+  inputValue,
   setAddress,
+  setInputValue,
+  // ---------- //
+  oppositeInput,
+  oppositeAddress,
+  setOppositeInput,
   setOppositeAddress,
+  // ---------- //
   setNotification,
   setItineraries,
+  handleSetItineraries,
 }) => {
   const [searchValue, setSearchValue] = useState("");
-  const [searchResults, setSearchResults] = useState([]);
-  const [isFocus, setFocus] = useState(false);
+  const searchResults = useSearchResults(searchValue);
   const searchBarInputRef = useRef(null);
+  const [isFocus, setFocus] = useState(false);
+  const [isInitializing, setInitializing] = useState(true);
+  const [queryObject] = useState(useQueryString(isInitializing));
 
   // Debounce to avoid API call on key up
   const handleSearchValue = debounce((value) => {
     setSearchValue(value);
   }, 300);
 
-  // Fetch and set results
-  async function handleSearchResults(value) {
-    try {
-      const res = await axios.post(process.env.REACT_APP_API_ADDRESS_SEARCH, {
-        text: value,
-      });
-      setSearchResults(res.data);
-    } catch (err) {
-      setSearchResults([]);
-    }
-  }
-
-  // Select a result
+  // Handle selecting from results
   function handleSelectedResult(address) {
     const filteredAddress = {
       name: address["labelPriamry"],
       coordinates: address["coordinates"],
     };
-
-    // Set input value
-    searchBarInputRef.current.value = filteredAddress["name"];
-
-    // Set address object
+    // Set
+    setInputValue(filteredAddress["name"]);
     setAddress(filteredAddress);
-
-    // Clear focus, error, and old itineraries
+    searchBarInputRef.current.value = filteredAddress["name"];
+    // Clear
     setFocus(false);
-    setNotification({ isPositive: false, text: "" });
     setItineraries([]);
+    setNotification({ isPositive: false, text: "" });
+  }
+
+  // Geolocation
+  function handleGeolocation() {
+    if ("geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          // Only one
+          if (oppositeInput === "Your current location") {
+            setOppositeAddress({
+              name: "",
+              coordinates: {
+                lat: 0,
+                lon: 0,
+              },
+            });
+            const id = isOrigin ? "destination-input" : "origin-input";
+            setOppositeInput("");
+            document.getElementById(id).value = ""; // Input value cannot be bind due to debouncing
+          }
+
+          handleSelectedResult({
+            labelPriamry: "Your current location",
+            coordinates: {
+              lat: position.coords.latitude,
+              lon: position.coords.longitude,
+            },
+          });
+        },
+        (err) => {
+          setNotification({ isPositive: false, text: err.message });
+        }
+      );
+    } else {
+      setNotification({
+        isPositive: false,
+        text: "Geolocation is not supported.",
+      });
+    }
   }
 
   function handleFocus() {
@@ -62,23 +96,14 @@ const SearchBar = ({
 
   function handleBlur() {
     setFocus(false);
-    const name = address["name"];
-    const lat = address["coordinates"]["lat"];
-    const lon = address["coordinates"]["lon"];
-
-    // Preserve input and search value (if an address is selected)
-    if (name && lat && lon) {
-      searchBarInputRef.current.value = name;
-    }
-
-    // Reset (if no valid address is selected)
-    else if (!(name || lat || lon)) {
-      // Reset input and search value
+    // Preserve value if an address is selected
+    if (!hasInvalidValue(address)) {
+      setInputValue(address["name"]);
+      searchBarInputRef.current.value = address["name"];
+    } else {
+      setInputValue("");
       setSearchValue("");
       searchBarInputRef.current.value = "";
-
-      // Reset search results, selected result, address, itineraries
-      setSearchResults([]);
       setAddress({
         name: "",
         coordinates: { lat: 0.0, lon: 0.0 },
@@ -87,64 +112,23 @@ const SearchBar = ({
     }
   }
 
-  function handleGeolocation() {
-    if ("geolocation" in navigator) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          const filteredAddress = {
-            name: "Your current location",
-            coordinates: {
-              lat: position.coords.latitude,
-              lon: position.coords.longitude,
-            },
-          };
-
-          // Set search and input value
-          searchBarInputRef.current.value = filteredAddress["name"];
-
-          // Set address object
-          if (oppositeAddress["name"] === "Your current location") {
-            setOppositeAddress({
-              name: "",
-              coordinates: { lat: 0.0, lon: 0.0 },
-            });
-          }
-          setAddress(filteredAddress);
-
-          // Clear focus, search results and error
-          setFocus(false);
-          setSearchResults([]);
-          setNotification({ isPositive: false, text: "" });
-        },
-
-        // Send notification if there is error
-        (err) => {
-          setNotification({ isPositive: false, text: err.message });
-        }
-      );
-    }
-  }
-
-  function hanldeKeyDown(e) {
+  function handleKeyDown(e) {
     // Handle "Enter" and "Return" keys
     const isEnterOrReturn = e.key === 13 || e.key === "Enter";
-
     // Blur input
     const blurInput = () => {
       setTimeout(() => {
         searchBarInputRef.current.blur();
       }, 10);
     };
-
     // Select the first search result
     if (isEnterOrReturn && searchResults.length > 0) {
       handleSelectedResult(searchResults[0]);
       blurInput();
     }
-
     // Select "Use Current Location" (if no search result)
-    else if (isEnterOrReturn && searchResults.length === 0 && isOrigin) {
-      handleGeolocation();
+    else if (isEnterOrReturn && searchResults.length === 0) {
+      handleSelectedResult(handleGeolocation(), true);
       blurInput();
     }
   }
@@ -152,16 +136,12 @@ const SearchBar = ({
   function handleReset() {
     // Reset input and search value
     setSearchValue("");
+    setInputValue("");
     searchBarInputRef.current.value = "";
-
-    // Reset search results and selected result
-    setSearchResults([]);
-
     // Reset notification, address object, itineraries
     setNotification({ isPositive: false, text: "" });
     setAddress({ name: "", coordinates: { lat: 0.0, lon: 0.0 } });
     setItineraries([]);
-
     // Focus input
     setTimeout(() => {
       searchBarInputRef.current.focus();
@@ -169,13 +149,30 @@ const SearchBar = ({
   }
 
   useEffect(() => {
-    // Fetch search results
-    if (searchValue.length > 2) {
-      handleSearchResults(searchValue);
-    }
-  }, [searchValue]);
+    let { origin, destination, date, time } = queryObject;
+    const address = isOrigin ? origin : destination;
 
-  // For SearchBarDest and SearchBarOrigin
+    if (isInitializing && !hasInvalidValue(address)) {
+      setInputValue(address["name"]);
+      setSearchValue(address["name"]);
+      setAddress(address);
+      setInitializing(false);
+      searchBarInputRef.current.value = address["name"];
+
+      if (isOrigin && !hasInvalidValue(destination)) {
+        handleSetItineraries(origin, destination, date, time);
+      }
+    }
+  }, [
+    queryObject,
+    isInitializing,
+    handleSetItineraries,
+    isOrigin,
+    setAddress,
+    setInputValue,
+  ]);
+
+  // Set JSX elements for SearchBarDest or SearchBarOrigin conditionally
   const labelText = isOrigin ? "Origin" : "Destination";
   const inputId = isOrigin ? "origin-input" : "destination-input";
   const inputPlaceholder = isOrigin
@@ -190,23 +187,24 @@ const SearchBar = ({
           type="text"
           id={inputId}
           placeholder={inputPlaceholder}
+          ref={searchBarInputRef}
           onChange={(e) => handleSearchValue(e.target.value)}
           onFocus={handleFocus}
           onBlur={handleBlur}
-          onKeyDown={hanldeKeyDown}
-          ref={searchBarInputRef}
+          onKeyDown={handleKeyDown}
           autoComplete="off"
         />
         {isFocus ? <span onMouseDown={handleReset}>✖</span> : null}
       </div>
-      <SearchResults
-        isOrigin={isOrigin}
-        searchValue={searchValue}
-        searchResults={searchResults}
-        isFocus={isFocus}
-        handleGeolocation={handleGeolocation}
-        handleSelectedResult={handleSelectedResult}
-      />
+      {isFocus ? (
+        <SearchResults
+          isOrigin={isOrigin}
+          searchValue={searchValue}
+          searchResults={searchResults}
+          handleSelectedResult={handleSelectedResult}
+          handleGeolocation={handleGeolocation}
+        />
+      ) : null}
     </div>
   );
 };
@@ -214,11 +212,16 @@ const SearchBar = ({
 SearchBar.propTypes = {
   isOrigin: PropTypes.bool.isRequired,
   address: PropTypes.object.isRequired,
-  oppositeAddress: PropTypes.object.isRequired,
   setAddress: PropTypes.func.isRequired,
+  // ------------------------- //
+  oppositeInput: PropTypes.string.isRequired,
+  oppositeAddress: PropTypes.object.isRequired,
+  setOppositeInput: PropTypes.func.isRequired,
   setOppositeAddress: PropTypes.func.isRequired,
+  // ------------------------- //
   setNotification: PropTypes.func.isRequired,
   setItineraries: PropTypes.func.isRequired,
+  handleSetItineraries: PropTypes.func.isRequired,
 };
 
 export default SearchBar;
