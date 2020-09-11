@@ -26,13 +26,13 @@ These scripts are valid in the project root directory only.
 **Install dependencies:**
 
 - `npm install` or `yarn install`: Install server side dependencies.
-- `npm run client-install` or `yarn client-install`: Install client side dependencies.
+- `npm run client-install` or `cd ./client && yarn install`: Install client side dependencies.
 
 **Start:**
 
-- `npm run server` or `yarn server`: Start the server.
-- `npm run client` or `yarn client`: Start the client.
-- `npm start` or `yarn start`: Build the client project first, then serve it with the back-end server.
+- `npm run server` or `yarn server`: Start the server with `nodemon`.
+- `npm run client` or `yarn client`: Start the client with `create-react-app`.
+- `npm start` or `yarn start`: ~~Build the client project first, then serve it with the back-end server.~~ Start the server with `node`.
 
 **Build:**
 
