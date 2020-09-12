@@ -1,6 +1,6 @@
 # Helsinki Journey Planner
 
-An app that provides real-time itinerary information for the public transport in Helsinki. [Try it here.](https://helsinki-journey-planner.netlify.app/) Or use the [alternative link](https://master.d1hb32a5utog8e.amplifyapp.com/).
+An app that provides real-time itinerary information for the public transport in Helsinki. [Try it here.](https://helsinki-journey-planner.com) Or use the mirros: [Netlify](https://helsinki-journey-planner.netlify.app/), [Amplify](https://master.d1hb32a5utog8e.amplifyapp.com/).
 
 ![Home Page](https://github.com/zw627/helsinki-journey-planner/blob/master/README.jpg)
 
@@ -8,7 +8,7 @@ An app that provides real-time itinerary information for the public transport in
 
 - **Front-end:** React.
 - **Back-end:** Node.js (Express).
-- **Deployment:** Netlify, AWS Elastic Beanstalk, AWS Amplify.
+- **Deployment:** AWS Elastic Beanstalk. (Mirrors: Netlify, AWS Amplify.)
 - **Third-party API:** Digitransit.
 
 ## Folder structure
