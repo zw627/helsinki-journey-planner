@@ -4,7 +4,7 @@ const express = require("express");
 const path = require("path");
 const cors = require("cors");
 const bodyParser = require("body-parser");
-const routes = require("./server/routes");
+const routes = require("./routes");
 
 // Set up Express
 const app = express();
@@ -28,7 +28,7 @@ if (!(app.get("env") === "development")) {
   };
 }
 
-app.use(express.static(path.join(__dirname, "client/build")));
+app.use(express.static(path.join(__dirname, "/../client/build")));
 
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "client/build/index.html"));
