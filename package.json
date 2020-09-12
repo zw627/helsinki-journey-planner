@@ -18,6 +18,7 @@
     "client": "npm start --prefix client",
     "client-install": "npm install --prefix client",
     "client-build": "npm run build --prefix client",
-    "deploy": "cd client && npm run build && cd ../ && eb deploy"
+    "deploy-prod": "cd client && npm run build && cd ../ && eb deploy node-linux-2-prod-env",
+    "deploy-test": "cd client && npm run build && cd ../ && eb deploy node-linux-2-test-env"
   }
 }
