@@ -4,8 +4,8 @@
  */
 export function getCurrentDate() {
   const year = new Date().getFullYear();
-  const month = new Date().getMonth() + 1;
-  const day = new Date().getDate();
+  const month = pad(new Date().getMonth() + 1);
+  const day = pad(new Date().getDate());
   return `${year}-${month}-${day}`;
 }
 
@@ -14,11 +14,35 @@ export function getCurrentDate() {
  * @returns {string} e.g. 11:51:02.
  */
 export function getCurrentTime() {
-  const sec = new Date().getSeconds();
-  const min = new Date().getMinutes();
-  const hour = new Date().getHours();
+  const sec = pad(new Date().getSeconds());
+  const min = pad(new Date().getMinutes());
+  const hour = pad(new Date().getHours());
   return `${hour}:${min}:${sec}`;
 }
+
+/**
+ * Get the current month.
+ * @returns {string} e.g. "11".
+ */
+export const getCurrentMonth = () => pad(new Date().getMonth() + 1);
+
+/**
+ * Get the current day.
+ * @returns {string} e.g. "30."
+ */
+export const getCurrentDay = () => pad(new Date().getDate());
+
+/**
+ * Get the current hour.
+ * @returns {string} e.g. "23."
+ */
+export const getCurrentHours = () => pad(new Date().getHours());
+
+/**
+ * Get the current minutes.
+ * @returns {string} e.g. "59."
+ */
+export const getCurrentMinutes = () => pad(new Date().getMinutes());
 
 /**
  * Get the last day of the month.

@@ -77,7 +77,7 @@ const ItinerarySummary = ({ itinerary }) => {
   }
 
   // e.g. "A B C"
-  function getZones() {
+  function renderZonesDiv() {
     const zones = itinerary["zones"];
     if (zones.length > 0)
       return (
@@ -92,7 +92,7 @@ const ItinerarySummary = ({ itinerary }) => {
       );
   }
 
-  function getFaresSum() {
+  function renderFaresSumSpan() {
     const faresSum = itinerary["faresSum"];
     if (faresSum) return <span>€ {faresSum / 100}</span>;
   }
@@ -114,7 +114,7 @@ const ItinerarySummary = ({ itinerary }) => {
       {renderTripsDiv()}
       {renderFirstPublicTransportDiv()}
       <div className="itinerary-summary-distance-zones-fares">
-        {walkDistance} {getZones()} {getFaresSum()}
+        {walkDistance} {renderZonesDiv()} {renderFaresSumSpan()}
       </div>
     </div>
   );

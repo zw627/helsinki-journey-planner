@@ -1,14 +1,17 @@
 import React, { useState, useEffect, useRef } from "react";
-import PropTypes from "prop-types";
 import ErrorOutlineRoundedIcon from "@material-ui/icons/ErrorOutlineRounded";
 import CheckCircleOutlineRoundedIcon from "@material-ui/icons/CheckCircleOutlineRounded";
 
-import { SearchConsumer } from "../context/SearchContext";
+import { useSearchDispatch, useSearchState } from "../context/SearchContext/";
 import "./index.css";
 
-const Notification = ({ isPositive, text, setNotification }) => {
-  const [slideOut, setSlideOut] = useState(false);
+const Notification = () => {
+  // Context
+  const state = useSearchState();
+  const dispatch = useSearchDispatch();
 
+  // Local
+  const [slideOut, setSlideOut] = useState(false);
   const slideOutTimer = useRef(0);
   const unmountTimer = useRef(0);
 
@@ -17,69 +20,61 @@ const Notification = ({ isPositive, text, setNotification }) => {
     clearTimeout(unmountTimer.current);
   }
 
-  function handleNotificationClose() {
-    // Execute slide-out animation and clear previous timers
+  function closeNotification() {
+    // Start slide-out animation, clear timeout
     setSlideOut(true);
     clearTimers();
-    // After animation is finished, unmount this component
+    // After the animation (600) is finished, empty text to unmount this component
     setTimeout(() => {
-      setNotification(false, "");
+      dispatch({
+        type: "setNotification",
+        payload: { isPositive: false, text: "" },
+      });
     }, 600);
   }
 
   useEffect(() => {
-    if (text) {
+    if (state.notification.text) {
       // Start the slide out animation after 6s
       slideOutTimer.current = window.setTimeout(() => {
         setSlideOut(true);
       }, 6000);
-      // After the animation (600) is finished, unmount this component
+      // After the animation (600) is finished, empty text to unmount this component
       unmountTimer.current = window.setTimeout(() => {
-        setNotification(false, "");
+        dispatch({
+          type: "setNotification",
+          payload: { isPositive: false, text: "" },
+        });
       }, 6600);
     }
     return () => {
       clearTimers();
     };
-  }, [text, setNotification]);
+  }, [state, dispatch]);
 
   // JSX elements
   let iconElement = <span></span>;
-  if (!isPositive) {
+  if (!state.notification.isPositive) {
     iconElement = <ErrorOutlineRoundedIcon />;
   } else {
     iconElement = <CheckCircleOutlineRoundedIcon />;
   }
 
   return (
-    <div
-      className={slideOut ? "notification slide-out" : "notification slide-in"}
-      onClick={handleNotificationClose}
-    >
-      {iconElement}
-      <span>{text}</span>
-    </div>
+    <>
+      {state.notification.text ? (
+        <div
+          className={
+            slideOut ? "notification slide-out" : "notification slide-in"
+          }
+          onClick={closeNotification}
+        >
+          {iconElement}
+          <span>{state.notification.text}</span>
+        </div>
+      ) : null}
+    </>
   );
 };
 
-Notification.propTypes = {
-  isPositive: PropTypes.bool.isRequired,
-  text: PropTypes.string.isRequired,
-  setNotification: PropTypes.func.isRequired,
-};
-
-const NotificationWrapper = () => (
-  <SearchConsumer>
-    {({ notification, actions }) =>
-      notification["text"] ? (
-        <Notification
-          isPositive={notification["isPositive"]}
-          text={notification["text"]}
-          setNotification={actions.setNotification}
-        />
-      ) : null
-    }
-  </SearchConsumer>
-);
-
-export default NotificationWrapper;
+export default Notification;

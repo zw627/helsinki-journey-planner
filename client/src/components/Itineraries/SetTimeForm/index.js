@@ -1,23 +1,34 @@
-import React, { useState, useEffect } from "react";
-import PropTypes from "prop-types";
+import React from "react";
+import { withRouter } from "react-router-dom";
 
+import {
+  useSearchDispatch,
+  useSearchState,
+} from "../../context/SearchContext/";
+import {
+  fetchItineraries,
+  dispatchSetDateTime,
+  dispatchSetExtractedDateTime,
+} from "../../context/SearchContext/helpers";
 import useQueryString from "../../hooks/useQuery";
-import { pad, getLastDay, hasInvalidValue } from "../../../utils";
+import {
+  getCurrentDay,
+  getCurrentHours,
+  getCurrentMinutes,
+  getCurrentMonth,
+  getLastDay,
+  hasInvalidValue,
+} from "../../../utils";
 import "./index.css";
 
-const SetTimeForm = ({
-  origin,
-  destination,
-  setNotification,
-  setItineraries,
-  fetchItineraries,
-}) => {
-  const [hours, setHours] = useState("");
-  const [minutes, setMinutes] = useState("");
-  const [month, setMonth] = useState("");
-  const [day, setDay] = useState("");
-  const [isInitializing, setInitializing] = useState(true);
-  const [queryObject] = useState(useQueryString(isInitializing));
+const SetTimeForm = ({ history }) => {
+  // Context
+  const dispatch = useSearchDispatch();
+  const state = useSearchState();
+
+  // Local
+  const [isInitializing, setInitializing] = React.useState(true);
+  const [queryObject] = React.useState(useQueryString(isInitializing));
 
   // Max 2 characters, num only
   function filter(string) {
@@ -28,75 +39,100 @@ const SetTimeForm = ({
   function handleHours(e) {
     let filtered = filter(e.target.value);
     if (filtered > 23) filtered = 23;
-    setHours(filtered);
+    dispatch({
+      type: "setTime",
+      payload: { ...state.time, hours: filtered },
+    });
   }
 
   // Max 59, num only
   function handleMinutes(e) {
     let filtered = filter(e.target.value);
     if (filtered > 59) filtered = 59;
-    setMinutes(filtered);
+    dispatch({
+      type: "setTime",
+      payload: { ...state.time, minutes: filtered },
+    });
   }
 
   // Max last day, num only
   function handleDay(e) {
-    const lastDay = getLastDay(month);
+    const lastDay = getLastDay(state.month);
     let filtered = filter(e.target.value);
     if (filtered > lastDay) filtered = lastDay;
-    setDay(filtered);
+    dispatch({
+      type: "setDate",
+      payload: { ...state.date, day: filtered },
+    });
   }
 
   // Max 12, num only
   function handleMonth(e) {
     let filtered = filter(e.target.value);
     if (filtered > 12) filtered = 12;
-    setMonth(filtered);
+    dispatch({
+      type: "setDate",
+      payload: { ...state.date, month: filtered },
+    });
   }
 
-  function handleSetTime(month, day, hours, minutes) {
-    setHours(pad(hours));
-    setMinutes(pad(minutes));
-    setMonth(pad(month));
-    setDay(pad(day));
+  function setAndFetch(month, day, hours, minutes) {
     // Fetch new itineraries
     const year = new Date().getFullYear();
     const date = `${year}-${month}-${day}`;
     const time = `${hours}:${minutes}`;
-    fetchItineraries(origin, destination, date, time);
-    setNotification({ isPositive: false, text: "" });
+    fetchItineraries(state, dispatch, history, {
+      origin: state.origin,
+      destination: state.destination,
+      date,
+      time,
+    });
+    dispatchSetDateTime(dispatch, {
+      month,
+      day,
+      hours,
+      minutes,
+    });
+    dispatch({
+      type: "setNotification",
+      payload: { isPositive: false, text: "" },
+    });
     // Unmount if origin and destination inputs are somehow empty
-    if (!origin["name"] || !destination["name"]) {
-      setItineraries([]);
+    if (!state.origin.name || !state.destination.name) {
+      dispatch({ type: "setItineraries", payload: [] });
     }
   }
 
   function handleSet(e) {
     e.preventDefault();
-    handleSetTime(month, day, hours, minutes);
+    setAndFetch(
+      state.date.month,
+      state.date.day,
+      state.time.hours,
+      state.time.minutes
+    );
   }
 
   function handleNow(e) {
     e.preventDefault();
-    const currentDate = new Date();
-    const hours = pad(currentDate.getHours());
-    const minutes = pad(currentDate.getMinutes());
-    const day = pad(currentDate.getDate());
-    const month = pad(currentDate.getMonth() + 1);
-    handleSetTime(month, day, hours, minutes);
+    setAndFetch(
+      getCurrentMonth(),
+      getCurrentDay(),
+      getCurrentHours(),
+      getCurrentMinutes()
+    );
   }
 
   // Fetch data based the URL params if available
-  useEffect(() => {
+  React.useEffect(() => {
     if (!hasInvalidValue(queryObject) && isInitializing) {
-      const queryTime = queryObject["time"].split(":");
-      const queryDate = queryObject["date"].split("-");
-      setHours(pad(queryTime[0]));
-      setMinutes(pad(queryTime[1]));
-      setDay(pad(queryDate[2]));
-      setMonth(pad(queryDate[1]));
+      dispatchSetExtractedDateTime(dispatch, {
+        date: queryObject.date,
+        time: queryObject.time,
+      });
       setInitializing(false);
     }
-  }, [queryObject, isInitializing]);
+  }, [queryObject, isInitializing, dispatch]);
 
   return (
     <form className="itineraries-form">
@@ -104,25 +140,30 @@ const SetTimeForm = ({
         <div className="itineraries-time-input">
           <input
             type="text"
-            value={hours}
+            value={state.time.hours}
             onChange={handleHours}
             maxLength="2"
           />
           <span>:</span>
           <input
             type="text"
-            value={minutes}
+            value={state.time.minutes}
             onChange={handleMinutes}
             maxLength="2"
           />
         </div>
 
         <div className="itineraries-date-input">
-          <input type="text" value={day} onChange={handleDay} maxLength="2" />
+          <input
+            type="text"
+            value={state.date.day}
+            onChange={handleDay}
+            maxLength="2"
+          />
           <span>.</span>
           <input
             type="text"
-            value={month}
+            value={state.date.month}
             onChange={handleMonth}
             maxLength="2"
           />
@@ -141,12 +182,4 @@ const SetTimeForm = ({
   );
 };
 
-SetTimeForm.propTypes = {
-  origin: PropTypes.object.isRequired,
-  destination: PropTypes.object.isRequired,
-  setNotification: PropTypes.func.isRequired,
-  setItineraries: PropTypes.func.isRequired,
-  fetchItineraries: PropTypes.func.isRequired,
-};
-
-export default SetTimeForm;
+export default withRouter(SetTimeForm);

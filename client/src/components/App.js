@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
 
-import SearchProvider from "./context/SearchContext";
+import { SearchProvider } from "./context/SearchContext/";
 import SearchFrom from "./SearchForm";
 import Itineraries from "./Itineraries";
 import Notification from "./Notification";

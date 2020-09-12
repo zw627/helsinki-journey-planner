@@ -1,8 +1,8 @@
-import { useState, useEffect } from "react";
+import React from "react";
 import Axios from "axios";
 
 const useSearchResults = (searchValue) => {
-  const [searchResults, setSearchResults] = useState([]);
+  const [searchResults, setSearchResults] = React.useState([]);
 
   async function fetchSearchResults(value) {
     try {
@@ -15,7 +15,7 @@ const useSearchResults = (searchValue) => {
     }
   }
 
-  useEffect(() => {
+  React.useEffect(() => {
     // Fetch when more than two characters
     // Else empty results to unmount SearchResults component
     if (searchValue.length > 2) {

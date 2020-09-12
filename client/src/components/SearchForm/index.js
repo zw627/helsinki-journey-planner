@@ -1,7 +1,6 @@
 import React from "react";
 
-import SearchBarDest from "./SearchBarDest";
-import SearchBarOrigin from "./SearchBarOrigin";
+import SearchBar from "../shared/SearchBar";
 import SearchButton from "./SearchButton";
 import "./index.css";
 
@@ -14,8 +13,8 @@ const SearchForm = () => (
     </header>
     <div className="search-form-main-container">
       <div className="search-bars-container">
-        <SearchBarOrigin />
-        <SearchBarDest />
+        <SearchBar isOrigin={true} />
+        <SearchBar isOrigin={false} />
       </div>
       <div className="search-submit-container" onTouchEnd={() => {}}>
         <SearchButton />

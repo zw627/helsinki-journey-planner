@@ -1,19 +1,30 @@
 import React from "react";
-import PropTypes from "prop-types";
+import { withRouter } from "react-router-dom";
 
-import { SearchConsumer } from "../../context/SearchContext";
+import {
+  useSearchDispatch,
+  useSearchState,
+} from "../../context/SearchContext/";
+import {
+  fetchItineraries,
+  dispatchSetCurrentDateTime,
+} from "../../context/SearchContext/helpers";
 import { getCurrentDate, getCurrentTime } from "../../../utils/index";
 import "./index.css";
 
-const SearchButton = ({ origin, destination, fetchItineraries }) => {
+const SearchButton = ({ history }) => {
+  const state = useSearchState();
+  const dispatch = useSearchDispatch();
+
   function handleOnClick(e) {
     e.preventDefault();
-    fetchItineraries(
-      origin,
-      destination,
-      getCurrentDate(),
-      getCurrentTime()
-    );
+    fetchItineraries(state, dispatch, history, {
+      origin: state.origin,
+      destination: state.destination,
+      date: getCurrentDate(),
+      time: getCurrentTime(),
+    });
+    dispatchSetCurrentDateTime(dispatch);
   }
 
   return (
@@ -23,21 +34,4 @@ const SearchButton = ({ origin, destination, fetchItineraries }) => {
   );
 };
 
-SearchButton.propTypes = {
-  origin: PropTypes.object.isRequired,
-  destination: PropTypes.object.isRequired,
-  fetchItineraries: PropTypes.func.isRequired,
-};
-
-const SearchButtonWrapper = () => (
-  <SearchConsumer>
-    {({ origin, destination, actions }) => (
-      <SearchButton
-        origin={origin}
-        destination={destination}
-        fetchItineraries={actions.fetchItineraries}
-      />
-    )}
-  </SearchConsumer>
-);
-export default SearchButtonWrapper;
+export default withRouter(SearchButton);

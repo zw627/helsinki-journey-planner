@@ -1,38 +1,51 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useCallback } from "react";
 import PropTypes from "prop-types";
 import { withRouter } from "react-router";
 
-import SearchResults from "./SearchResults/";
+import {
+  useSearchDispatch,
+  useSearchState,
+} from "../../context/SearchContext/";
+import { fetchItineraries } from "../../context/SearchContext/helpers";
 import useQueryString from "../../hooks/useQuery";
 import useSearchResults from "../../hooks/useSearchResults";
+import SearchResults from "./SearchResults/";
 import { debounce, hasInvalidValue } from "../../../utils";
 
-// SearchBar is used by SearchBarDest and SearchBarOrigin
-const SearchBar = ({
-  isOrigin,
-  address,
-  setAddress,
-  // ---------- //
-  oppositeAddress,
-  setOppositeAddress,
-  // ---------- //
-  setNotification,
-  setItineraries,
-  fetchItineraries,
-  // ---------- //
-  history,
-}) => {
-  // Local states
-  const [searchValue, setSearchValue] = useState("");
-  const [isFocus, setFocus] = useState(false);
-  const [isInitializing, setInitializing] = useState(true);
+// SearchBar is used by SearchForm
+const SearchBar = ({ isOrigin, history }) => {
+  // Context
+  const state = useSearchState();
+  const dispatch = useSearchDispatch();
+  const address = isOrigin ? state.origin : state.destination;
+  const oppositeAddress = isOrigin ? state.destination : state.origin;
+  const setAddress = useCallback(
+    (payload) => {
+      if (isOrigin) {
+        dispatch({ type: "setOrigin", payload });
+      } else {
+        dispatch({ type: "setDestination", payload });
+      }
+    },
+    [isOrigin, dispatch]
+  );
+  const setOppositeAddress = (payload) => {
+    if (isOrigin) {
+      dispatch({ type: "setDestination", payload });
+    } else {
+      dispatch({ type: "setOrigin", payload });
+    }
+  };
+
+  // Local
+  const [searchValue, setSearchValue] = React.useState("");
+  const [isFocus, setFocus] = React.useState(false);
+  const [isInitializing, setInitializing] = React.useState(true);
+  const inputRef = React.useRef(null);
 
   // Custom hooks
   const searchResults = useSearchResults(searchValue);
-  const [queryObject] = useState(useQueryString(isInitializing));
-
-  // Refs
-  const inputRef = useRef(null);
+  const [queryObject] = React.useState(useQueryString(isInitializing));
 
   const debounceSearchValue = debounce((value) => {
     setSearchValue(value);
@@ -50,8 +63,11 @@ const SearchBar = ({
 
     // Clear
     setFocus(false);
-    setItineraries([]);
-    setNotification({ isPositive: false, text: "" });
+    dispatch({ type: "setItineraries", payload: [] });
+    dispatch({
+      type: "setNotification",
+      payload: { isPositive: false, text: "" },
+    });
   }
 
   function getGeolocation() {
@@ -83,14 +99,17 @@ const SearchBar = ({
         },
         (err) => {
           // If permission denied
-          setNotification({ isPositive: false, text: err.message });
+          dispatch({
+            type: "setNotification",
+            payload: { isPositive: false, text: err.message },
+          });
         }
       );
     } else {
       // If "geolocation" not in navigator
-      setNotification({
-        isPositive: false,
-        text: "Geolocation is not supported.",
+      dispatch({
+        type: "setNotification",
+        payload: { isPositive: false, text: "Geolocation is not supported." },
       });
     }
   }
@@ -113,7 +132,7 @@ const SearchBar = ({
         name: "",
         coordinates: { lat: 0.0, lon: 0.0 },
       });
-      setItineraries([]);
+      dispatch({ type: "setItineraries", payload: [] });
       inputRef.current.value = "";
     }
   }
@@ -144,10 +163,13 @@ const SearchBar = ({
     setSearchValue("");
     inputRef.current.value = "";
 
-    // Reset notification, address object, itineraries
-    setNotification({ isPositive: false, text: "" });
+    // Reset address object, itineraries, notification,
     setAddress({ name: "", coordinates: { lat: 0.0, lon: 0.0 } });
-    setItineraries([]);
+    dispatch({ type: "setItineraries", payload: [] });
+    dispatch({
+      type: "setNotification",
+      payload: { isPositive: false, text: "" },
+    });
 
     // Reset URL params
     history.push({ search: "" });
@@ -158,7 +180,7 @@ const SearchBar = ({
     }, 10);
   }
 
-  useEffect(() => {
+  React.useEffect(() => {
     let { origin, destination, date, time } = queryObject;
     const address = isOrigin ? origin : destination;
 
@@ -171,10 +193,23 @@ const SearchBar = ({
 
       // Fetch itineraries if all params are valid
       if (isOrigin && !hasInvalidValue(destination)) {
-        fetchItineraries(origin, destination, date, time);
+        fetchItineraries(state, dispatch, history, {
+          origin,
+          destination,
+          date,
+          time,
+        });
       }
     }
-  }, [queryObject, isInitializing, fetchItineraries, isOrigin, setAddress]);
+  }, [
+    queryObject,
+    isInitializing,
+    isOrigin,
+    setAddress,
+    state,
+    dispatch,
+    history,
+  ]);
 
   // Set JSX elements for SearchBarDest or SearchBarOrigin conditionally
   const labelText = isOrigin ? "Origin" : "Destination";
@@ -215,15 +250,6 @@ const SearchBar = ({
 
 SearchBar.propTypes = {
   isOrigin: PropTypes.bool.isRequired,
-  address: PropTypes.object.isRequired,
-  setAddress: PropTypes.func.isRequired,
-  // ------------------------- //
-  oppositeAddress: PropTypes.object.isRequired,
-  setOppositeAddress: PropTypes.func.isRequired,
-  // ------------------------- //
-  setNotification: PropTypes.func.isRequired,
-  setItineraries: PropTypes.func.isRequired,
-  fetchItineraries: PropTypes.func.isRequired,
 };
 
 export default withRouter(SearchBar);

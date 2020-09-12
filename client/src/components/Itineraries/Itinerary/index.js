@@ -4,7 +4,6 @@ import ExpandMoreRoundedIcon from "@material-ui/icons/ExpandMoreRounded";
 
 import ItineraryDetails from "./ItineraryDetails/";
 import ItinerarySummary from "./ItinerarySummary/";
-
 import "./index.css";
 
 const Itinerary = ({ itinerary }) => {
