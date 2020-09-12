@@ -32,7 +32,8 @@ These scripts are valid in the project root directory only.
 
 - `npm run server` or `yarn server`: Start the server with `nodemon`.
 - `npm run client` or `yarn client`: Start the client with `create-react-app`.
-- `npm start` or `yarn start`: ~~Build the client project first, then serve it with the back-end server.~~ Start the server with `node`.
+- `npm start` or `yarn start`: Build the client project first, then serve it with the back-end server.
+- `npm run server-start` or `yarn server-start`: Start the server with `node`.
 
 **Build:**
 
@@ -40,8 +41,8 @@ These scripts are valid in the project root directory only.
 
 ## Deployment
 
-~~- Server: A `.ebignore` is included to ignore the `client` directory while deploying to AWS Elastic Beanstalk.~~
+- Server: A `.ebignore` is included to not ignore the front-end `build` directory while deploying to AWS Elastic Beanstalk.
 - Server: CORS restriction is enable for production.
-- Client: API URLs are toggled based on environment.
+- Client: API URLs are toggled based on the environment.
 - Client: `"homepage": "."` is added inside `package.json` to enable relative paths (convenient for serving build as a static site).
  
