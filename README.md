@@ -15,9 +15,9 @@ An app that provides real-time itinerary information for the public transport in
 
 **This is a monorepo:**
 
-- The project root directory contains the server side entry file `index.js`, and the server side `package.json` and `node_modules`.
-- `server` directory contains the rest of the server side codes.
-- `client` directory contains a standalone `create-react-app` with its own `package.json` and `node_modules`.
+- The project root directory contains the server side `package.json` and `node_modules`.
+- `server` directory contains the server side codes.
+- `client` directory contains the client side codes, which is a standalone `create-react-app` with its own `package.json` and `node_modules`.
 
 ## Scripts
 
