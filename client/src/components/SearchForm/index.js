@@ -1,6 +1,6 @@
 import React from "react";
 
-import SearchBar from "../shared/SearchBar";
+import SearchBar from "./SearchBar";
 import SwapButton from "./SwapButton";
 import SearchButton from "./SearchButton";
 import "./index.css";

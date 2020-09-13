@@ -2,14 +2,11 @@ import React, { useCallback } from "react";
 import PropTypes from "prop-types";
 import { withRouter } from "react-router";
 
-import {
-  useSearchDispatch,
-  useSearchState,
-} from "../../context/SearchContext/";
+import { useSearchDispatch, useSearchState } from "../../context/SearchContext";
 import { fetchItineraries } from "../../context/SearchContext/helpers";
 import useQueryString from "../../hooks/useQuery";
 import useSearchResults from "../../hooks/useSearchResults";
-import SearchResults from "./SearchResults/";
+import SearchResults from "./SearchResults";
 import { debounce, hasInvalidValue } from "../../../utils";
 
 // SearchBar is used by SearchForm
