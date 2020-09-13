@@ -140,6 +140,7 @@ const SetTimeForm = ({ history }) => {
         <div className="itineraries-time-input">
           <input
             type="text"
+            pattern="[0-9]*"
             value={state.time.hours}
             onChange={handleHours}
             maxLength="2"
@@ -147,6 +148,7 @@ const SetTimeForm = ({ history }) => {
           <span>:</span>
           <input
             type="text"
+            pattern="[0-9]*"
             value={state.time.minutes}
             onChange={handleMinutes}
             maxLength="2"
@@ -156,6 +158,7 @@ const SetTimeForm = ({ history }) => {
         <div className="itineraries-date-input">
           <input
             type="text"
+            pattern="[0-9]*"
             value={state.date.day}
             onChange={handleDay}
             maxLength="2"
@@ -163,6 +166,7 @@ const SetTimeForm = ({ history }) => {
           <span>.</span>
           <input
             type="text"
+            pattern="[0-9]*"
             value={state.date.month}
             onChange={handleMonth}
             maxLength="2"
