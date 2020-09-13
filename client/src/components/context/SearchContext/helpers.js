@@ -63,6 +63,7 @@ async function fetchAddressName(coordinates) {
 export async function fetchItineraries(state, dispatch, history, params) {
   try {
     const { origin, destination, combinedDate, combinedTime } = params;
+    dispatch({ type: "setLoading", payload: true });
 
     // If all params are valid
     if (
@@ -91,6 +92,7 @@ export async function fetchItineraries(state, dispatch, history, params) {
         }
       );
       dispatch({ type: "setItineraries", payload: res.data });
+      dispatch({ type: "setLoading", payload: false });
 
       // If geolocation, fetch name of the coordinates
       if (originName === "Your current location") {
@@ -112,6 +114,7 @@ export async function fetchItineraries(state, dispatch, history, params) {
     if (!state.itineraries.length > 0) {
       dispatch({ type: "setItineraries", payload: [] });
     }
+    dispatch({ type: "setLoading", payload: false });
     dispatch({
       type: "setNotification",
       payload: { isPositive: false, text: err.response.data.message },

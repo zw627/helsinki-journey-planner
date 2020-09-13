@@ -1,6 +1,7 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 
+import Loading from "../../shared/Loading";
 import {
   useSearchDispatch,
   useSearchState,
@@ -30,6 +31,7 @@ const SearchButton = ({ history }) => {
   return (
     <button type="submit" onClick={handleOnClick} onTouchEnd={() => {}}>
       Search
+      <Loading />
     </button>
   );
 };

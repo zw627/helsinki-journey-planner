@@ -1,8 +1,9 @@
 import React from "react";
 
-import { useSearchState } from "../context/SearchContext/";
 import SetTimeForm from "./SetTimeForm";
 import Itinerary from "./Itinerary";
+import Loading from "../shared/Loading";
+import { useSearchState } from "../context/SearchContext/";
 import "./index.css";
 
 const Itineraries = () => {
@@ -13,7 +14,10 @@ const Itineraries = () => {
     <>
       {itineraries.length > 0 ? (
         <div className="itineraries-container">
-          <h1>Itineraries</h1>
+          <h1>
+            Itineraries
+            <Loading />
+          </h1>
           <SetTimeForm />
           <ul className="itineraries">
             {itineraries.map((itinerary) => (
