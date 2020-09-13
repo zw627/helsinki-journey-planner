@@ -74,6 +74,7 @@
   justify-content: center;
   flex-direction: column;
   margin-top: -70px;
+  position: relative;
 }
 
 .search-bar-container {

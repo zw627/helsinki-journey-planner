@@ -62,14 +62,14 @@ async function fetchAddressName(coordinates) {
 
 export async function fetchItineraries(state, dispatch, history, params) {
   try {
-    const { origin, destination, date, time } = params;
+    const { origin, destination, combinedDate, combinedTime } = params;
 
     // If all params are valid
     if (
       !hasInvalidValue(origin) &&
       !hasInvalidValue(destination) &&
-      date &&
-      time
+      combinedDate &&
+      combinedTime
     ) {
       let originName = origin["name"];
       let destName = destination["name"];
@@ -86,8 +86,8 @@ export async function fetchItineraries(state, dispatch, history, params) {
           destination: {
             coordinates: destCoordinates,
           },
-          date,
-          time,
+          date: combinedDate,
+          time: combinedTime,
         }
       );
       dispatch({ type: "setItineraries", payload: res.data });
@@ -100,7 +100,7 @@ export async function fetchItineraries(state, dispatch, history, params) {
       }
 
       // Push params to URL
-      const query = `origin-name=${originName}&origin-lat=${originCoordinates["lat"]}&origin-lon=${originCoordinates["lon"]}&destination-name=${destName}&destination-lat=${destCoordinates["lat"]}&destination-lon=${destCoordinates["lon"]}&date=${date}&time=${time}`;
+      const query = `origin-name=${originName}&origin-lat=${originCoordinates["lat"]}&origin-lon=${originCoordinates["lon"]}&destination-name=${destName}&destination-lat=${destCoordinates["lat"]}&destination-lon=${destCoordinates["lon"]}&date=${combinedDate}&time=${combinedTime}`;
       const encodedQuery = `?${encodeURIComponent(query)}`;
       history.push({ search: encodedQuery });
 

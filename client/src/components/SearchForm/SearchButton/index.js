@@ -21,14 +21,14 @@ const SearchButton = ({ history }) => {
     fetchItineraries(state, dispatch, history, {
       origin: state.origin,
       destination: state.destination,
-      date: getCurrentDate(),
-      time: getCurrentTime(),
+      combinedDate: getCurrentDate(),
+      combinedTime: getCurrentTime(),
     });
     dispatchSetCurrentDateTime(dispatch);
   }
 
   return (
-    <button type="submit" onClick={handleOnClick}>
+    <button type="submit" onClick={handleOnClick} onTouchEnd={() => {}}>
       Search
     </button>
   );

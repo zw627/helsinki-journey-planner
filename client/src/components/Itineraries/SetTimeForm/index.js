@@ -79,13 +79,13 @@ const SetTimeForm = ({ history }) => {
   function setAndFetch(month, day, hours, minutes) {
     // Fetch new itineraries
     const year = new Date().getFullYear();
-    const date = `${year}-${month}-${day}`;
-    const time = `${hours}:${minutes}`;
+    const combinedDate = `${year}-${month}-${day}`;
+    const combinedTime = `${hours}:${minutes}`;
     fetchItineraries(state, dispatch, history, {
       origin: state.origin,
       destination: state.destination,
-      date,
-      time,
+      combinedDate,
+      combinedTime,
     });
     dispatchSetDateTime(dispatch, {
       month,
