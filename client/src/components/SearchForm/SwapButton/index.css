@@ -1,0 +1,36 @@
+.swap-button {
+  background: none;
+  padding: 0;
+  background-color: #487ffe;
+  border-radius: 100px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  margin-left: 26px;
+  margin-top: -17.5px;
+  margin-bottom: -17.5px;
+  z-index: 1;
+  width: 35px;
+  height: 35px;
+}
+
+.swap-button:active {
+  background: #1a5df9;
+}
+
+.swap-button .MuiSvgIcon-root {
+  color: white;
+}
+
+.swap-button .MuiSvgIcon-root {
+  width: 25px;
+  height: 25px;
+  margin-top: 1px;
+}
+
+@media (min-width: 600px) {
+  .swap-button {
+    position: absolute;
+    top: 42px;
+    margin: 0;
+    transform: rotate(90deg);
+  }
+}

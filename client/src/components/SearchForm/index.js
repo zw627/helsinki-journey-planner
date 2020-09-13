@@ -1,6 +1,7 @@
 import React from "react";
 
 import SearchBar from "../shared/SearchBar";
+import SwapButton from "./SwapButton";
 import SearchButton from "./SearchButton";
 import "./index.css";
 
@@ -14,9 +15,10 @@ const SearchForm = () => (
     <div className="search-form-main-container">
       <div className="search-bars-container">
         <SearchBar isOrigin={true} />
+        <SwapButton />
         <SearchBar isOrigin={false} />
       </div>
-      <div className="search-submit-container" onTouchEnd={() => {}}>
+      <div className="search-submit-container">
         <SearchButton />
       </div>
     </div>

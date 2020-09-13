@@ -196,8 +196,8 @@ const SearchBar = ({ isOrigin, history }) => {
         fetchItineraries(state, dispatch, history, {
           origin,
           destination,
-          date,
-          time,
+          combinedDate: date,
+          combinedTime: time,
         });
       }
     }
