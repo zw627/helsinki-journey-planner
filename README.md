@@ -15,9 +15,9 @@ An app that provides real-time itinerary information for the public transport in
 
 **This is a monorepo:**
 
-- The project root directory contains the server side entry file `index.js`, and the server side `package.json` and `node_modules`.
-- `server` directory contains the rest of the server side codes.
-- `client` directory contains a standalone `create-react-app` with its own `package.json` and `node_modules`.
+- The project root directory contains the server side `package.json` and `node_modules`.
+- `server` directory contains the server side codes.
+- `client` directory contains the client side codes, which is a standalone `create-react-app` with its own `package.json` and `node_modules`.
 
 ## Scripts
 
@@ -30,10 +30,9 @@ These scripts are valid in the project root directory only.
 
 **Start:**
 
-- `npm run server` or `yarn server`: Start the server with `nodemon`.
-- `npm run client` or `yarn client`: Start the client with `create-react-app`.
-- `npm start` or `yarn start`: Build the client project first, then serve it with the back-end server.
-- `npm run server-start` or `yarn server-start`: Start the server with `node`.
+- `npm run server` or `yarn server`: Start the server.
+- `npm run client` or `yarn client`: Start the client.
+- `npm start` or `yarn start`: Build the client project first, then serve it with the local server.
 
 **Build:**
 
@@ -41,8 +40,16 @@ These scripts are valid in the project root directory only.
 
 ## Deployment
 
-- Server: A `.ebignore` is included to not ignore the front-end `build` directory while deploying to AWS Elastic Beanstalk.
-- Server: CORS restriction is enable for production.
-- Client: API URLs are toggled based on the environment.
-- Client: `"homepage": "."` is added inside `package.json` to enable relative paths (convenient for serving build as a static site).
- 
+**Server:**
+
+- AWS Elastic Beanstalk with two environments.
+- A `.ebignore` is included to not ignore the front-end `build` directory while deploying to AWS Elastic Beanstalk.
+- A `Procfile` is included for AWS EB to start the project.
+- A `alb-http-to-https-redirection.config` is included for AWS EB to redirect HTTP to HTTPS.
+- CORS restriction is enable for production.
+
+**Client:**
+
+- AWS Elastic Beanstalk with two mirrors AWS Amplify and Netlify.
+- API URLs are toggled based on the environment.
+- `"homepage": "."` is added inside `package.json` to enable relative paths (convenient for serving build as a static site).
