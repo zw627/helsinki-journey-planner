@@ -16,6 +16,7 @@ const Notification = () => {
   const unmountTimer = useRef(0);
 
   function clearTimers() {
+    setSlideOut(false);
     clearTimeout(slideOutTimer.current);
     clearTimeout(unmountTimer.current);
   }
@@ -23,7 +24,6 @@ const Notification = () => {
   function closeNotification() {
     // Start slide-out animation, clear timeout
     setSlideOut(true);
-    clearTimers();
     // After the animation (600) is finished, empty text to unmount this component
     setTimeout(() => {
       dispatch({
@@ -50,7 +50,7 @@ const Notification = () => {
     return () => {
       clearTimers();
     };
-  }, [state, dispatch]);
+  }, [state.notification.text, dispatch]);
 
   // JSX elements
   let iconElement = <span></span>;
