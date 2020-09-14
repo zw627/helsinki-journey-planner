@@ -69,8 +69,6 @@ export async function fetchItineraries(state, dispatch, history, params) {
       combinedTime,
       saveDateTimeToQueries,
     } = params;
-    dispatch({ type: "setLoading", payload: true });
-
     // If all params are valid
     if (
       !hasInvalidValue(origin) &&
@@ -84,6 +82,7 @@ export async function fetchItineraries(state, dispatch, history, params) {
       let destName = destination["name"];
       const originCoordinates = origin["coordinates"];
       const destCoordinates = destination["coordinates"];
+      dispatch({ type: "setLoading", payload: true });
 
       // Fetch
       const res = await Axios.post(
