@@ -62,7 +62,13 @@ async function fetchAddressName(coordinates) {
 
 export async function fetchItineraries(state, dispatch, history, params) {
   try {
-    const { origin, destination, combinedDate, combinedTime } = params;
+    const {
+      origin,
+      destination,
+      combinedDate,
+      combinedTime,
+      saveDateTimeToQueries,
+    } = params;
     dispatch({ type: "setLoading", payload: true });
 
     // If all params are valid
@@ -72,6 +78,8 @@ export async function fetchItineraries(state, dispatch, history, params) {
       combinedDate &&
       combinedTime
     ) {
+      let query;
+      let title;
       let originName = origin["name"];
       let destName = destination["name"];
       const originCoordinates = origin["coordinates"];
@@ -101,13 +109,20 @@ export async function fetchItineraries(state, dispatch, history, params) {
         destName = await fetchAddressName(destCoordinates);
       }
 
+      if (saveDateTimeToQueries) {
+        query = `origin-name=${originName}&origin-lat=${originCoordinates["lat"]}&origin-lon=${originCoordinates["lon"]}&destination-name=${destName}&destination-lat=${destCoordinates["lat"]}&destination-lon=${destCoordinates["lon"]}&date=${combinedDate}&time=${combinedTime}`;
+        title = `Helsinki Journey Planner | ${originName} to ${destName} | ${combinedDate} ${combinedTime}`;
+      } else {
+        query = `origin-name=${originName}&origin-lat=${originCoordinates["lat"]}&origin-lon=${originCoordinates["lon"]}&destination-name=${destName}&destination-lat=${destCoordinates["lat"]}&destination-lon=${destCoordinates["lon"]}`;
+        title = `Helsinki Journey Planner | ${originName} to ${destName}`;
+      }
+
       // Push params to URL
-      const query = `origin-name=${originName}&origin-lat=${originCoordinates["lat"]}&origin-lon=${originCoordinates["lon"]}&destination-name=${destName}&destination-lat=${destCoordinates["lat"]}&destination-lon=${destCoordinates["lon"]}&date=${combinedDate}&time=${combinedTime}`;
       const encodedQuery = `?${encodeURIComponent(query)}`;
       history.push({ search: encodedQuery });
 
       // Update title
-      document.title = `Helsinki Journey Planner | ${originName} to ${destName} | ${combinedDate} ${combinedTime} `;
+      document.title = title;
     }
   } catch (err) {
     // Do not unmount the current itineraries if exists (set time)

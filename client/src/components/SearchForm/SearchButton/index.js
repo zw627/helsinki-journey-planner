@@ -24,6 +24,7 @@ const SearchButton = ({ history }) => {
       destination: state.destination,
       combinedDate: getCurrentDate(),
       combinedTime: getCurrentTime(),
+      saveDateTimeToQueries: false,
     });
     dispatchSetCurrentDateTime(dispatch);
   }

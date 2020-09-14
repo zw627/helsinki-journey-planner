@@ -195,6 +195,7 @@ const SearchBar = ({ isOrigin, history }) => {
           destination,
           combinedDate: date,
           combinedTime: time,
+          saveDateTimeToQueries: true,
         });
       }
     }

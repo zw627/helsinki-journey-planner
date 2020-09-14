@@ -32,6 +32,7 @@ const SwapButton = ({ history }) => {
         destination: origin,
         combinedDate,
         combinedTime,
+        saveDateTimeToQueries: true,
       });
       dispatch({ type: "setDestination", payload: origin });
       dispatch({ type: "setOrigin", payload: destination });

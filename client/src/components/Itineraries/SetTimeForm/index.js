@@ -80,7 +80,7 @@ const SetTimeForm = ({ history }) => {
     });
   }
 
-  function setAndFetch(month, day, hours, minutes) {
+  function setAndFetch(month, day, hours, minutes, saveDateTimeToQueries) {
     // Fetch new itineraries
     const year = new Date().getFullYear();
     const combinedDate = `${year}-${month}-${day}`;
@@ -90,6 +90,7 @@ const SetTimeForm = ({ history }) => {
       destination: state.destination,
       combinedDate,
       combinedTime,
+      saveDateTimeToQueries,
     });
     dispatchSetDateTime(dispatch, {
       month,
@@ -113,7 +114,8 @@ const SetTimeForm = ({ history }) => {
       state.date.month,
       state.date.day,
       state.time.hours,
-      state.time.minutes
+      state.time.minutes,
+      true
     );
   }
 
@@ -123,7 +125,8 @@ const SetTimeForm = ({ history }) => {
       getCurrentMonth(),
       getCurrentDay(),
       getCurrentHours(),
-      getCurrentMinutes()
+      getCurrentMinutes(),
+      false
     );
   }
 
