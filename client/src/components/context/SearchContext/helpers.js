@@ -111,10 +111,10 @@ export async function fetchItineraries(state, dispatch, history, params) {
 
       if (saveDateTimeToQueries) {
         query = `origin-name=${originName}&origin-lat=${originCoordinates["lat"]}&origin-lon=${originCoordinates["lon"]}&destination-name=${destName}&destination-lat=${destCoordinates["lat"]}&destination-lon=${destCoordinates["lon"]}&date=${combinedDate}&time=${combinedTime}`;
-        title = `${originName} to ${destName} | ${combinedDate} ${combinedTime}`;
+        title = `Itineraries | ${originName} to ${destName} - ${combinedDate} ${combinedTime}`;
       } else {
         query = `origin-name=${originName}&origin-lat=${originCoordinates["lat"]}&origin-lon=${originCoordinates["lon"]}&destination-name=${destName}&destination-lat=${destCoordinates["lat"]}&destination-lon=${destCoordinates["lon"]}`;
-        title = `${originName} to ${destName}`;
+        title = `Itineraries | ${originName} to ${destName}`;
       }
 
       // Push params to URL
