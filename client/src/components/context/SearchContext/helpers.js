@@ -107,7 +107,7 @@ export async function fetchItineraries(state, dispatch, history, params) {
       history.push({ search: encodedQuery });
 
       // Update title
-      document.title = `Helsinki Journey Planner - ${originName} to ${destName}`;
+      document.title = `Helsinki Journey Planner | ${originName} to ${destName} | ${combinedDate} ${combinedTime} `;
     }
   } catch (err) {
     // Do not unmount the current itineraries if exists (set time)

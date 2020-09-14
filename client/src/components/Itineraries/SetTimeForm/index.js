@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { withRouter } from "react-router-dom";
 
 import {
@@ -29,6 +29,10 @@ const SetTimeForm = ({ history }) => {
   // Local
   const [isInitializing, setInitializing] = React.useState(true);
   const [queryObject] = React.useState(useQueryString(isInitializing));
+  const hoursInputRef = useRef();
+  const minutesInputRef = useRef();
+  const dayInputRef = useRef();
+  const monthInputRef = useRef();
 
   // Max 2 characters, num only
   function filter(string) {
@@ -57,7 +61,7 @@ const SetTimeForm = ({ history }) => {
 
   // Max last day, num only
   function handleDay(e) {
-    const lastDay = getLastDay(state.month);
+    const lastDay = getLastDay(state.date.month);
     let filtered = filter(e.target.value);
     if (filtered > lastDay) filtered = lastDay;
     dispatch({
@@ -123,6 +127,27 @@ const SetTimeForm = ({ history }) => {
     );
   }
 
+  // Focus and select the value for easy editing on click
+  function handleSelect(ref) {
+    ref.current.focus();
+    ref.current.select();
+  }
+
+  // Change 0 to 1 for month and day
+  function handleBlur(ref, isMonth) {
+    if (isMonth && ref.current.value <= 0) {
+      dispatch({
+        type: "setDate",
+        payload: { ...state.date, month: 1 },
+      });
+    } else if (!isMonth && ref.current.value <= 0) {
+      dispatch({
+        type: "setDate",
+        payload: { ...state.date, day: 1 },
+      });
+    }
+  }
+
   // Fetch data based the URL params if available
   React.useEffect(() => {
     if (!hasInvalidValue(queryObject) && isInitializing) {
@@ -142,7 +167,9 @@ const SetTimeForm = ({ history }) => {
             type="text"
             pattern="[0-9]*"
             value={state.time.hours}
+            ref={hoursInputRef}
             onChange={handleHours}
+            onClick={() => handleSelect(hoursInputRef)}
             maxLength="2"
           />
           <span>:</span>
@@ -150,7 +177,9 @@ const SetTimeForm = ({ history }) => {
             type="text"
             pattern="[0-9]*"
             value={state.time.minutes}
+            ref={minutesInputRef}
             onChange={handleMinutes}
+            onClick={() => handleSelect(minutesInputRef)}
             maxLength="2"
           />
         </div>
@@ -160,7 +189,10 @@ const SetTimeForm = ({ history }) => {
             type="text"
             pattern="[0-9]*"
             value={state.date.day}
+            ref={dayInputRef}
             onChange={handleDay}
+            onClick={() => handleSelect(dayInputRef)}
+            onBlur={() => handleBlur(dayInputRef, false)}
             maxLength="2"
           />
           <span>/</span>
@@ -168,7 +200,10 @@ const SetTimeForm = ({ history }) => {
             type="text"
             pattern="[0-9]*"
             value={state.date.month}
+            ref={monthInputRef}
             onChange={handleMonth}
+            onClick={() => handleSelect(monthInputRef)}
+            onBlur={() => handleBlur(monthInputRef, true)}
             maxLength="2"
           />
         </div>
