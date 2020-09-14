@@ -2,5 +2,16 @@
 
 .app {
   width: 97%;
-  max-width: 900px
+  max-width: 900px;
+}
+
+.MuiSvgIcon-root.loading-icon {
+  opacity: 0.5;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
 }

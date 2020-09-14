@@ -13,17 +13,26 @@
   border: none;
   background: #487ffe;
   color: #fff;
-  padding: 14px 0px;
   width: 100%;
   border-radius: 12px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   font-weight: bold;
   font-size: 16px;
   height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .search-submit-container button:active {
   background: #1a5df9;
+}
+
+.search-submit-container button .MuiSvgIcon-root {
+  width: 20px;
+  height: 20px;
+  margin-left: 4px;
+  margin-right: -24px;
 }
 
 @media (min-width: 600px) {

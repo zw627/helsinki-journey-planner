@@ -13,6 +13,15 @@
 .itineraries-container h1 {
   margin: 10px;
   font-size: 32px;
+  display: flex;
+  align-items: center;
+}
+
+.itineraries-container h1 .MuiSvgIcon-root {
+  width: 20px;
+  height: 20px;
+  margin-top: 8px;
+  margin-left: 4px;
 }
 
 .itineraries {

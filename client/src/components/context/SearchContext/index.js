@@ -19,6 +19,7 @@ const initialState = {
     isPositive: false,
     text: "",
   },
+  isLoading: false,
 };
 
 const searchReducer = (state, action) => {
@@ -35,6 +36,8 @@ const searchReducer = (state, action) => {
       return { ...state, itineraries: action.payload };
     case "setNotification":
       return { ...state, notification: action.payload };
+    case "setLoading":
+      return { ...state, isLoading: action.payload };
     default:
       throw new Error(`Unhandled action type: ${action.type}`);
   }
