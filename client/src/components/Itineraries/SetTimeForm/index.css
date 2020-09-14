@@ -19,18 +19,18 @@
   width: 62px;
 }
 
-.itineraries-form-inputs,
+.itineraries-form-inputs-container,
 .itineraries-form-buttons {
   display: flex;
   overflow: hidden;
   border-radius: 8px;
 }
 
-.itineraries-form-inputs {
+.itineraries-form-inputs-container {
   margin-right: 10px;
 }
 
-.itineraries-form-inputs div:first-child {
+.itineraries-form-inputs-container div:first-child {
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
 }
@@ -39,23 +39,28 @@
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
-.itineraries-time-input,
-.itineraries-date-input {
+.itineraries-time-input-container,
+.itineraries-date-input-container {
   background-color: white;
   text-align: center;
   display: flex;
   justify-content: center;
 }
 
-.itineraries-time-input,
-.itineraries-date-input,
+.itineraries-time-input-container,
+.itineraries-date-input-container,
 .itineraries-form-buttons {
   padding: 0;
   height: 48px;
 }
 
-.itineraries-date-input {
+.itineraries-date-input-container {
   border-left: 1px solid #f1f1f1;
+}
+
+.itineraries-date-input-container input,
+.itineraries-date-input-container span {
+  color: black;
 }
 
 .itineraries-form input:first-child {
