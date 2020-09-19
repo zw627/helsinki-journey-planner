@@ -4,6 +4,7 @@ const express = require("express");
 const path = require("path");
 const cors = require("cors");
 const bodyParser = require("body-parser");
+const rateLimit = require("express-rate-limit");
 const routes = require("./routes");
 
 // Set up Express
@@ -28,14 +29,27 @@ if (!(app.get("env") === "development")) {
   };
 }
 
+// File rate limiter: max 5 requests per min
+const fileLimiter = rateLimit({
+  windowMs: 1 * 60 * 1000, // 1 min
+  max: 5, // limit each IP to x requests per windowMs
+});
+
+// API rate limiter: max 100 per 15 min
+const apiLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 100,
+});
+
 app.use(express.static(path.join(__dirname, "/../client/build")));
 
-app.get("/", (req, res) => {
+// Serve the React app at site.com/
+app.get("/", fileLimiter, (req, res) => {
   res.sendFile(path.join(__dirname, "/../client/build/index.html"));
 });
 
-// Use routes
-app.use("/api", cors(corsOptions), routes);
+// The API routes at site.com/api/
+app.use("/api", apiLimiter, cors(corsOptions), routes);
 
 // Handle error 404
 app.use((req, res, next) => {
