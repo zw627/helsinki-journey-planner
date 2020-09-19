@@ -4,12 +4,12 @@
 
 .itinerary-details-leg h3 {
   font-size: 18px;
-  margin: 16px 0;
+  margin: 18px 0;
   display: flex;
 }
 
 .itinerary-details-leg li {
-  margin: 2px 0;
+  margin: 4px 0;
   padding: 0;
 }
 
@@ -44,7 +44,7 @@
 }
 
 .itinerary-details-leg .litinerary-waypoint-connection {
-  height: 90px;
+  height: 75px;
   width: 10px;
   position: absolute;
   top: 24px;

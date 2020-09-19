@@ -57,9 +57,8 @@ const ItineraryDetails = ({ leg, isLast }) => {
           {getTrip()}
         </li>
         <li>
-          {startTime} - {endTime}
+          {startTime} - {endTime} ({leg["duration"]} min)
         </li>
-        <li>About {leg["duration"]} min</li>
         <FiberManualRecordOutlinedIcon className="litinerary-waypoint" />
         <svg
           className="litinerary-waypoint-connection"
