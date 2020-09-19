@@ -53,7 +53,7 @@ const Notification = () => {
   }, [state.notification.text, dispatch]);
 
   // JSX elements
-  let iconElement = <span></span>;
+  let iconElement;
   if (!state.notification.isPositive) {
     iconElement = <ErrorOutlineRoundedIcon />;
   } else {

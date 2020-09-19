@@ -1,7 +1,7 @@
 .itineraries-form {
   display: flex;
   flex-direction: row;
-  margin: 0px 10px;
+  margin: 0 10px;
 }
 
 .itineraries-form,
@@ -65,7 +65,7 @@
 
 .itineraries-form input:first-child {
   text-align: right;
-  padding: 0px;
+  padding: 0;
   padding-right: 1px;
 }
 
@@ -74,8 +74,7 @@
 }
 
 .itineraries-form input:last-child {
-  text-align: left;
-  padding: 0px;
+  padding: 0;
   padding-left: 1px;
   text-align: left;
 }
@@ -85,7 +84,7 @@
   color: #fff;
   font-size: 16px;
   font-weight: 700;
-  padding: 14px 0px;
+  padding: 14px 0;
 }
 
 .itineraries-form-buttons button:active {

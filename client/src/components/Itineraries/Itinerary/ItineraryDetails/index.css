@@ -4,13 +4,13 @@
 
 .itinerary-details-leg h3 {
   font-size: 18px;
-  margin: 16px 0px;
+  margin: 16px 0;
   display: flex;
 }
 
 .itinerary-details-leg li {
-  margin: 2px 0px;
-  padding: 0px;
+  margin: 2px 0;
+  padding: 0;
 }
 
 .itinerary-details-leg h3,
@@ -22,7 +22,7 @@
 .itinerary-details-leg h3 span {
   border: 2px solid #d4d4d4;
   border-radius: 6px;
-  padding: 0px 3px;
+  padding: 0 3px;
 }
 
 .itinerary-details-leg h3 span {

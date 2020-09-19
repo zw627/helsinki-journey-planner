@@ -2,10 +2,10 @@
   display: flex;
   align-items: center;
   padding: 14px 16px;
-  background: #ffffff;
+  background: #fff;
   color: #4e4e4e;
   border-radius: 14px;
-  box-shadow: 0px 20px 40px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.1);
   user-select: none;
   cursor: pointer;
   transition: 0.2s ease-out;
@@ -48,13 +48,14 @@
   }
 
   .notification:active {
-    transform: translate(0px, 2px);
+    transform: translate(0, 2px);
   }
 
   @keyframes slide-in {
     0% {
       top: -300px;
     }
+
     100% {
       top: 10px;
     }
@@ -64,6 +65,7 @@
     0% {
       top: 10px;
     }
+
     100% {
       top: -300px;
     }

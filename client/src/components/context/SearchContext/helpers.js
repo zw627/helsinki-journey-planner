@@ -124,8 +124,10 @@ export async function fetchItineraries(state, dispatch, history, params) {
       document.title = title;
     }
   } catch (err) {
-    // Do not unmount the current itineraries if exists (set time)
-    if (!state.itineraries.length > 0) {
+    // Unmount itineraries only if nothing is already there
+    // otherwise it would be strange to make the whole itineraries disappear
+    // if users set a date that has no results
+    if (state.itineraries.length < 1) {
       dispatch({ type: "setItineraries", payload: [] });
     }
     dispatch({ type: "setLoading", payload: false });

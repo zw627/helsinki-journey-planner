@@ -25,7 +25,6 @@
 .search-form-container header {
   display: flex;
   justify-content: center;
-  background: #487ffe;
   color: white;
   flex-direction: column;
   text-align: center;
@@ -44,7 +43,7 @@
   font-family: "Pacifico", cursive;
   font-weight: 400;
   font-size: 46px;
-  letter-spacing: 0px;
+  letter-spacing: 0;
   margin: 0;
   margin-top: -80px;
 }
@@ -102,7 +101,7 @@
 
 .search-bar-container input:focus {
   background-color: white;
-  border: 1px solid #aaaaaa;
+  border: 1px solid #aaa;
 }
 
 .search-bar-container ul {
@@ -112,7 +111,7 @@
   white-space: nowrap;
   overflow-y: overlay;
   overflow-x: hidden;
-  background-color: #ffffff;
+  background-color: #fff;
   border: 1px solid #eaeaea;
 }
 
