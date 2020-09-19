@@ -94,7 +94,7 @@ module.exports = {
           (trip) => trip["mode"] !== "WALK"
         );
 
-        // Zones, e.g. ABC
+        // Zones, e.g. AB, ABC, ABCD, BC, BCD, CD, D
         const getZones = () => {
           let zones = [];
 
@@ -108,17 +108,50 @@ module.exports = {
             }
           });
 
+          zones.sort();
+
           if (zones.length > 0) {
-            // Zone A is always tied to zone B
-            if (zones.length === 1 && zones[0] === "A") {
-              zones = [...zones, "B"].sort();
+            // Zone A only => AB => 2.8
+            // Zone B only => AB / BC => 2.8
+            if (zones.length === 1 && (zones[0] === "A" || zones[0] === "B")) {
+              zones = ["A", "B"];
             }
 
-            // Add previous zones if missing, e.g. D should be ABCD
+            // Zone C only => BC (2.8) / CD (3.2)
+            else if (zones.length === 1 && zones[0] === "C") {
+              zones = ["B", "C"];
+            }
+
+            // AC => ABC
+            else if (
+              zones.length === 2 &&
+              zones[0] === "A" &&
+              zones[1] === "C"
+            ) {
+              zones = ["A", "B", "C"];
+            }
+
+            // AD => ABCD
+            else if (
+              zones.length === 2 &&
+              zones[0] === "A" &&
+              zones[1] === "D"
+            ) {
+              zones = ["A", "B", "C", "D"];
+            }
+
+            // BD => BCD
+            else if (
+              zones.length === 2 &&
+              zones[0] === "B" &&
+              zones[1] === "D"
+            ) {
+              zones = ["B", "C", "D"];
+            }
+
+            // AB, ABC, ABCD, BC, BCD, CD, D
             else {
               zones.sort();
-              const lastLetter = zones[zones.length - 1];
-              zones = [...getPreviousLettersInAlphabet(lastLetter), lastLetter];
             }
           }
 
