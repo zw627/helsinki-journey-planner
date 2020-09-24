@@ -38,11 +38,10 @@ These scripts are valid in the project root directory only.
 
 - `npm run client-build` or `yarn client-build`: Build the client.
 
-## Deployment
+## Deployment notes
 
 **Server:**
 
-- AWS Elastic Beanstalk with two environments.
 - A `.ebignore` is included to not ignore the front-end `build` directory while deploying to AWS Elastic Beanstalk.
 - A `Procfile` is included for AWS EB to start the project.
 - A `alb-http-to-https-redirection.config` is included for AWS EB to redirect HTTP to HTTPS.
@@ -50,6 +49,5 @@ These scripts are valid in the project root directory only.
 
 **Client:**
 
-- AWS Elastic Beanstalk with two mirrors AWS Amplify and Netlify.
 - API URLs are toggled based on the environment.
 - `"homepage": "."` is added inside `package.json` to enable relative paths (convenient for serving build as a static site).
