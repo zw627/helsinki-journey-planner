@@ -1,6 +1,6 @@
 # Helsinki Journey Planner
 
-A web app that provides real-time itinerary information for the public transport in Helsinki Metropolitan Area. Extremely lightweight and absolutely no trackers. [Try it here](https://helsinki-journey-planner.com). Or use the [mirror](https://helsinki-journey-planner.netlify.app/).
+A web app that provides real-time itinerary information for the public transport in Helsinki Metropolitan Area. The app is extremely lightweight, and it has absolutely no trackers. [Try it here](https://helsinki-journey-planner.com). Or use the [mirror](https://helsinki-journey-planner.netlify.app/).
 
 ![Home Page](https://github.com/zw627/helsinki-journey-planner/blob/master/README.jpg)
 
