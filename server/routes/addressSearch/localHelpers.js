@@ -63,7 +63,7 @@ module.exports = {
         }
 
         return {
-          id: address["properties"]["id"],
+          id: require("uuid").v4(),
           labelPriamry,
           labelSecondary,
           stopSign,
