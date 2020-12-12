@@ -1,5 +1,7 @@
 # Helsinki Journey Planner
 
+[![builds](https://github.com/zw627/helsinki-journey-planner/workflows/builds/badge.svg)](https://github.com/zw627/helsinki-journey-planner/actions?query=workflow%3Abuilds)
+
 A web app that provides real-time itinerary information for the public transport in Helsinki Metropolitan Area. It is a lightweight app with no trackers. [Try it here (AWS)](https://helsinki-journey-planner.com). Or use the [mirror (Netlify)](https://helsinki-journey-planner.netlify.app/).
 
 ![Home Page](https://github.com/zw627/helsinki-journey-planner/blob/master/README.jpg)
