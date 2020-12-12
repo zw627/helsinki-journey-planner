@@ -1,0 +1,50 @@
+name: builds
+
+on: [push, pull_request]
+
+jobs:
+  # client
+  client:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        node-version: [10.x, 12.x, 14.x]
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.3.4
+
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2.1.2
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Get Yarn Cache Directory Path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - name: Check Yarn Cache
+        uses: actions/cache@v2.1.3
+        id: yarn-cache
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      - name: Get Yarn Cache
+        if: steps.yarn-cache.outputs.cache-hit == 'true'
+        run: yarn --prefer-offline
+
+      - name: Install Dependencies
+        if: steps.yarn-cache.outputs.cache-hit != 'true'
+        run: yarn install --frozen-lockfile
+
+      - name: Build
+        run: yarn build
+
+    defaults:
+      run:
+        working-directory: ./client
