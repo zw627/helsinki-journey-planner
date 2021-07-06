@@ -1,0 +1,54 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: express-rate-limit
+    versions:
+    - 5.2.5
+- package-ecosystem: npm
+  directory: "/client"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: "@testing-library/user-event"
+    versions:
+    - 12.6.3
+    - 12.7.0
+    - 12.7.4
+    - 12.8.0
+    - 12.8.1
+    - 12.8.2
+    - 12.8.3
+    - 13.0.0
+    - 13.0.1
+    - 13.0.10
+    - 13.0.11
+    - 13.0.12
+    - 13.0.13
+    - 13.0.14
+    - 13.0.15
+    - 13.0.2
+    - 13.0.3
+    - 13.0.4
+    - 13.0.5
+    - 13.0.6
+    - 13.0.7
+    - 13.0.8
+    - 13.0.9
+  - dependency-name: react-dom
+    versions:
+    - 17.0.2
+  - dependency-name: react
+    versions:
+    - 17.0.2
+  - dependency-name: "@material-ui/core"
+    versions:
+    - 4.11.3
+  - dependency-name: "@testing-library/react"
+    versions:
+    - 11.2.4
